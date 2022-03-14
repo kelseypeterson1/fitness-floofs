@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -25,40 +28,57 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
-      {errors.loginMessage && (
-        <h3 className="alert" role="alert">
-          {errors.loginMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
-      </div>
+    <form onSubmit={login}>
+      <center>
+
+        <h2>Login</h2>
+        {errors.loginMessage && (
+          <h3 className="alert" role="alert">
+            {errors.loginMessage}
+          </h3>
+        )}
+        
+
+        <div>
+          <label htmlFor="username">
+            <TextField
+              id="username"
+              variant="outlined"
+              required
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              type="text"
+            />
+            <br/>
+            Username:
+          </label>
+        </div>
+        <br/>
+
+        <div>
+          <label htmlFor="password">
+            <TextField
+              id="password"
+              variant="outlined"
+              type="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <br />
+            Password:
+          </label>
+        </div>
+        <br/>
+
+        <div>
+          <Button variant="contained" className="btn" type="submit" name="submit">
+            To the
+            <br/>
+            Hatchery!
+          </Button>
+        </div>
+      </center>
     </form>
   );
 }
