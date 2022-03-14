@@ -28,7 +28,7 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <form onSubmit={login}>
       <center>
 
         <h2>Login</h2>
@@ -37,6 +37,7 @@ function LoginForm() {
             {errors.loginMessage}
           </h3>
         )}
+        
 
         <div>
           <label htmlFor="username">
@@ -52,6 +53,7 @@ function LoginForm() {
             Username:
           </label>
         </div>
+        <br/>
 
         <div>
           <label htmlFor="password">
@@ -67,10 +69,15 @@ function LoginForm() {
             Password:
           </label>
         </div>
+        <br/>
+        <br/>
 
         <div>
-          <br/>
-          <Button variant="contained" className="btn" type="submit" name="submit">To the Hatchery!</Button>
+          <Button variant="contained" className="btn" type="submit" name="submit">
+            To the
+            <br/>
+            Hatchery!
+          </Button>
         </div>
       </center>
     </form>
