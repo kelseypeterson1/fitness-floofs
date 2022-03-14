@@ -70,7 +70,6 @@ function LoginForm() {
           </label>
         </div>
         <br/>
-        <br/>
 
         <div>
           <Button variant="contained" className="btn" type="submit" name="submit">
