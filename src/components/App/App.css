@@ -112,11 +112,20 @@ input {
 }
 
 /* --------------------------------------------------------------------------------
-Nav Bar
+Homepage
 -------------------------------------------------------------------------------- */
 
 .homepageNav {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+.dailyEggContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.dailyEggImage {
+  width: 55%;
 }

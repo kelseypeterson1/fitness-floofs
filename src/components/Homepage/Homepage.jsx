@@ -16,7 +16,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function UserPage() {
   const user = useSelector((store) => store.user);
-  const egg = useSelector(store => store.shelf);
   const dispatch = useDispatch();
 
   // Dialog box functions
