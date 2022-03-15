@@ -10,17 +10,19 @@ export default function StepCounter() {
 
     function formatAsPercent(num) {
         return new Intl.NumberFormat('default', {
-            style: 'percent',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(num / 100);
-    }
+          style: 'percent',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(num);
+      }
 
     return (
-        <div className='stepContainer'>
+        <div className='stepsContainer'>
             <h1>{percent}</h1>
-            <div className='stepDisplay'>
+            <div className='stepsDisplay'>
                 <img src='images/footprints.png' />
+                &nbsp;
+                &nbsp;
                 <h3>{stepsFormatted}/ 5,000</h3>
             </div>
         </div>
