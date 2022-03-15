@@ -17,10 +17,12 @@ export default function StepCounter() {
       }
 
     return (
-        <div className='stepContainer'>
+        <div className='stepsContainer'>
             <h1>{percent}</h1>
-            <div className='stepDisplay'>
+            <div className='stepsDisplay'>
                 <img src='images/footprints.png' />
+                &nbsp;
+                &nbsp;
                 <h3>{stepsFormatted}/ 5,000</h3>
             </div>
         </div>
