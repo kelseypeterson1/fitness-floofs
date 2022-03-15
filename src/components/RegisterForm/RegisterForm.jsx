@@ -25,7 +25,7 @@ function RegisterForm() {
   return (
     <form onSubmit={registerUser}>
       <center>
-        <h2>Register User</h2>
+        <h2>Register</h2>
         {errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {errors.registrationMessage}
@@ -65,7 +65,11 @@ function RegisterForm() {
         <br/>
 
         <div>
-          <Button variant="contained" className="btn" type="submit" name="submit">Register</Button>
+          <Button variant="contained" className="btn" type="submit" name="submit">
+            To the
+            <br/>
+            Hatchery!
+          </Button>
         </div>
       </center>
     </form>
