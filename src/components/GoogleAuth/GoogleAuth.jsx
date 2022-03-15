@@ -5,13 +5,11 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 // import Dashboard from '../Dashboard/Dashboard';
 // import './App.css';
 const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
-// const CLIENT_ID = CLIENT ID HERE;
+const CLIENT_ID = 'CLIENT ID HERE';
 // require('dotenv').config();
 
 
 export default function GoogleAuth() {
-
-    console.log('client ID is', CLIENT_ID)
 
         const [user, setUser] = useState({ haslogin: false, accessToken: '' });
 
