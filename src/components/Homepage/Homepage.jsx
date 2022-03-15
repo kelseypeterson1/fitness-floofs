@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth } from '../../index.js'
 import './Homepage.css'
 
 
@@ -54,6 +54,8 @@ function UserPage() {
         </DialogTitle>
       </Dialog> */}
       {/* END greetings popup */}
+
+      <GoogleAuth />
 
       <Egg />
 
