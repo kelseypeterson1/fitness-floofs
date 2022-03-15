@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg } from '../../index.js'
+import { LogOutButton, Egg, StepCounter } from '../../index.js'
 
 
 import Box from '@mui/material/Box';
@@ -54,6 +54,8 @@ function UserPage() {
       {/* END greetings popup */}
 
       <Egg />
+
+      <StepCounter />
 
       <div className="homepageNav">
         <LogOutButton />
