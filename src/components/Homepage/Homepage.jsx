@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav } from '../../index.js'
 import './Homepage.css'
 
 
@@ -15,7 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-function UserPage() {
+function Homepage() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
@@ -55,18 +55,18 @@ function UserPage() {
       </Dialog> */}
       {/* END greetings popup */}
 
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
 
       <Egg />
 
       <StepCounter />
 
       <div className="homepageNav">
-        <LogOutButton />
+        <Nav />
       </div>
     </div>
   );
 }
 
 // this allows us to use <App /> in index.js
-export default UserPage;
+export default Homepage;
