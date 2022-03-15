@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/:id', (req, res) => {
   console.log('req.params is', req.params)
   let userId = req.params.id;
-  const query = `SELECT "egg_id" FROM "egg" WHERE "user_id" = $1;`;
+  const query = `SELECT * FROM "egg" WHERE "user_id" = $1;`;
   pool.query(query, [userId])
     .then(result => {
       res.send(result.rows)

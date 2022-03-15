@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function Egg() {
     const egg = useSelector(store => store.egg);
-    const eggUrl = `/images/eggs/egg-${egg}-1.png`
+    const eggUrl = `/images/eggs/egg-${egg.egg_id}-${egg.status}.png`
 
     return(
         <div className="dailyEggContainer">
