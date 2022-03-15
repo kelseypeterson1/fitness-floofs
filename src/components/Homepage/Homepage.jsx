@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LogOutButton, Egg, StepCounter } from '../../index.js'
+import './Homepage.css'
 
 
 import Box from '@mui/material/Box';
@@ -35,10 +36,10 @@ function UserPage() {
 
 
   return (
-    <div>
+    <div className="homepage">
 
       {/* Greetings popup */}
-      <Dialog
+      {/* <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
@@ -51,7 +52,7 @@ function UserPage() {
             </h2>
           </center>
         </DialogTitle>
-      </Dialog>
+      </Dialog> */}
       {/* END greetings popup */}
 
       <Egg />
