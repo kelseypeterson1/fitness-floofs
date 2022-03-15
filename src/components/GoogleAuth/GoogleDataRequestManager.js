@@ -1,6 +1,6 @@
 import axios from 'axios';
 const { setReloadCookie, hasReloadCookie } = require('./CookieManager.js');
-// const API_KEY = CLIENT SECRET HERE!
+const API_KEY = 'CLIENT SECRET HERE';
 const dataValues = [
   {
     "title": "Calories",
