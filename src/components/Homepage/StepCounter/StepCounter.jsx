@@ -10,11 +10,11 @@ export default function StepCounter() {
 
     function formatAsPercent(num) {
         return new Intl.NumberFormat('default', {
-            style: 'percent',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(num / 100);
-    }
+          style: 'percent',
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(num);
+      }
 
     return (
         <div className='stepContainer'>
