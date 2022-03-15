@@ -1,0 +1,9 @@
+.FlockPage {
+    background-image: url('../../../public/images/landscape.png');
+    position:fixed;
+    /* width: 390px; */
+    width: 100%;
+    /* height: 844px; */
+    height: 100%;
+
+}
