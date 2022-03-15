@@ -49,6 +49,7 @@ function UserPage() {
       </Dialog>
       {/* END greetings popup */}
 
+    
 
       <div className="homepageNav">
         <LogOutButton />
