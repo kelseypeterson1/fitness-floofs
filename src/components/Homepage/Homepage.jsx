@@ -30,6 +30,7 @@ function UserPage() {
   useEffect(() => {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
+    dispatch({ type: 'FETCH_STEPS', payload: user });
   }, []);
 
 
