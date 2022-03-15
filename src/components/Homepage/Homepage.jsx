@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { LogOutButton, Egg } from '../../index.js'
+
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -15,6 +16,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function UserPage() {
   const user = useSelector((store) => store.user);
+  const egg = useSelector(store => store.shelf);
+  const dispatch = useDispatch();
 
   // Dialog box functions
   const [open, setOpen] = React.useState(false);
@@ -27,7 +30,9 @@ function UserPage() {
 
   useEffect(() => {
     handleClickOpen();
+    dispatch({ type: 'FETCH_EGG', payload: user });
   }, []);
+
 
   return (
     <div>
@@ -49,7 +54,7 @@ function UserPage() {
       </Dialog>
       {/* END greetings popup */}
 
-    
+      <Egg />
 
       <div className="homepageNav">
         <LogOutButton />
