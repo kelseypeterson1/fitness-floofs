@@ -17,14 +17,14 @@ export default function FlockPage() {
 
         <div className="flockPage">
             <h2>FLOCK PAGE</h2>
-            {/* {flock.map((floof, i) => {
-                // return (
-                //     <ShelfItem key={i} item={item} />
-                // )
-                <div key={i} className="floof">
-                    <img src="images/floofs/floof10.png" />
-                </div>
-            })} */}
+            {flock.map((floof, i) => {
+                const imageUrl = `images/floofs/floof${floof.floof_id}.png`
+                return (
+                    <div key={i} className="floof">
+                        <img src={imageUrl} />
+                    </div>
+                )
+            })}
         </div>
     )
 }

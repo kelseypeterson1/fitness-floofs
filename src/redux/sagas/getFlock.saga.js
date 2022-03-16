@@ -5,7 +5,7 @@ function* getFlock(action) {
 
     try {
         const user = yield axios.get(`/flock/${action.payload.id}`)
-        yield put({ type: 'SET_FLOCK', payload: user.data[0] });
+        yield put({ type: 'SET_FLOCK', payload: user.data });
     } catch {
         console.log('GET flock client-side error');
     }

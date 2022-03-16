@@ -1,4 +1,4 @@
-const flock = (state = '', action) => {
+const flock = (state = [], action) => {
 
     switch (action.type) {
         case 'SET_FLOCK':
