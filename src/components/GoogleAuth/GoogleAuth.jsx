@@ -5,8 +5,11 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 // import Dashboard from '../Dashboard/Dashboard';
 // import './App.css';
 const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-require('dotenv').config();
+const CLIENT_ID = env.REACT_APP_CLIENT_ID;
+// import dotenv from 'dotenv';
+// const env = dotenv();
+// import env from "react-
+import env from "react-dotenv";
 
 
 export default function GoogleAuth() {
