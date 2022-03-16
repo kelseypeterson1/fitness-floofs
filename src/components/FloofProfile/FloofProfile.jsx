@@ -7,12 +7,14 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { BackButton } from '../../index.js'
+import './FloofProfile.css'
 
 export default function FloofProfile() {
 
     const history = useHistory();
     const { id } = useParams();
     const flock = useSelector(store => store.flock);
+    const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
     const [floof, setFloof] = useState({id: 1, name: 'placeholder', floof_id: 1});
@@ -30,8 +32,9 @@ export default function FloofProfile() {
 
     return (
         <div className="floofProfile">
+            <h2>{floofs[id-1].type}</h2>
+            <img className="floofProfilePic" src={imageUrl}  />
             <h2>{floof.name}</h2>
-            <img src={imageUrl} />
             <BackButton prevNav={prevNav} />
         </div>
     )
