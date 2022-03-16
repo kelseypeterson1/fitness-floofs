@@ -10,6 +10,7 @@ import { BackButton } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+// import { reset } from 'nodemon';
 
 export default function FloofProfile() {
 
@@ -36,12 +37,18 @@ export default function FloofProfile() {
     const rename = () => {
         dispatch({ type: 'RENAME_FLOOF', payload: {
             id: id,
-            newName: newName
+            newName: newName,
+            user: user
         } })
+        // setFloof(flock[id-1]);
+        // setNewName('');
+        history.push(`/flock`);
     }
+    
     const release = () => {
         console.log('release');
     }
+
     return (
         <div className="floofProfile">
             <h2>{floofs[floof.floof_id - 1].type}</h2>
