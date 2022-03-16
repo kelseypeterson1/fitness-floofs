@@ -4,6 +4,7 @@ import LogOutButton from './LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -11,19 +12,23 @@ function Nav() {
   return (
     <div className="homepageNav">
       <div>
-          <Button variant="contained">
-            <Link to="/flock">
+        <Button variant="contained">
+          <Typography variant="h8">
+            <Link to="/flock" style={{ textDecoration: 'none', color: 'white' }}>
               Flock
             </Link>
-          </Button>
+          </Typography>
+        </Button>
 
-          <Button variant="contained">
-            <Link to="/info">
+        <Button variant="contained">
+          <Typography variant="h8">
+            <Link to="/info" style={{ textDecoration: 'none', color: 'white' }}>
               Store
             </Link>
-          </Button>
+          </Typography>
+        </Button>
 
-            <LogOutButton className="navLink" />
+        <LogOutButton className="navLink" />
 
       </div>
     </div>
