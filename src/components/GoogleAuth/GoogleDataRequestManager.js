@@ -1,7 +1,7 @@
 require('dotenv').config();
 import axios from 'axios';
 const { setReloadCookie, hasReloadCookie } = require('./CookieManager.js');
-const API_KEY = process.env.REST_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 const dataValues = [
   {
     "title": "Calories",

@@ -5,7 +5,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 // import Dashboard from '../Dashboard/Dashboard';
 // import './App.css';
 const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
-const CLIENT_ID = process.env.REST_CLIENT_API_KEY;
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 require('dotenv').config();
 
 
