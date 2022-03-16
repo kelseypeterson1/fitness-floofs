@@ -6,16 +6,25 @@ import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header } from '../../i
 export default function FlockPage() {
 
     const user = useSelector((store) => store.user);
+    const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch({ type: 'FETCH_FLOCK', payload: user });
+        dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
-    return(
+    return (
 
-        <div className="FlockPage">
+        <div className="flockPage">
             <h2>FLOCK PAGE</h2>
+            {/* {flock.map((floof, i) => {
+                // return (
+                //     <ShelfItem key={i} item={item} />
+                // )
+                <div key={i} className="floof">
+                    <img src="images/floofs/floof10.png" />
+                </div>
+            })} */}
         </div>
     )
 }
