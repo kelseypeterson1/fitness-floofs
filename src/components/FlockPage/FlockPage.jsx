@@ -22,10 +22,10 @@ export default function FlockPage() {
             </div>
             <div className="inField">
 
-                {flock.map((floof, i) => {
+                {flock.map((floof) => {
                     const imageUrl = `images/floofs/floof${floof.floof_id}.png`
                     return (
-                        <div key={i} className="floof">
+                        <div key={floof.id} className="floof">
                             <img className="floofImage" src={imageUrl} />
                         </div>
                     )
