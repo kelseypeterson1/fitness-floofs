@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
         //client id
-        `${process.env.REST_CLIENT_API_KEY}`,
+        `${process.env.REACT_APP_CLIENT_ID}`,
         //client secret
         `${process.env.REST_API_KEY}`,
         //link to redirect to
