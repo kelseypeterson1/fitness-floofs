@@ -61,8 +61,10 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
+# dotenv environment variables file & notes on how to import them on the client side
 .env
+/public/env.js
+client-side-env.md
 
 # ignore package-lock as it complicates merging
 package-lock.json
