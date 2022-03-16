@@ -8,6 +8,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { BackButton } from '../../index.js'
 import './FloofProfile.css'
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 export default function FloofProfile() {
 
@@ -17,7 +19,8 @@ export default function FloofProfile() {
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    const [floof, setFloof] = useState({id: 1, name: 'placeholder', floof_id: 1});
+    const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
+    const [newName, setNewName] = useState('');
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
     const prevNav = '/flock'
 
@@ -30,13 +33,44 @@ export default function FloofProfile() {
         history.push(`/flock`);
     }
 
+    const rename = () => {
+        dispatch({ type: 'RENAME_FLOOF', payload: {
+            id: id,
+            newName: newName
+        } })
+    }
+    const release = () => {
+        console.log('release');
+    }
     return (
         <div className="floofProfile">
-            <h2>{floofs[floof.floof_id-1].type}</h2>
-            <img className="floofProfilePic" src={imageUrl}  />
+            <h2>{floofs[floof.floof_id - 1].type}</h2>
+            <img className="floofProfilePic" src={imageUrl} />
             <h2>Name: {floof.name}</h2>
             <h2>Age: {floof.age} days</h2>
             <h2>Personality: {floof.personality}</h2>
+
+            <TextField
+                id="new-name"
+                required
+                label="New name"
+                variant="standard"
+                value={newName}
+                onChange={(event) => setNewName(event.target.value)}
+            />
+
+            <Button variant="contained" onClick={rename}>
+                <Typography variant="h8">
+                    Rename
+                </Typography>
+            </Button>
+
+            <Button variant="contained" onClick={release}>
+                <Typography variant="h8">
+                    Release
+                </Typography>
+            </Button>
+
             <BackButton prevNav={prevNav} />
         </div>
     )

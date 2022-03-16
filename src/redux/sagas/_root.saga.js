@@ -6,6 +6,7 @@ import getEggSaga from './getEgg.saga';
 import getStepsSaga from './getSteps.saga';
 import getFlockSaga from './getFlock.saga';
 import getFloofsSaga from './getFloofs.saga';
+import renameFloofSaga from './renameFloof.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,6 +23,7 @@ export default function* rootSaga() {
     getEggSaga(),
     getStepsSaga(),
     getFlockSaga(),
-    getFloofsSaga()
+    getFloofsSaga(),
+    renameFloofSaga()
   ]);
 }
