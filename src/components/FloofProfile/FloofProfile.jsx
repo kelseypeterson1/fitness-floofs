@@ -6,28 +6,22 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { BackButton } from '../../index.js'
 
 export default function FloofProfile() {
 
-    // const history = useHistory();
+    const history = useHistory();
     const { id } = useParams();
     const flock = useSelector(store => store.flock);
-    // const floof = flock[id-1];
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    // const imageUrl = `images/floofs/floof${floof.floof_id}.png`
-    // console.log('floof is', floof)
-    // console.log('params is', id)
-    // console.log('id is', floof.floof_id)
-
-    const [floof, setFloof] = useState({id: 1, name: 'placeholder', floof_id: 1})
-    console.log('floof is', floof)
+    const [floof, setFloof] = useState({id: 1, name: 'placeholder', floof_id: 1});
+    const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
+    const prevNav = '/flock'
 
     useEffect(() => {
-        // console.log('in useEffect')
-        // dispatch({ type: 'FETCH_FLOCK', payload: user });
+        dispatch({ type: 'FETCH_FLOCK', payload: user });
         setFloof(flock[id-1]);
-        // console.log('floofy is', floofy)
     }, []);
 
     const handleClick = () => {
@@ -35,9 +29,10 @@ export default function FloofProfile() {
     }
 
     return (
-        <>
+        <div className="floofProfile">
             <h2>{floof.name}</h2>
-            {/* <img src={imageUrl} /> */}
-        </>
+            <img src={imageUrl} />
+            <BackButton prevNav={prevNav} />
+        </div>
     )
 }
