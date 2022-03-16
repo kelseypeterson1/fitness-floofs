@@ -25,7 +25,7 @@ export { default as StepCounter } from './components/Homepage/StepCounter/StepCo
 export { default as GoogleAuth } from './components/GoogleAuth/GoogleAuth'
 export { default as FlockPage } from './components/FlockPage/FlockPage'
 export { default as BackButton } from './components/Nav/BackButton/BackButton'
-// export { default as  } from './components//'
+export { default as FloofProfile } from './components/FloofProfile/FloofProfile'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
