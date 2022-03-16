@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header } from '../../index.js'
 import './Homepage.css'
 
 
@@ -37,6 +37,7 @@ function Homepage() {
 
   return (
     <div className="homepage">
+      <Header />
 
       {/* Greetings popup */}
       {/* <Dialog
