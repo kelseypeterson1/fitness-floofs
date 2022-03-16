@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AboutPage, UserPage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
+import { AboutPage, FlockPage, Homepage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
 import './App.css';
 
 function App() {
@@ -23,7 +23,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -38,15 +37,15 @@ function App() {
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
+            Visiting localhost:3000/user will show the Homepage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Homepage else shows LoginPage
             exact
             path="/user"
           >
-            <UserPage />
+            <Homepage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -55,6 +54,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Flock else shows LoginPage
+            exact
+            path="/flock"
+          >
+            <FlockPage />
           </ProtectedRoute>
 
           <Route
