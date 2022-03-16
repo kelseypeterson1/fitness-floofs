@@ -1,13 +1,14 @@
 import './FlockPage.css'
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header } from '../../index.js'
+import { BackButton } from '../../index.js'
 
 export default function FlockPage() {
 
     const user = useSelector((store) => store.user);
     const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
+    const prevNav = '/'
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
@@ -16,6 +17,9 @@ export default function FlockPage() {
     return (
 
         <div className="flockPage">
+            <div className="header">
+                Flock of Floofs
+            </div>
             <div className="inField">
 
                 {flock.map((floof, i) => {
@@ -26,7 +30,9 @@ export default function FlockPage() {
                         </div>
                     )
                 })}
-
+                <div>
+                    <BackButton prevNav={prevNav} />
+                </div>
             </div>
         </div>
     )
