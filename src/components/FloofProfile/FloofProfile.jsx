@@ -9,23 +9,24 @@ import CardContent from '@mui/material/CardContent';
 
 export default function FloofProfile() {
 
-    const history = useHistory();
+    // const history = useHistory();
     const { id } = useParams();
     const flock = useSelector(store => store.flock);
-    const floof = flock[id-1];
+    // const floof = flock[id-1];
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    const imageUrl = `images/floofs/floof${floof.floof_id}.png`
-    console.log('floof is', floof)
-    console.log('params is', id)
-    console.log('id is', floof.floof_id)
+    // const imageUrl = `images/floofs/floof${floof.floof_id}.png`
+    // console.log('floof is', floof)
+    // console.log('params is', id)
+    // console.log('id is', floof.floof_id)
 
-    // let [floofy, setFloofy] = useState([])
+    const [floof, setFloof] = useState({id: 1, name: 'placeholder', floof_id: 1})
+    console.log('floof is', floof)
 
     useEffect(() => {
         // console.log('in useEffect')
-        dispatch({ type: 'FETCH_FLOCK', payload: user });
-        // setFloofy(floof);
+        // dispatch({ type: 'FETCH_FLOCK', payload: user });
+        setFloof(flock[id-1]);
         // console.log('floofy is', floofy)
     }, []);
 
@@ -36,7 +37,7 @@ export default function FloofProfile() {
     return (
         <>
             <h2>{floof.name}</h2>
-            <img src={imageUrl} />
+            {/* <img src={imageUrl} /> */}
         </>
     )
 }
