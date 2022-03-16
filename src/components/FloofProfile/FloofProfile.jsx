@@ -32,9 +32,11 @@ export default function FloofProfile() {
 
     return (
         <div className="floofProfile">
-            <h2>{floofs[id-1].type}</h2>
+            <h2>{floofs[floof.floof_id-1].type}</h2>
             <img className="floofProfilePic" src={imageUrl}  />
-            <h2>{floof.name}</h2>
+            <h2>Name: {floof.name}</h2>
+            <h2>Age: {floof.age} days</h2>
+            <h2>Personality: {floof.personality}</h2>
             <BackButton prevNav={prevNav} />
         </div>
     )
