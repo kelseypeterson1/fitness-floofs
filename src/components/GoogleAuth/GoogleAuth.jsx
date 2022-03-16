@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-// import Dashboard from '../Dashboard/Dashboard';
-// import './App.css';
-const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
 const CLIENT_ID = env.REACT_APP_CLIENT_ID;
-// import dotenv from 'dotenv';
-// const env = dotenv();
-// import env from "react-
 import env from "react-dotenv";
+import GoogleData from './GoogleData'
+const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
 
 
 export default function GoogleAuth() {
@@ -75,7 +70,7 @@ export default function GoogleAuth() {
                         }
                     </Nav>
                 </Navbar>
-                {/* <Dashboard user={user} /> */}
+                <GoogleData user={user} />
             </div>
         );
     }
