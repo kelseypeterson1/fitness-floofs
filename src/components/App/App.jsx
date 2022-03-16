@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AboutPage, FlockPage, Homepage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
+import { AboutPage, FloofProfile, FlockPage, Homepage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
 import './App.css';
 
 function App() {
@@ -57,11 +57,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows Flock else shows LoginPage
+            // logged in shows FlockPage else shows LoginPage
             exact
             path="/flock"
           >
             <FlockPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows FloofProfile else shows LoginPage
+            exact
+            path="/floof/:id"
+          >
+            <FloofProfile />
           </ProtectedRoute>
 
           <Route
