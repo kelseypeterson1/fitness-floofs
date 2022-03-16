@@ -56,7 +56,7 @@ function Homepage() {
       </Dialog> */}
       {/* END greetings popup */}
 
-      {/* <GoogleAuth /> */}
+      <GoogleAuth />
 
       <Egg />
 
