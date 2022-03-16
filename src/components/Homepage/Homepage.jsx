@@ -60,7 +60,11 @@ function Homepage() {
 
       <Egg />
 
+      &nbsp;
+
       <StepCounter />
+
+      &nbsp;
 
       <div className="homepageNav">
         <Nav />
