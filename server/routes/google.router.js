@@ -11,6 +11,8 @@ const pool = require('../modules/pool');
 // --------------- GOOGLE API ---------------
 
 // --------------- GET INFO FROM GOOGLE FITNESS ---------------
+
+// triggering authorization screen for user
 router.get('/', (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
         //client id
@@ -38,8 +40,11 @@ router.get('/', (req, res) => {
     })
 })
 
+// getting steps from google
+// req is sent from google
 router.get('/steps', async (req, res) => {
     const queryUrl = new urlParse(req.url);
+    // console.log('req.user is', req.user)
     const code = queryParse.parse(queryUrl.query).code;
     const oauth2Client = new google.auth.OAuth2(
         //client id
@@ -89,20 +94,12 @@ router.get('/steps', async (req, res) => {
                 // console.log(points)
                 for (const steps of points.point) {
                     console.log(steps.value)
+
+                    // posting steps to database
                     try {
                         console.log("trying post");
-
-                        let queryText = `INSERT INTO "steps" ("user_id", "steps", "date") VALUES ('1', $1, '2022-03-18');`;
-
-                        pool.query(queryText, [steps.value[0].intVal])
-                            // .then(result => {
-                            //     res.sendStatus(201);
-                            // })
-                            // .catch(error => {
-                            //     console.log(`Error adding steps`, error);
-                            //     res.sendStatus(500);
-                            // });
-                        // axios.post(`/api/google/steps/database`, steps.value[0])
+                        let queryText = `UPDATE "steps" SET "steps" = $1 WHERE $2 = 1;`;
+                        pool.query(queryText, [steps.value[0].intVal, req.user.id])
                     } catch {
                         console.log("error connecting")
                     }
@@ -113,24 +110,6 @@ router.get('/steps', async (req, res) => {
         console.log(err)
     }
 })
-
-// POST route - adding hatched floof to flock
-router.post('/steps/database', (req, res) => {
-    let stepsToAdd = req.body.intVal;
-    console.log('steps here!', stepsToAdd);
-
-    let queryText = `INSERT INTO "steps" ("user_id", "steps", "date") 
-    // VALUES ("new-user", $1, 2022-03-18);`;
-
-    pool.query(queryText, [stepsToAdd])
-        .then(result => {
-            res.sendStatus(201);
-        })
-        .catch(error => {
-            console.log(`Error adding steps`, error);
-            res.sendStatus(500);
-        });
-}); // end POST route
 
 
 // ------------
