@@ -14,6 +14,7 @@ export default function FlockPage() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
+        dispatch({ type: 'FETCH_FLOOFS' })
     }, []);
 
     return (
