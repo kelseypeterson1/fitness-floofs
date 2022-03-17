@@ -28,7 +28,6 @@ export default function FloofProfile() {
 
     
     useEffect(() => {
-        // setFloof(flock[id - 1]);
         dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
@@ -43,11 +42,6 @@ export default function FloofProfile() {
                 user: user
             }
         })
-        // // render new name on DOM
-        // setFloof({
-        //     ...floof,
-        //     name: newName,
-        //  })
          // empty rename input
         setNewName('');
     }
