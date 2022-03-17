@@ -49,11 +49,8 @@ function Homepage() {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
+    dispatch({ type: 'FETCH_GOOGLE_DATA' });
   }, []);
-
-  const getGoogleData = () => {
-    dispatch({ type: 'FETCH_GOOGLE_DATA', payload: user });
-  }
 
   // useEffect(() => {
   //   eggStatusCheck();
@@ -81,8 +78,6 @@ function Homepage() {
       {/* END greetings popup */}
 
       {/* <GoogleAuth /> */}
-
-      <button onClick={getGoogleData}>Get google data!!!</button>
 
       <Egg />
 
