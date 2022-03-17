@@ -25,19 +25,11 @@ export default function FloofProfile() {
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
     const prevNav = '/flock'
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_FLOCK', payload: user });
-    }, []);
     
     useEffect(() => {
-        console.log('in useEffect!!!!!!!!!!!!!!!!!!!!!!')
         setFloof(flock[id - 1]);
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
-
-    const handleClick = () => {
-        history.push(`/flock`);
-    }
 
     const rename = () => {
         dispatch({
@@ -51,10 +43,7 @@ export default function FloofProfile() {
             ...floof,
             name: newName,
          })
-        console.log('CHECK HERE!', floof)
         setNewName('');
-
-        // history.push(`/flock`);
     }
 
     const release = () => {
