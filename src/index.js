@@ -28,7 +28,7 @@ export { default as BackButton } from './components/Nav/BackButton/BackButton'
 export { default as FloofProfile } from './components/FloofProfile/FloofProfile'
 export { default as ReleaseNotification } from './components/FloofProfile/ReleaseNotification/ReleaseNotification'
 export { default as AddFloof } from './components/AddFloof/AddFloof'
-export { default as EggStatusCheck } from './components/EggStatusCheck/EggStatusCheck'
+// export { default as EggStatusCheck } from './components/EggStatusCheck/EggStatusCheck'
 // export { default as  } from './components//'
 
 ReactDOM.render(
