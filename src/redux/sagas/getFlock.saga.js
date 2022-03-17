@@ -4,7 +4,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* getFlock(action) {
 
     try {
-        console.log('in fetch flock, action.payload is', action.payload)
         const flock = yield axios.get(`/flock/${action.payload.id}`)
         yield put({ type: 'SET_FLOCK', payload: flock.data });
     } catch {

@@ -20,14 +20,16 @@ export default function FloofProfile() {
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
+    const floof = useSelector((store) => store.selectedFloof);
+    // const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
     const [newName, setNewName] = useState('');
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
     const prevNav = '/flock'
 
     
     useEffect(() => {
-        setFloof(flock[id - 1]);
+        // setFloof(flock[id - 1]);
+        dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
@@ -41,11 +43,11 @@ export default function FloofProfile() {
                 user: user
             }
         })
-        // render new name on DOM
-        setFloof({
-            ...floof,
-            name: newName,
-         })
+        // // render new name on DOM
+        // setFloof({
+        //     ...floof,
+        //     name: newName,
+        //  })
          // empty rename input
         setNewName('');
     }
@@ -54,7 +56,7 @@ export default function FloofProfile() {
     
     return (
         <div className="floofProfile">
-            <h2>{floofs[floof.floof_id - 1].type}</h2>
+            <h2>{floof.type}</h2>
             <img className="floofProfilePic" src={imageUrl} />
             <h2>Name: {floof.name}</h2>
             <h2>Age: {floof.age} days</h2>

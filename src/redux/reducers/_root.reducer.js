@@ -5,6 +5,7 @@ import egg from './egg.reducer';
 import steps from './steps.reducer';
 import flock from './flock.reducer';
 import floofs from './floofs.reducer';
+import selectedFloof from './selectedFloof.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   steps, // will have current number of steps for user
   flock, // will have the floofs in user's flock
   floofs, // will have a list of all types of floofs
+  selectedFloof, // will have data on selected floof
 });
 
 export default rootReducer;

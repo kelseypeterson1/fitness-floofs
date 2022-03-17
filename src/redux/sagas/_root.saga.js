@@ -8,6 +8,7 @@ import getFlockSaga from './getFlock.saga';
 import getFloofsSaga from './getFloofs.saga';
 import renameFloofSaga from './renameFloof.saga';
 import deleteFloofSaga from './deleteFloof.saga';
+import getSelectedFloofSaga from './getSelectedFloof.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +27,7 @@ export default function* rootSaga() {
     getFlockSaga(),
     getFloofsSaga(),
     renameFloofSaga(),
-    deleteFloofSaga()
+    deleteFloofSaga(),
+    getSelectedFloofSaga(),
   ]);
 }
