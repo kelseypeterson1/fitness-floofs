@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { BackButton } from '../../index.js'
+import { BackButton, ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -50,17 +50,8 @@ export default function FloofProfile() {
         setNewName('');
     }
 
-    // triggered when user clicks 'release' button
-    const release = () => {
-        // call saga to delete floof from DB
-        dispatch({ type: 'DELETE_FLOOF', payload: {
-            id: id,
-            user: user
-        } });
-        // popup screen notifying user of release
-        
-    }
 
+    
     return (
         <div className="floofProfile">
             <h2>{floofs[floof.floof_id - 1].type}</h2>
@@ -83,13 +74,7 @@ export default function FloofProfile() {
                     Rename
                 </Typography>
             </Button>
-
-            <Button variant="contained" onClick={release}>
-                <Typography variant="h8">
-                    Release
-                </Typography>
-            </Button>
-
+            <ReleaseNotification id={id}/>
             <BackButton prevNav={prevNav} />
         </div>
     )
