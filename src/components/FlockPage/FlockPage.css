@@ -1,0 +1,52 @@
+.flockPage {
+    background-image: url('../../../public/images/backgrounds/flock-background.png');
+    top: 0;
+    left: 0;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+
+}
+
+.floof {
+    width: 28%;
+    align-self: flex-end;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+}
+
+.floofImage {
+    height: 75px;
+    width: auto;
+}
+
+.inField {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 60%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: black; */
+}
+
+
+.bounce-5 {
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+}
+@keyframes bounce-5 {
+    0%   { transform: scale(1,1)    translateY(0); }
+    /* 30%  { transform: scale(.9,1.1) translateY(-100px); } */
+    /* 50%  { transform: scale(1,1)    translateY(0); } */
+    85%   { transform: scale(1,1)    translateY(0); }
+    90%  { transform: scale(1,1)    translateY(-7px); }
+    /* 64%  { transform: scale(1,1)    translateY(0); } */
+    95%  { transform: scale(1.1,.9) translateY(7px); }
+    /* 100% { transform: scale(1,1)    translateY(0); } */
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -15,7 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-function UserPage() {
+function Homepage() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
@@ -28,15 +28,37 @@ function UserPage() {
     setOpen(false);
   }; // END dialog box functions
 
+  const egg = useSelector(store => store.egg);
+  const steps = useSelector(store => store.steps.steps);
+
+  // const eggStatusCheck = () => {
+
+
+  //   console.log('IN EGG STATUS CHECK')
+
+  //   dispatch({ type: 'FETCH_EGG', payload: user });    
+  //   dispatch({ type: 'FETCH_STEPS', payload: user })
+
+  //   if (steps > 10000 && egg.status < 3) {
+  //     AddFloof();
+  //   }
+
+  // }
+
   useEffect(() => {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
+    dispatch({ type: 'FETCH_GOOGLE_DATA' });
   }, []);
 
+  // useEffect(() => {
+  //   eggStatusCheck();
+  // }, []);
 
   return (
     <div className="homepage">
+      <Header />
 
       {/* Greetings popup */}
       {/* <Dialog
@@ -55,16 +77,26 @@ function UserPage() {
       </Dialog> */}
       {/* END greetings popup */}
 
+      {/* <GoogleAuth /> */}
+
       <Egg />
+
+      &nbsp;
 
       <StepCounter />
 
+      <AddFloof />
+
+      &nbsp;
+
       <div className="homepageNav">
-        <LogOutButton />
+        <Nav />
       </div>
     </div>
   );
 }
 
 // this allows us to use <App /> in index.js
-export default UserPage;
+export default Homepage;
+
+
