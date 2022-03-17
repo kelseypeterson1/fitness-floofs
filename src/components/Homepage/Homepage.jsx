@@ -31,19 +31,19 @@ function Homepage() {
   const egg = useSelector(store => store.egg);
   const steps = useSelector(store => store.steps.steps);
 
-  const eggStatusCheck = () => {
+  // const eggStatusCheck = () => {
 
 
-    console.log('IN EGG STATUS CHECK')
+  //   console.log('IN EGG STATUS CHECK')
 
-    dispatch({ type: 'FETCH_EGG', payload: user });    
-    dispatch({ type: 'FETCH_STEPS', payload: user })
+  //   dispatch({ type: 'FETCH_EGG', payload: user });    
+  //   dispatch({ type: 'FETCH_STEPS', payload: user })
 
-    if (steps > 10000 && egg.status < 3) {
-      AddFloof();
-    }
+  //   if (steps > 10000 && egg.status < 3) {
+  //     AddFloof();
+  //   }
 
-  }
+  // }
 
   useEffect(() => {
     handleClickOpen();
@@ -51,9 +51,9 @@ function Homepage() {
     dispatch({ type: 'FETCH_STEPS', payload: user });
   }, []);
 
-  useEffect(() => {
-    eggStatusCheck();
-  }, []);
+  // useEffect(() => {
+  //   eggStatusCheck();
+  // }, []);
 
   return (
     <div className="homepage">
