@@ -10,7 +10,6 @@ import { BackButton, ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-// import { reset } from 'nodemon';
 
 export default function FloofProfile() {
 
