@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -51,6 +51,10 @@ function Homepage() {
     dispatch({ type: 'FETCH_STEPS', payload: user });
   }, []);
 
+  const getGoogleData = () => {
+    dispatch({ type: 'FETCH_GOOGLE_DATA', payload: user });
+  }
+
   // useEffect(() => {
   //   eggStatusCheck();
   // }, []);
@@ -77,6 +81,8 @@ function Homepage() {
       {/* END greetings popup */}
 
       {/* <GoogleAuth /> */}
+
+      <button onClick={getGoogleData}>Get google data!!!</button>
 
       <Egg />
 
