@@ -14,7 +14,7 @@ try {
 }}
 
 function* addFloofSaga() {
-    yield takeLatest('ADD_ITEM', addFloof);
+    yield takeLatest('ADD_FLOOF', addFloof);
 }
 
 export default addFloofSaga;
