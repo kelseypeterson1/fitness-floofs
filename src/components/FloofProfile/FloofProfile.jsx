@@ -50,7 +50,7 @@ export default function FloofProfile() {
     
     return (
         <div className="floofProfile">
-            <h2>{floof.type}</h2>
+            <h1>{floofs[floof.floof_id].type}</h1>
             <img className="floofProfilePic" src={imageUrl} />
             <h2>Name: {floof.name}</h2>
             <h2>Age: {floof.age} days</h2>

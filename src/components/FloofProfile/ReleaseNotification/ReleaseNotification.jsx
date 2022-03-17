@@ -58,7 +58,7 @@ export default function ReleaseNotification({ id }) {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Releasing your floof to the wild means they will permanently be removed from your flock.
+                        Releasing your floof to the wild means they will be removed from your flock permanently.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
