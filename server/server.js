@@ -13,6 +13,7 @@ const eggRouter = require('./routes/egg.router');
 const stepsRouter = require('./routes/steps.router');
 const googleRouter = require('./routes/google.router');
 const flockRouter = require('./routes/flock.router');
+const floofsRouter = require('./routes/floofs.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -34,6 +35,7 @@ app.use('/egg', eggRouter);
 app.use('/steps', stepsRouter);
 app.use('/api/google', googleRouter);
 app.use('/flock', flockRouter);
+app.use('/floofs', floofsRouter);
 
 // Serve static files
 app.use(express.static('build'));

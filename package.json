@@ -26,6 +26,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.1",
     "react-dom": "^17.0.2",
+    "react-dotenv": "^0.1.3",
     "react-google-login": "^5.2.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
@@ -35,11 +36,12 @@
     "redux-saga": "^1.1.3",
     "request": "^2.88.2",
     "universal-cookie": "^4.0.4",
-    "url-parse": "^1.5.10"
+    "url-parse": "^1.5.10",
+    "webpack": "^5.70.0"
   },
   "scripts": {
-    "start": "node server/server.js",
-    "client": "react-scripts start",
+    "start": "react-dotenv && node server/server.js",
+    "client": "react-dotenv && react-scripts start",
     "server": "nodemon --watch server server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "assert": "^2.0.0",
+    "dotenv-webpack": "^7.1.0",
     "nodemon": "^2.0.4"
   },
   "browserslist": [
