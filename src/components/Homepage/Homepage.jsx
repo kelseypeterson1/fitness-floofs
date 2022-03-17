@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof, EggStatusCheck } from '../../index.js'
 import './Homepage.css'
 
 
@@ -34,6 +34,7 @@ function Homepage() {
     dispatch({ type: 'FETCH_STEPS', payload: user });
   }, []);
 
+  EggStatusCheck();
 
   return (
     <div className="homepage">
