@@ -5,7 +5,7 @@ function* renameFloof(action) {
 
 
     try {
-        console.log('in axios put, payload is', action.payload)
+        // console.log('in axios put, payload is', action.payload)
         axios.put(`/flock/${action.payload.id}`, { newName: action.payload.newName })
         yield put({ type: 'FETCH_FLOCK', payload: action.payload.user });
     } catch {

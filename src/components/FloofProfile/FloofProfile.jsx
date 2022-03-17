@@ -31,7 +31,9 @@ export default function FloofProfile() {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
+    // triggered when user clicks 'rename' button
     const rename = () => {
+        // call saga to axios.put the floof name
         dispatch({
             type: 'RENAME_FLOOF', payload: {
                 id: id,
@@ -39,15 +41,24 @@ export default function FloofProfile() {
                 user: user
             }
         })
+        // render new name on DOM
         setFloof({
             ...floof,
             name: newName,
          })
+         // empty rename input
         setNewName('');
     }
 
+    // triggered when user clicks 'release' button
     const release = () => {
-        console.log('release');
+        // call saga to delete floof from DB
+        dispatch({ type: 'DELETE_FLOOF', payload: {
+            id: id,
+            user: user
+        } });
+        // popup screen notifying user of release
+        
     }
 
     return (
