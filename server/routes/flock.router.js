@@ -44,4 +44,20 @@ router.get('/:id', (req, res) => {
     })
 }) // END PUT Route
 
+// DELETE route - releasing floof
+router.delete('/:id', (req, res) => {
+  let reqId = req.params.id;
+  console.log('Delete ID', reqId);
+  let queryText = 'DELETE FROM "flock" WHERE id = $1;'
+  pool.query(queryText, [reqId])
+    .then((result) => {
+      console.log('floof deleted');
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('Error making database query', queryText, error);
+      res.sendStatus(500);
+    })
+}) // end DELETE route
+
 module.exports = router;

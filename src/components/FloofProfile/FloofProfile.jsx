@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { BackButton } from '../../index.js'
+import { BackButton, ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -20,26 +20,21 @@ export default function FloofProfile() {
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
+    const floof = useSelector((store) => store.selectedFloof);
+    // const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
     const [newName, setNewName] = useState('');
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
     const prevNav = '/flock'
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_FLOCK', payload: user });
-    }, []);
     
     useEffect(() => {
-        console.log('in useEffect!!!!!!!!!!!!!!!!!!!!!!')
-        setFloof(flock[id - 1]);
+        dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
-    const handleClick = () => {
-        history.push(`/flock`);
-    }
-
+    // triggered when user clicks 'rename' button
     const rename = () => {
+        // call saga to axios.put the floof name
         dispatch({
             type: 'RENAME_FLOOF', payload: {
                 id: id,
@@ -47,23 +42,15 @@ export default function FloofProfile() {
                 user: user
             }
         })
-        setFloof({
-            ...floof,
-            name: newName,
-         })
-        console.log('CHECK HERE!', floof)
+         // empty rename input
         setNewName('');
-
-        // history.push(`/flock`);
     }
 
-    const release = () => {
-        console.log('release');
-    }
 
+    
     return (
         <div className="floofProfile">
-            <h2>{floofs[floof.floof_id - 1].type}</h2>
+            <h1>{floofs[floof.floof_id].type}</h1>
             <img className="floofProfilePic" src={imageUrl} />
             <h2>Name: {floof.name}</h2>
             <h2>Age: {floof.age} days</h2>
@@ -83,13 +70,7 @@ export default function FloofProfile() {
                     Rename
                 </Typography>
             </Button>
-
-            <Button variant="contained" onClick={release}>
-                <Typography variant="h8">
-                    Release
-                </Typography>
-            </Button>
-
+            <ReleaseNotification id={id}/>
             <BackButton prevNav={prevNav} />
         </div>
     )
