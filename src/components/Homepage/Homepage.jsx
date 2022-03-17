@@ -49,7 +49,7 @@ function Homepage() {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
-    dispatch({ type: 'FETCH_GOOGLE_DATA' });
+    // dispatch({ type: 'FETCH_GOOGLE_DATA' });
   }, []);
 
   // useEffect(() => {
