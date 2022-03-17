@@ -6,6 +6,7 @@ const request = require('request');
 const urlParse = require('url-parse');
 const queryParse = require('query-string');
 const router = express.Router();
+const pool = require('../modules/pool');
 
 // --------------- GOOGLE API ---------------
 
@@ -56,7 +57,6 @@ router.get('/steps', async (req, res) => {
     let stepArray = [];
 
     try {
-        console.log(tokens.tokens.access_token)
         const result = await axios({
             method: 'POST',
             headers: {
@@ -64,7 +64,7 @@ router.get('/steps', async (req, res) => {
                 authorization: 'Bearer ' + tokens.tokens.access_token
             },
             'Content-Type': 'application/json',
-            url:  `https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate`,
+            url: `https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate`,
             data: {
                 aggregateBy: [
                     {
@@ -72,7 +72,7 @@ router.get('/steps', async (req, res) => {
                         dataSourceId: 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps'
                     }
                 ],
-                bucketByTime: {durationMillis: 86400000},
+                bucketByTime: { durationMillis: 86400000 },
                 startTimeMillis: 1646105560790,
                 endTimeMillis: 1647206660790,
             }
@@ -83,12 +83,29 @@ router.get('/steps', async (req, res) => {
         console.log(err)
     }
     try {
-        for(const dataSet of stepArray) {
+        for (const dataSet of stepArray) {
             // console.log(dataSet);
-            for(const points of dataSet.dataset){
+            for (const points of dataSet.dataset) {
                 // console.log(points)
-                for(const steps of points.point){
+                for (const steps of points.point) {
                     console.log(steps.value)
+                    try {
+                        console.log("trying post");
+
+                        let queryText = `INSERT INTO "steps" ("user_id", "steps", "date") VALUES ('1', $1, '2022-03-18');`;
+
+                        pool.query(queryText, [steps.value[0].intVal])
+                            // .then(result => {
+                            //     res.sendStatus(201);
+                            // })
+                            // .catch(error => {
+                            //     console.log(`Error adding steps`, error);
+                            //     res.sendStatus(500);
+                            // });
+                        // axios.post(`/api/google/steps/database`, steps.value[0])
+                    } catch {
+                        console.log("error connecting")
+                    }
                 }
             }
         }
@@ -96,6 +113,24 @@ router.get('/steps', async (req, res) => {
         console.log(err)
     }
 })
+
+// POST route - adding hatched floof to flock
+router.post('/steps/database', (req, res) => {
+    let stepsToAdd = req.body.intVal;
+    console.log('steps here!', stepsToAdd);
+
+    let queryText = `INSERT INTO "steps" ("user_id", "steps", "date") 
+    // VALUES ("new-user", $1, 2022-03-18);`;
+
+    pool.query(queryText, [stepsToAdd])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log(`Error adding steps`, error);
+            res.sendStatus(500);
+        });
+}); // end POST route
 
 
 // ------------
