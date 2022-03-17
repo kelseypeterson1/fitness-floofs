@@ -82,6 +82,19 @@ export const getWeeklyData = async (endTime, requestParameters, callBack, initia
         }
         dataValues.forEach((element) => {
             let body = getAggregatedDataBody(element.type, endTime);
+            console.log('IN DATA VALUES, body is:', body)
+            // let params ={
+            //     key: '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',
+            // }
+            // let headers = {
+            //     authorization: 'Bearer ya29.A0ARrdaM8_Fhgw93mKmGoq-8Qlj-_UP17t77p5…UZHa83StvJLCylKVtSqRjJROji8HNCIf7bJDgp2jMx93OSi1H', Accept: 'application/json'
+            // }
+            // let kpRequestParams = {
+            //     params, headers
+            // }
+            
+            console.log('IN DATA VALUES, requestParameters is:', requestParameters)
+            // console.log('IN DATA VALUES, requestParameters is:', kpRequestParams)
             promises.push(
                 axios.post('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', body, requestParameters)
                     .then((resp) => {

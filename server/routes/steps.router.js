@@ -20,8 +20,9 @@ router.get('/:id', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+// export const postSteps = (steps) => console.log('steps are', steps)
+// const postSteps = () => router.post('/', (req, res) => {
   // POST route code here
-});
+// });
 
 module.exports = router;
