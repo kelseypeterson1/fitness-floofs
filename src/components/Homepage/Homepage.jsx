@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof } from '../../index.js'
 import './Homepage.css'
 
 
@@ -28,12 +28,32 @@ function Homepage() {
     setOpen(false);
   }; // END dialog box functions
 
+  const egg = useSelector(store => store.egg);
+  const steps = useSelector(store => store.steps.steps);
+
+  // const eggStatusCheck = () => {
+
+
+  //   console.log('IN EGG STATUS CHECK')
+
+  //   dispatch({ type: 'FETCH_EGG', payload: user });    
+  //   dispatch({ type: 'FETCH_STEPS', payload: user })
+
+  //   if (steps > 10000 && egg.status < 3) {
+  //     AddFloof();
+  //   }
+
+  // }
+
   useEffect(() => {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
   }, []);
 
+  // useEffect(() => {
+  //   eggStatusCheck();
+  // }, []);
 
   return (
     <div className="homepage">
@@ -56,13 +76,15 @@ function Homepage() {
       </Dialog> */}
       {/* END greetings popup */}
 
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
 
       <Egg />
 
       &nbsp;
 
       <StepCounter />
+
+      <AddFloof />
 
       &nbsp;
 
@@ -75,3 +97,5 @@ function Homepage() {
 
 // this allows us to use <App /> in index.js
 export default Homepage;
+
+

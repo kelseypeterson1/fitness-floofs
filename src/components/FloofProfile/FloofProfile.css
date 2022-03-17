@@ -1,0 +1,12 @@
+.floofProfile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.floofProfilePic {
+    min-width: 90%;
+    min-height: 90%;
+}

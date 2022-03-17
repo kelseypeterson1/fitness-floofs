@@ -26,8 +26,9 @@ export { default as GoogleAuth } from './components/GoogleAuth/GoogleAuth'
 export { default as FlockPage } from './components/FlockPage/FlockPage'
 export { default as BackButton } from './components/Nav/BackButton/BackButton'
 export { default as FloofProfile } from './components/FloofProfile/FloofProfile'
-// export { default as  } from './components//'
-// export { default as  } from './components//'
+export { default as ReleaseNotification } from './components/FloofProfile/ReleaseNotification/ReleaseNotification'
+export { default as AddFloof } from './components/AddFloof/AddFloof'
+// export { default as EggStatusCheck } from './components/EggStatusCheck/EggStatusCheck'
 // export { default as  } from './components//'
 
 ReactDOM.render(
