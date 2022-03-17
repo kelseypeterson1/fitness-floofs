@@ -61,6 +61,14 @@ router.get('/steps', async (req, res) => {
 
     let stepArray = [];
 
+    // get date data for the db
+    let date = new Date()
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let fullDate = `${year}-${month}-${day}`;
+    console.log(fullDate);
+
     try {
         const result = await axios({
             method: 'POST',
@@ -98,8 +106,8 @@ router.get('/steps', async (req, res) => {
                     // posting steps to database
                     try {
                         console.log("trying post");
-                        let queryText = `UPDATE "steps" SET "steps" = $1 WHERE $2 = 1;`;
-                        pool.query(queryText, [steps.value[0].intVal, req.user.id])
+                        let queryText = `UPDATE "steps" SET "steps" = $1, "date" = $2 WHERE "user_id" = $3;`;
+                        pool.query(queryText, [steps.value[0].intVal, fullDate, req.user.id])
                     } catch {
                         console.log("error connecting")
                     }
