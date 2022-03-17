@@ -5,6 +5,7 @@ const CLIENT_ID = env.REACT_APP_CLIENT_ID;
 import env from "react-dotenv";
 import GoogleData from './GoogleData'
 const { SetCookie, DeleteCookie, hasCookie } = require('./GoogleCookieManager.js');
+import Dashboard  from './Dashboard/Dashboard';
 
 
 export default function GoogleAuth() {
@@ -70,6 +71,7 @@ export default function GoogleAuth() {
                         }
                     </Nav>
                 </Navbar>
+                <Dashboard user={user}/>
                 <GoogleData user={user} />
             </div>
         );
