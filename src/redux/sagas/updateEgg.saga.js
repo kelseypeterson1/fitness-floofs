@@ -9,6 +9,8 @@ function* updateEgg(action) {
 
     try {
         yield axios.put(`/egg/${user.id}`, {stepsDetail})
+        const egg = yield axios.get(`/egg/${action.payload.id}`)
+        yield put({ type: 'SET_EGG', payload: egg.data[0] });
     } catch {
         console.log('update egg status client-side error');
     }
