@@ -9,7 +9,6 @@ import getFloofsSaga from './getFloofs.saga';
 import renameFloofSaga from './renameFloof.saga';
 import deleteFloofSaga from './deleteFloof.saga';
 import getSelectedFloofSaga from './getSelectedFloof.saga';
-import addFloofSaga from './addFloof.saga';
 import getGoogleDataSaga from './getGoogleData.saga';
 import updateEggSaga from './updateEgg.saga';
 import getNewFloofSaga from './getNewFloof.saga';
@@ -33,7 +32,6 @@ export default function* rootSaga() {
     renameFloofSaga(),
     deleteFloofSaga(),
     getSelectedFloofSaga(),
-    addFloofSaga(),
     getGoogleDataSaga(),
     updateEggSaga(),
     getNewFloofSaga()

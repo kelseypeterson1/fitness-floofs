@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, AddFloof, GoogleApi } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -41,13 +41,7 @@ function Homepage() {
   useEffect(() => {
     // handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
-    // dispatch({ type: 'FETCH_STEPS', payload: user });
-    // dispatch({ type: 'UPDATE_EGG', payload: user });
   }, []);
-
-  // useEffect(() => {
-  //   eggStatusCheck();
-  // }, []);
 
   return (
     <div className="homepage">
@@ -77,8 +71,6 @@ function Homepage() {
       &nbsp;
 
       <StepCounter />
-
-      <AddFloof />
 
       &nbsp;
 
