@@ -14,11 +14,12 @@ export default function GoogleLogin() {
     };
 
     // get info on current date
-    let date = new Date()
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let fullDate = `${year}-${month}-${day}`;
+    const date = new Date();
+    const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
+    const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
+    const day = date.getDate(); // 20211100 => 20211124
+    const fullDateUnformatted = (year + month + day + '')
+    const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
     console.log('today\'s date:', fullDate);
 
     useEffect(() => {

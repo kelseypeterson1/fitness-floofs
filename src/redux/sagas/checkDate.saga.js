@@ -12,26 +12,30 @@ function* checkDate(action) {
     const dbDate = dbDateWithTime.split('T')[0];
 
     
-    console.log('prior date is', dbDate)
+    yield console.log('prior date is', dbDate)
     console.log('todays date is', currentDate)
 
-    // if (currentDate != dbDate) {
-    //     try {
-    //         // putting together new egg properties
-    //         const user = action.payload
-    //         const egg = yield axios.get(`/egg/${user.id}`)
-    //         const newEgg = yield {
-    //             floof_id: newFloofId.data[0].id,
-    //             user_id: user.id,
-    //             name: 'test',
-    //             personality: 'test personality'
-    //         }
+    if (currentDate != dbDate) {
+        console.log('date does not equal')
+    } else {
+        console.log('date equals')
+    }
+        // try {
+        //     // putting together new egg properties
+        //     const user = action.payload
+        //     const egg = yield axios.get(`/egg/${user.id}`)
+        //     const newEgg = yield {
+        //         floof_id: newFloofId.data[0].id,
+        //         user_id: user.id,
+        //         name: 'test',
+        //         personality: 'test personality'
+        //     }
 
-    //         // sending to server
-    //         yield axios.post(`/egg`, newEgg);
-    //     } catch {
-    //         console.log('GET egg client-side error');
-    //     }
+        //     // sending to server
+        //     yield axios.post(`/egg`, newEgg);
+        // } catch {
+        //     console.log('GET egg client-side error');
+        // }
     // }
 }
 
