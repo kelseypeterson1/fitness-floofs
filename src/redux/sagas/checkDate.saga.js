@@ -11,32 +11,18 @@ function* checkDate(action) {
     // removing time from date
     const dbDate = dbDateWithTime.split('T')[0];
 
-    
+    // NEED TO KEEP CONSOLE LOGS
     yield console.log('prior date is', dbDate)
     console.log('todays date is', currentDate)
 
+    // if db has old date in it, update egg row in db with new date and new egg
     if (currentDate != dbDate) {
-        console.log('date does not equal')
+        console.log('date has changed')
+        yield put({ type: 'UPDATE_EGG_TYPE', payload: {user_id: userId, date: currentDate }})
     } else {
-        console.log('date equals')
+        console.log('date has not changed')
     }
-        // try {
-        //     // putting together new egg properties
-        //     const user = action.payload
-        //     const egg = yield axios.get(`/egg/${user.id}`)
-        //     const newEgg = yield {
-        //         floof_id: newFloofId.data[0].id,
-        //         user_id: user.id,
-        //         name: 'test',
-        //         personality: 'test personality'
-        //     }
-
-        //     // sending to server
-        //     yield axios.post(`/egg`, newEgg);
-        // } catch {
-        //     console.log('GET egg client-side error');
-        // }
-    // }
+    yield console.log('outside of if in check date')
 }
 
 function* checkDateSaga() {

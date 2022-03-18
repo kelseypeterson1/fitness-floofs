@@ -20,11 +20,9 @@ export default function GoogleLogin() {
     const day = date.getDate(); // 20211100 => 20211124
     const fullDateUnformatted = (year + month + day + '')
     const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
-    console.log('today\'s date:', fullDate);
 
     useEffect(() => {
         // dispatch({ type: 'FETCH_GOOGLE_DATA' });
-        console.log('object sent to check date saga is:', {date: fullDate}, user)
         dispatch({ type: 'CHECK_DATE', payload: {date: fullDate, user}})
     }, []);
 
