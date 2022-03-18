@@ -33,7 +33,7 @@ export default function FloofProfile() {
         dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_FLOOFS', payload: user });
-    }, []);
+    }, [dispatch]);
 
     // triggered when user clicks 'rename' button
     const rename = () => {
