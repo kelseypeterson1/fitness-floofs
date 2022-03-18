@@ -45,6 +45,7 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -.5s;
+    padding-right: 3px;
 }
 
 .floof2Div {
@@ -55,6 +56,7 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -1s;
+    padding-left: 5px;
 }
 
 .floof3Div {
@@ -65,6 +67,7 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -3.5s;
+    padding-right: 8px;
 }
 
 .floof4Div {
@@ -75,6 +78,7 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -2s;
+    padding-left: 6px;
 }
 
 .floof5Div {
@@ -84,7 +88,8 @@
     animation-iteration-count: infinite;
     animation-name: bounce-5;
     animation-timing-function: ease;
-    animation-delay: -1.5s;
+    animation-delay: -1.75s;
+    padding-right: 1.5px;
 }
 
 .floof6Div {
@@ -105,6 +110,7 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -2.25s;
+    padding-left: 6px;
 }
 
 .floof8Div {
@@ -125,10 +131,11 @@
     animation-name: bounce-5;
     animation-timing-function: ease;
     animation-delay: -3s;
+    padding-right: 5px;
 }
 
 .floof10Div {
-    height: 75px;
+    height: 90px;
     width: auto;
     animation-duration: 5s;
     animation-iteration-count: infinite;
@@ -138,21 +145,11 @@
 }
 
 .floof11Div {
-    height: 75px;
+    height: 80px;
     width: auto;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-name: bounce-5;
     animation-timing-function: ease;
-    animation-delay: 0s;
-}
-
-.floof12Div {
-    height: 75px;
-    width: auto;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-name: bounce-5;
-    animation-timing-function: ease;
-    animation-delay: -4s;
+    animation-delay: .25s;
 }
