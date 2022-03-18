@@ -21,7 +21,8 @@ function* updateEgg(action) {
     yield console.log('done with try')
     const newEgg = yield axios.get(`/egg/${action.payload.id}`)
     if (newEgg.data[0].status === 3 && oldEgg.data[0].status < 3) {
-        console.log('newly hatched!')
+        yield put ({ type: 'FETCH_NEW_FLOOF', payload: user })
+        yield console.log('newly hatched floof!')
     }
 }
 

@@ -57,10 +57,15 @@ router.get('/steps', async (req, res) => {
 
     const tokens = await oauth2Client.getToken(code);
     // console.log(tokens)
+
+    
+
+    
+    
     res.send('Google Login Confirmed');
-
+    
     let stepArray = [];
-
+    
     // get date data for the db
     let date = new Date()
     let day = date.getDate();
@@ -68,7 +73,7 @@ router.get('/steps', async (req, res) => {
     let year = date.getFullYear();
     let fullDate = `${year}-${month}-${day}`;
     console.log(fullDate);
-
+    
     try {
         const result = await axios({
             method: 'POST',
@@ -102,7 +107,7 @@ router.get('/steps', async (req, res) => {
                 // console.log(points)
                 for (const steps of points.point) {
                     console.log(steps.value)
-
+                    
                     // posting steps to database
                     try {
                         console.log("trying post");
