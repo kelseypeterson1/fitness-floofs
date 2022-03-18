@@ -1,0 +1,155 @@
+
+.inField {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 60%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: black; */
+}
+
+.floof {
+    width: 28%;
+    align-self: flex-end;
+    /* animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease; */
+}
+
+.bounce-5 {
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+}
+@keyframes bounce-5 {
+    0%   { transform: scale(1,1)    translateY(0); }
+    /* 30%  { transform: scale(.9,1.1) translateY(-100px); } */
+    /* 50%  { transform: scale(1,1)    translateY(0); } */
+    85%   { transform: scale(1,1)    translateY(0); }
+    90%  { transform: scale(1,1)    translateY(-7px); }
+    /* 64%  { transform: scale(1,1)    translateY(0); } */
+    95%  { transform: scale(1.1,.9) translateY(7px); }
+    /* 100% { transform: scale(1,1)    translateY(0); } */
+}
+
+
+.floof1Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -.5s;
+    padding-right: 3px;
+}
+
+.floof2Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -1s;
+    padding-left: 5px;
+}
+
+.floof3Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -3.5s;
+    padding-right: 8px;
+}
+
+.floof4Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -2s;
+    padding-left: 6px;
+}
+
+.floof5Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -1.75s;
+    padding-right: 1.5px;
+}
+
+.floof6Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -4.25s;
+}
+
+.floof7Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -2.25s;
+    padding-left: 6px;
+}
+
+.floof8Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -2.5s;
+}
+
+.floof9Div {
+    height: 75px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -3s;
+    padding-right: 5px;
+}
+
+.floof10Div {
+    height: 90px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: -4.5s;
+}
+
+.floof11Div {
+    height: 80px;
+    width: auto;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-5;
+    animation-timing-function: ease;
+    animation-delay: .25s;
+}

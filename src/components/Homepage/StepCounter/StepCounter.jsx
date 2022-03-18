@@ -36,7 +36,7 @@ export default function StepCounter() {
                             <img src='images/footprints.png' />
                             &nbsp;
                             &nbsp;
-                            <h3>{stepsFormatted}/ 5,000</h3>
+                            <h3>{stepsFormatted}/ 10,000</h3>
                         </div>
                     </div>
                 </CardContent>

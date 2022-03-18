@@ -22,7 +22,7 @@ export default function GoogleLogin() {
     const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
 
     useEffect(() => {
-        // dispatch({ type: 'FETCH_GOOGLE_DATA' });
+        dispatch({ type: 'FETCH_GOOGLE_DATA' });
         dispatch({ type: 'CHECK_DATE', payload: {date: fullDate, user}})
     }, []);
 
