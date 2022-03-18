@@ -11,6 +11,8 @@ import deleteFloofSaga from './deleteFloof.saga';
 import getSelectedFloofSaga from './getSelectedFloof.saga';
 import addFloofSaga from './addFloof.saga';
 import getGoogleDataSaga from './getGoogleData.saga';
+import updateEggSaga from './updateEgg.saga';
+import getNewFloofSaga from './getNewFloof.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +35,7 @@ export default function* rootSaga() {
     getSelectedFloofSaga(),
     addFloofSaga(),
     getGoogleDataSaga(),
+    updateEggSaga(),
+    getNewFloofSaga()
   ]);
 }
