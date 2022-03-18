@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* getNewFloof(action) {
+function* addNewFloof(action) {
 
     try {
         // putting together new floof properties
@@ -27,9 +27,9 @@ function* getNewFloof(action) {
     }
 }
 
-function* getNewFloofSaga() {
-    yield takeLatest('FETCH_NEW_FLOOF', getNewFloof)
+function* addNewFloofSaga() {
+    yield takeLatest('ADD_NEW_FLOOF', addNewFloof)
 }
 
 
-export default getNewFloofSaga;
+export default addNewFloofSaga;

@@ -29,7 +29,7 @@ function* updateEgg(action) {
     
     // if statements determines if the egg is newly hatched
     if (newEgg.data[0].status === 3 && oldEgg.data[0].status < 3) {
-        yield put ({ type: 'FETCH_NEW_FLOOF', payload: user })
+        yield put ({ type: 'ADD_NEW_FLOOF', payload: user })
     }
 }
 

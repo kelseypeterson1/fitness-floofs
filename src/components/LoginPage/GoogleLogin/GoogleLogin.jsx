@@ -10,16 +10,24 @@ export default function GoogleLogin() {
     const handleClick = (event) => {
         dispatch({ type: 'FETCH_STEPS', payload: user });
         dispatch({ type: 'FETCH_EGG', payload: user });
-        // routes to the prior page
         history.push('/homepage');
     };
 
-    useEffect(() => {
-        // handleClickOpen();
-        dispatch({ type: 'FETCH_GOOGLE_DATA' });
-      }, []);
+    // get info on current date
+    let date = new Date()
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let fullDate = `${year}-${month}-${day}`;
+    console.log('today\'s date:', fullDate);
 
-    return(
+    useEffect(() => {
+        // dispatch({ type: 'FETCH_GOOGLE_DATA' });
+        console.log('object sent to check date saga is:', {date: fullDate}, user)
+        dispatch({ type: 'CHECK_DATE', payload: {date: fullDate, user}})
+    }, []);
+
+    return (
         <button onClick={handleClick}>
             Google data retrieved!
         </button>
