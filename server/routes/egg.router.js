@@ -40,7 +40,7 @@ router.put('/:id', (req, res) => {
     }
   }
   const status = checkStatus(steps)
-  // console.log('status is:', checkStatus(steps))
+  console.log('status is:', checkStatus(steps))
 
   let idToUpdate = req.params.id;
   // console.log('idToUpdate is', idToUpdate);
