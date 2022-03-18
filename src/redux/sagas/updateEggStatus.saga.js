@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import egg from '../reducers/egg.reducer';
 
 
-function* updateEgg(action) {
+function* updateEggStatus(action) {
     // pulling data
     const user = action.payload;
     const oldEgg = yield axios.get(`/egg/${action.payload.id}`)
@@ -12,7 +12,7 @@ function* updateEgg(action) {
 
     try {
         // PUT will adjust egg status (unhatched, cracked, hatched) based on step data
-        yield axios.put(`/egg/${user.id}`, {stepsDetail})
+        yield axios.put(`/egg-to-floof/${user.id}`, {stepsDetail})
 
         // pulling egg info back from the server
         const newEgg = yield axios.get(`/egg/${action.payload.id}`)
@@ -29,13 +29,13 @@ function* updateEgg(action) {
     
     // if statements determines if the egg is newly hatched
     if (newEgg.data[0].status === 3 && oldEgg.data[0].status < 3) {
-        yield put ({ type: 'FETCH_NEW_FLOOF', payload: user })
+        yield put ({ type: 'ADD_NEW_FLOOF', payload: user })
     }
 }
 
-function* updateEggSaga() {
-    yield takeLatest('UPDATE_EGG', updateEgg)
+function* updateEggStatusSaga() {
+    yield takeLatest('UPDATE_EGG', updateEggStatus)
 }
 
 
-export default updateEggSaga;
+export default updateEggStatusSaga;
