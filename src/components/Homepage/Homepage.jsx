@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header } from '../../index.js'
+import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -28,12 +28,20 @@ function Homepage() {
     setOpen(false);
   }; // END dialog box functions
 
+  const egg = useSelector(store => store.egg);
+  const steps = useSelector(store => store.steps.steps);
+
   useEffect(() => {
-    handleClickOpen();
+    // handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
+    dispatch({ type: 'UPDATE_EGG', payload: user });
   }, []);
 
+  useEffect(() => {
+    // handleClickOpen();
+    dispatch({ type: 'FETCH_EGG', payload: user });
+  }, []);
 
   return (
     <div className="homepage">
@@ -56,7 +64,7 @@ function Homepage() {
       </Dialog> */}
       {/* END greetings popup */}
 
-      <GoogleAuth />
+      {/* <GoogleAuth /> */}
 
       <Egg />
 
@@ -75,3 +83,5 @@ function Homepage() {
 
 // this allows us to use <App /> in index.js
 export default Homepage;
+
+

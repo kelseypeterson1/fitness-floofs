@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
     pool.query(query, [floofId])
       .then(result => {
         res.send(result.rows[0])
-        console.log('LOOK HERE, result.rows is', result.rows)
       })
       .catch(error => {
         console.log(`Error getting selected floof data from DB`, error);

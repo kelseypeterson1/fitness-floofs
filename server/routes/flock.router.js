@@ -60,4 +60,22 @@ router.delete('/:id', (req, res) => {
     })
 }) // end DELETE route
 
+// POST route - adding hatched floof to flock
+router.post('/', (req, res) => {
+  let newFloof = req.body;
+  console.log(`Adding new floof`, newFloof);
+
+  let queryText = `INSERT INTO "flock" ("floof_id", "user_id", "name", "personality", "age", "income") 
+  VALUES ($1, $2, $3, $4, 0, 0);`;
+
+  pool.query(queryText, [newFloof.floof_id, newFloof.user_id, newFloof.name, newFloof.personality])
+    .then(result => {
+      res.sendStatus(201);
+    })
+    .catch(error => {
+      console.log(`Error adding feedback`, error);
+      res.sendStatus(500);
+    });
+}); // end POST route
+
 module.exports = router;

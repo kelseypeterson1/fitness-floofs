@@ -9,7 +9,7 @@ export default function FlockPage() {
     const user = useSelector((store) => store.user);
     const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
-    const prevNav = '/'
+    const prevNav = '/homepage'
 
 
     useEffect(() => {

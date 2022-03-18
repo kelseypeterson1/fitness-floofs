@@ -22,14 +22,20 @@ export { default as RegisterForm } from './components/RegisterPage/RegisterForm/
 export { default as RegisterPage } from './components/RegisterPage/RegisterPage'
 export { default as Egg } from './components/Homepage/Egg/Egg'
 export { default as StepCounter } from './components/Homepage/StepCounter/StepCounter'
-export { default as GoogleAuth } from './components/GoogleAuth/GoogleAuth'
+// export { default as GoogleAuth } from './components/GoogleAuth/GoogleAuth'
 export { default as FlockPage } from './components/FlockPage/FlockPage'
 export { default as BackButton } from './components/Nav/BackButton/BackButton'
 export { default as FloofProfile } from './components/FloofProfile/FloofProfile'
 export { default as ReleaseNotification } from './components/FloofProfile/ReleaseNotification/ReleaseNotification'
+export { default as GoogleLogin } from './components/LoginPage/GoogleLogin/GoogleLogin'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
+// export { default as  } from './components//'
+// export { default as  } from './components//'
+// export { default as  } from './components//'
+// export { default as  } from './components//'
+
 
 ReactDOM.render(
   <Provider store={store}>

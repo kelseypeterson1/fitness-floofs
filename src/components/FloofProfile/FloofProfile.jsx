@@ -10,7 +10,6 @@ import { BackButton, ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-// import { reset } from 'nodemon';
 
 export default function FloofProfile() {
 
@@ -50,7 +49,7 @@ export default function FloofProfile() {
     
     return (
         <div className="floofProfile">
-            <h1>{floofs[floof.floof_id].type}</h1>
+            {/* <h1>{floofs[floof.floof_id].type}</h1> */}
             <img className="floofProfilePic" src={imageUrl} />
             <h2>Name: {floof.name}</h2>
             <h2>Age: {floof.age} days</h2>
