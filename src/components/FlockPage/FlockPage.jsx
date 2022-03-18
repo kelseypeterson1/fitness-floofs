@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FlockItem } from '../../index.js'
+
 
 export default function FlockPage() {
     const history = useHistory();
@@ -31,21 +33,22 @@ export default function FlockPage() {
             </div>
             <div className="inField">
 
-                {flock.map((floof) => {
-                    const imageUrl = `images/floofs/floof${floof.floof_id}.png`
-                    const handleClick = () => {
-                        history.push(`/floof/${floof.id}`);
-                    }                
-                    return (
-                        <div key={floof.id} className="floof">
-                            <img 
-                                className="floofImage" 
-                                src={imageUrl} 
-                                onClick={handleClick}
-                            />
-                        </div>
-                    )
-                })}
+                {flock.map(floof => (
+                    <FlockItem key={floof.id} floof={floof} />
+                    // const imageUrl = `images/floofs/floof${floof.floof_id}.png`
+                    // const handleClick = () => {
+                    //     history.push(`/floof/${floof.id}`);
+                    // }                
+                    // return (
+                    //     <div key={floof.id} className="floof">
+                    //         <img 
+                    //             className="floofImage" 
+                    //             src={imageUrl} 
+                    //             onClick={handleClick}
+                    //         />
+                    //     </div>
+                    // )
+                ))}
                 <div>
                 <Button
                         startIcon={<ArrowBackIcon />}
