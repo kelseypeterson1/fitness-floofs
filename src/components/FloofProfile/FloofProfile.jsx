@@ -11,6 +11,7 @@ import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
+
 export default function FloofProfile() {
 
     const history = useHistory();
@@ -25,10 +26,11 @@ export default function FloofProfile() {
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
     const prevNav = '/flock'
 
-    
+
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
+        dispatch({ type: 'FETCH_FLOOFS', payload: user });
     }, []);
 
     // triggered when user clicks 'rename' button
@@ -41,36 +43,47 @@ export default function FloofProfile() {
                 user: user
             }
         })
-         // empty rename input
+        // empty rename input
         setNewName('');
     }
 
 
-    
+
     return (
-        <div className="floofProfile">
-            {/* <h1>{floofs[floof.floof_id].type}</h1> */}
-            <img className="floofProfilePic" src={imageUrl} />
-            <h2>Name: {floof.name}</h2>
-            <h2>Age: {floof.age} days</h2>
-            <h2>Personality: {floof.personality}</h2>
+        <div className="background">
+            <div className="floofProfile">
+                <Card sx={{
+                    maxWidth: 500,
+                    opacity: 0.75,
+                    mt: 10
+                    // backgroundColor: 'transparent',
+                }}>
+                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
+                        <h1>{floofs[floof.floof_id].type}</h1>
+                        <img className="floofProfilePic" src={imageUrl} />
+                        <h2>Name: {floof.name}</h2>
+                        <h2>Age: {floof.age} days</h2>
+                        <h2>Personality: {floof.personality}</h2>
+                    </CardContent>
+                </Card>
 
-            <TextField
-                id="new-name"
-                required
-                label="New name"
-                variant="standard"
-                value={newName}
-                onChange={(event) => setNewName(event.target.value)}
-            />
+                <TextField
+                    id="new-name"
+                    required
+                    label="New name"
+                    variant="standard"
+                    value={newName}
+                    onChange={(event) => setNewName(event.target.value)}
+                />
 
-            <Button variant="contained" onClick={rename}>
-                <Typography variant="h8">
-                    Rename
-                </Typography>
-            </Button>
-            <ReleaseNotification id={id}/>
-            <BackButton prevNav={prevNav} />
+                <Button variant="contained" onClick={rename}>
+                    <Typography variant="h8">
+                        Rename
+                    </Typography>
+                </Button>
+                <ReleaseNotification id={id} />
+                <BackButton prevNav={prevNav} />
+            </div>
         </div>
     )
 }
