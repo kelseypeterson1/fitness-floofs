@@ -47,42 +47,52 @@ export default function FloofProfile() {
         setNewName('');
     }
 
+    const backButton = (event) => {
+        history.push('/flock');
+    }
+
 
 
     return (
         <div className="background">
             <div className="floofProfile">
-                <Card sx={{
-                    maxWidth: 500,
-                    opacity: 0.75,
-                    mt: 10
-                    // backgroundColor: 'transparent',
-                }}>
-                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
-                        <h1>{floofs[floof.floof_id].type}</h1>
-                        <img className="floofProfilePic" src={imageUrl} />
-                        <h2>Name: {floof.name}</h2>
-                        <h2>Age: {floof.age} days</h2>
-                        <h2>Personality: {floof.personality}</h2>
-                    </CardContent>
-                </Card>
+                <center>
 
-                <TextField
-                    id="new-name"
-                    required
-                    label="New name"
-                    variant="standard"
-                    value={newName}
-                    onChange={(event) => setNewName(event.target.value)}
-                />
+                    <Card sx={{
+                        maxWidth: 500,
+                        opacity: 0.9,
+                        mt: 10
+                        // backgroundColor: 'transparent',
+                    }}>
+                        <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
 
-                <Button variant="contained" onClick={rename}>
-                    <Typography variant="h8">
-                        Rename
-                    </Typography>
-                </Button>
-                <ReleaseNotification id={id} />
-                <BackButton prevNav={prevNav} />
+                            {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
+                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id].type : 'name incoming'}</h1>
+                            <img className="floofProfilePic" src={imageUrl} />
+                            <h2>Name: {floof.name}</h2>
+                            <h2>Age: {floof.age} days</h2>
+                            <h2>Personality: {floof.personality}</h2>
+
+                            <TextField
+                                id="new-name"
+                                required
+                                label="New name"
+                                variant="standard"
+                                value={newName}
+                                onChange={(event) => setNewName(event.target.value)}
+                            />
+                        </CardContent>
+                    </Card>
+                </center>
+                <div className="buttons">
+                    <Button variant="contained" onClick={rename} sx={{m: 1 }}>
+                        <Typography variant="h8">
+                            Rename
+                        </Typography>
+                    </Button>
+                    <ReleaseNotification id={id} />
+                    <Button variant="contained" onClick={backButton} sx={{m: 1 }}>Back</Button>
+                </div>
             </div>
         </div>
     )
