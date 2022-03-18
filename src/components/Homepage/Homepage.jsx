@@ -31,25 +31,18 @@ function Homepage() {
   const egg = useSelector(store => store.egg);
   const steps = useSelector(store => store.steps.steps);
 
-  // const eggStatusCheck = () => {
-
-
-  //   console.log('IN EGG STATUS CHECK')
-
-  //   dispatch({ type: 'FETCH_EGG', payload: user });    
-  //   dispatch({ type: 'FETCH_STEPS', payload: user })
-
-  //   if (steps > 10000 && egg.status < 3) {
-  //     AddFloof();
-  //   }
-
-  // }
-
   useEffect(() => {
-    handleClickOpen();
+    // handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
-    // dispatch({ type: 'FETCH_GOOGLE_DATA' });
+    dispatch({ type: 'UPDATE_EGG', payload: user });
+  }, []);
+
+  useEffect(() => {
+    // handleClickOpen();
+    dispatch({ type: 'FETCH_EGG', payload: user });
+    // dispatch({ type: 'FETCH_STEPS', payload: user });
+    // dispatch({ type: 'UPDATE_EGG', payload: user });
   }, []);
 
   // useEffect(() => {
