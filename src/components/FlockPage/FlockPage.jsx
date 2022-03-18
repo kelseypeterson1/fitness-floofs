@@ -1,8 +1,9 @@
 import './FlockPage.css'
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BackButton } from '../../index.js'
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function FlockPage() {
     const history = useHistory();
@@ -16,6 +17,11 @@ export default function FlockPage() {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
     }, []);
+
+    const backButton = (event) => {
+        history.push('/homepage');
+    }
+
 
     return (
 
@@ -41,7 +47,13 @@ export default function FlockPage() {
                     )
                 })}
                 <div>
-                    <BackButton prevNav={prevNav} />
+                <Button
+                        startIcon={<ArrowBackIcon />}
+                        variant="contained"
+                        onClick={backButton}
+                        sx={{ mt: 5 }}
+                    >
+                    </Button>
                 </div>
             </div>
         </div>

@@ -10,6 +10,8 @@ import { BackButton, ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 
 export default function FloofProfile() {
@@ -85,13 +87,21 @@ export default function FloofProfile() {
                     </Card>
                 </center>
                 <div className="buttons">
-                    <Button variant="contained" onClick={rename} sx={{m: 1 }}>
-                        <Typography variant="h8">
-                            Rename
-                        </Typography>
+                    <Button
+                        startIcon={<ArrowBackIcon />}
+                        variant="contained"
+                        onClick={backButton}
+                        sx={{ m: 1 }}
+                    >
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={rename}
+                        sx={{ m: 1 }}
+                    >
+                        Rename
                     </Button>
                     <ReleaseNotification id={id} />
-                    <Button variant="contained" onClick={backButton} sx={{m: 1 }}>Back</Button>
                 </div>
             </div>
         </div>
