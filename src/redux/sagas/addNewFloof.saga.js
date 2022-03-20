@@ -38,11 +38,22 @@ function* addNewFloof(action) {
         }
         console.log('new floof is', newFloof)
 
-        // sending to server
-        yield axios.post(`/flock`, newFloof);
+        // posting to server and returning with id
+        const id = yield axios.post(`/flock`, newFloof);
+        console.log('ID IS', id.data[0])
+
+        // adding id from db to new floof object before sending it to reducer
+        const newFloofData = yield {
+            id: id.data[0],
+            floof_id: newFloofId.data[0].id,
+            user_id: user.id,
+            name: name,
+            personality: personality,
+            birthday: fullDate
+        }
+        yield put ({ type: 'SET_NEW_FLOOF', payload: newFloofData })
 
         // fetching flock data
-        yield put ({ type: 'SET_NEW_FLOOF', payload: newFloof })
         yield put({ type: 'FETCH_FLOCK', payload: user })
 
 

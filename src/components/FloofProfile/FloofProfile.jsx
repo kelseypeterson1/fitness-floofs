@@ -95,7 +95,7 @@ export default function FloofProfile() {
                         <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
 
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
-                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'}-type</h1>
+                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
                             <h2>Name: {floof.name}</h2>
                             <h2>Age: {age} days</h2>

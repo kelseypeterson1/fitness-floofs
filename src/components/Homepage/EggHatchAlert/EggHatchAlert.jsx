@@ -39,18 +39,33 @@ export default function EggHatchAlert({ newFloof }) {
     const handleClose = () => {
         setOpen(false);
         // setNewFloof(useSelector(store => store.newFloof));
-        // dispatch({ type: 'CLEAR_NEW_FLOOF' });
+        dispatch({ type: 'CLEAR_NEW_FLOOF' });
     }; // END dialog box functions
-
+    
+    const newFloofAllData = useSelector((store) => store.newFloof);
 
     useEffect(() => {
         handleClickOpen();
     }, []);
 
+    const release = () => {
+        console.log('newFloofAllData is', newFloofAllData)
+        dispatch({ type: 'DELETE_FLOOF', payload: {
+            id: newFloof.id.id,
+            user: user
+        }})
+        setOpen(false);
+    }
+
+    const addToFlock = () => {
+        setOpen(false);
+        dispatch({ type: 'CLEAR_NEW_FLOOF' })
+    }
+
     return (
         < Dialog
             open={open}
-            onClose={handleClose}
+            // onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
         >
@@ -62,7 +77,7 @@ export default function EggHatchAlert({ newFloof }) {
             <DialogContent>
                 <center>
 
-                    <h2>{floofs[floofId].type}</h2>
+                    <h2>{floofs[floofId].type} Floof</h2>
                     <img className="floofProfilePic" src={imageUrl} />
                     <h3>Name: {newFloof.name}</h3>
                     <h3>Personality: {newFloof.personality}</h3>
@@ -71,11 +86,11 @@ export default function EggHatchAlert({ newFloof }) {
             {/* } */}
 
             <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
-                <Button variant='contained' autoFocus>
+                <Button variant='contained' onClick={addToFlock} autoFocus>
                     Add to flock
                 </Button>
                 &nbsp;
-                <Button variant='contained' autoFocus>
+                <Button variant='contained' onClick={release} autoFocus>
                     Release
                 </Button>
             </DialogActions>
