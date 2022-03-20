@@ -34,6 +34,7 @@ function Homepage() {
   useEffect(() => {
     handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
+    dispatch({ type: 'FETCH_FLOCK', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
     dispatch({ type: 'FETCH_FLOOFS', payload: user });

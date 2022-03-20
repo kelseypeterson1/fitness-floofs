@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { EggHatchConflictAlert } from '../../../index.js';
 
 
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Popover from '@mui/material/Popover';
+
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Dialog from '@mui/material/Dialog';
+
 import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 
 export default function EggHatchAlert({ newFloof }) {
 
@@ -20,6 +19,7 @@ export default function EggHatchAlert({ newFloof }) {
     const imageUrl = `images/floofs/floof${newFloof.floof_id}.png`
     const floofId = newFloof.floof_id - 1;
     const user = useSelector((store) => store.user);
+    const flock = useSelector((store) => store.flock);
 
     // Dialog box functions
     const [open, setOpen] = React.useState(false);
@@ -38,7 +38,7 @@ export default function EggHatchAlert({ newFloof }) {
 
     const release = () => {
         dispatch({ type: 'DELETE_FLOOF', payload: {
-            id: newFloof.id.id,
+            id: newFloof.id,
             user: user
         }})
         setOpen(false);
@@ -48,6 +48,16 @@ export default function EggHatchAlert({ newFloof }) {
         setOpen(false);
         dispatch({ type: 'CLEAR_NEW_FLOOF' })
     }
+
+    console.log('flock is', flock)
+    for (let floof of flock) {
+        console.log('floof match', newFloof.floof_id, floof.floof_id)
+        if (newFloof.floof_id === floof.floof_id) {
+            return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} />
+        }
+    }
+
+    console.log('matches or no?', newFloof.floof_id, flock[11].floof_id)
 
     return (
         < Dialog

@@ -39,7 +39,7 @@ function* addNewFloof(action) {
 
         // adding id from db to new floof object before sending it to reducer
         const newFloofData = yield {
-            id: id.data[0],
+            id: id.data[0].id,
             floof_id: newFloofId.data[0].id,
             user_id: user.id,
             name: name,

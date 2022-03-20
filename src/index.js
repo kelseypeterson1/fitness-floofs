@@ -30,6 +30,7 @@ export { default as ReleaseNotification } from './components/FloofProfile/Releas
 export { default as GoogleLogin } from './components/LoginPage/GoogleLogin/GoogleLogin'
 export { default as FlockItem } from './components/FlockPage/FlockItem/FlockItem'
 export { default as EggHatchAlert } from './components/Homepage/EggHatchAlert/EggHatchAlert'
+export { default as EggHatchConflictAlert } from './components/Homepage/EggHatchConflictAlert/EggHatchConflictAlert'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
