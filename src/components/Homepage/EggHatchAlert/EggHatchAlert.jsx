@@ -13,27 +13,40 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function EggHatchAlert() {
+export default function EggHatchAlert({newFloof}) {
+
+    const floofs = useSelector(store => store.floofs);
+    const dispatch = useDispatch();
+    // const [newFloof, setNewFloof] = useState(9);
+    // const determineImage = () => {
+    //     if (newFloof) {
+    //         return `images/floofs/floof${newFloof.floof_id}.png`;
+    //     } else {
+    //         return `images/footprints.png`
+    //     }
+    // }
+    
+    const imageUrl = `images/floofs/floof${newFloof.floof_id}.png`
+    const floofId = newFloof.floof_id - 1;
 
     const user = useSelector((store) => store.user);
-    const dispatch = useDispatch();
-  
+    
     // Dialog box functions
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
-      setOpen(true);
+        setOpen(true);
     };
     const handleClose = () => {
-      setOpen(false);
-      dispatch({ type: 'CLEAR_NEW_FLOOF' });
+        setOpen(false);
+        // setNewFloof(useSelector(store => store.newFloof));
+        // dispatch({ type: 'CLEAR_NEW_FLOOF' });
     }; // END dialog box functions
-  
-    const newFloof = useSelector(store => store.newFloof);
-  
+    
+    
     useEffect(() => {
-      handleClickOpen();
+        handleClickOpen();
     }, []);
-
+    
     return (
         < Dialog
             open={open}
@@ -42,13 +55,17 @@ export default function EggHatchAlert() {
             aria-describedby="alert-dialog-description"
         >
 
-            <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
+            <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
                 Your egg hatched!
             </DialogTitle>
-
-            <DialogContent>
-
-            </DialogContent>
+            {/* {newFloof && */}
+                <DialogContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+                    <h1>{floofs[floofId].type}</h1>
+                    <img className="floofProfilePic" src={imageUrl} />
+                    <h2>Name: {newFloof.name}</h2>
+                    <h2>Personality: {newFloof.personality}</h2>
+                </DialogContent>
+            {/* } */}
 
             <DialogActions>
                 <Button variant='outlined' autoFocus>

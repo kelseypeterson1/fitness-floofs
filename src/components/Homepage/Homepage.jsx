@@ -36,6 +36,7 @@ function Homepage() {
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
+    dispatch({ type: 'FETCH_FLOOFS', payload: user });
   }, []);
 
   const addFloof = () => {
@@ -48,7 +49,7 @@ function Homepage() {
       <Header />
 
       {/* If new egg is hatched, a popup will appear */}
-      {newFloof && <EggHatchAlert />}
+      {newFloof && <EggHatchAlert newFloof={newFloof}/>}
 
       <Egg />
 
