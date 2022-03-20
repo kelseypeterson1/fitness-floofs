@@ -17,18 +17,8 @@ export default function EggHatchAlert({ newFloof }) {
 
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
-    // const [newFloof, setNewFloof] = useState(9);
-    // const determineImage = () => {
-    //     if (newFloof) {
-    //         return `images/floofs/floof${newFloof.floof_id}.png`;
-    //     } else {
-    //         return `images/footprints.png`
-    //     }
-    // }
-
     const imageUrl = `images/floofs/floof${newFloof.floof_id}.png`
     const floofId = newFloof.floof_id - 1;
-
     const user = useSelector((store) => store.user);
 
     // Dialog box functions
@@ -38,18 +28,15 @@ export default function EggHatchAlert({ newFloof }) {
     };
     const handleClose = () => {
         setOpen(false);
-        // setNewFloof(useSelector(store => store.newFloof));
         dispatch({ type: 'CLEAR_NEW_FLOOF' });
     }; // END dialog box functions
     
-    const newFloofAllData = useSelector((store) => store.newFloof);
 
     useEffect(() => {
         handleClickOpen();
     }, []);
 
     const release = () => {
-        console.log('newFloofAllData is', newFloofAllData)
         dispatch({ type: 'DELETE_FLOOF', payload: {
             id: newFloof.id.id,
             user: user
@@ -65,7 +52,6 @@ export default function EggHatchAlert({ newFloof }) {
     return (
         < Dialog
             open={open}
-            // onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
         >
@@ -73,7 +59,6 @@ export default function EggHatchAlert({ newFloof }) {
             <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
                 <h2>Your egg hatched!</h2>
             </DialogTitle>
-            {/* {newFloof && */}
             <DialogContent>
                 <center>
 
@@ -83,7 +68,6 @@ export default function EggHatchAlert({ newFloof }) {
                     <h3>Personality: {newFloof.personality}</h3>
                 </center>
             </DialogContent>
-            {/* } */}
 
             <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
                 <Button variant='contained' onClick={addToFlock} autoFocus>

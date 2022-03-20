@@ -4,24 +4,21 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* addNewFloof(action) {
 
     try {
-        console.log('in addNewFloof')
 
         // randomly generating new personality
         const traits = yield axios.get(`/traits`)
         const personalityId = Math.floor(Math.random() * 90)
         const personality = yield (traits.data[personalityId].trait)
-        yield console.log('personality trait is:', personality)
 
         // randomly generating new name
         const nameId = Math.floor(Math.random() * 49) + 89
         const name = yield (traits.data[nameId].trait)
-        yield console.log('name is:', name)
 
         // get current date
         const date = new Date();
-        const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
-        const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
-        const day = date.getDate(); // 20211100 => 20211124
+        const year = date.getFullYear() * 1e4; 
+        const month = (date.getMonth() + 1) * 100; 
+        const day = date.getDate(); 
         const fullDateUnformatted = (year + month + day + '')
         const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
 
@@ -36,11 +33,9 @@ function* addNewFloof(action) {
             personality: personality,
             birthday: fullDate
         }
-        console.log('new floof is', newFloof)
 
         // posting to server and returning with id
         const id = yield axios.post(`/flock`, newFloof);
-        console.log('ID IS', id.data[0])
 
         // adding id from db to new floof object before sending it to reducer
         const newFloofData = yield {
