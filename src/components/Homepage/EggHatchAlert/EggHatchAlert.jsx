@@ -53,7 +53,7 @@ export default function EggHatchAlert({ newFloof }) {
     for (let floof of flock) {
         console.log('floof match', newFloof.floof_id, floof.floof_id)
         if (newFloof.floof_id === floof.floof_id) {
-            return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} />
+            return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
         }
     }
 
