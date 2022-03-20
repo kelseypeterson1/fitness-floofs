@@ -56,6 +56,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             open={open}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
+            // sx={{mr: 0, pr: 0 }}
         >
 
             <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }} id="egg-hatch-alert">
@@ -66,17 +67,17 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             </DialogTitle>
 
             <DialogContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-                <div className='conflictDivOutline'>
-                    <h5>Original</h5>
                 <div className='conflictDiv'>
+                    <h5>Original</h5>
+                <div className='oldFloof'>
                     <img className="floofProfilePic" src={imageUrl} />
                     <h3>Name: {oldFloof.name}</h3>
                     <h3>Personality: {oldFloof.personality}</h3>
                 </div>
                 </div>
-                <div className='conflictDivOutline'>
+                <div className='conflictDivNew'>
                     <h5>Hatchling</h5>
-                <div className='conflictDiv'>
+                <div className='newFloof'>
                     <img className="floofProfilePic" src={imageUrl} />
                     <h3>Name: {newFloof.name}</h3>
                     <h3>Personality: {newFloof.personality}</h3>

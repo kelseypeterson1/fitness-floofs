@@ -1,4 +1,20 @@
-.conflictDiv {
+.oldFloof {
     border: solid;
-    /* background-color: black; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+.newFloof {
+    border: solid;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+.conflictDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
