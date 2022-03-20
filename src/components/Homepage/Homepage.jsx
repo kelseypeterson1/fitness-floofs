@@ -26,62 +26,60 @@ function Homepage() {
   };
   const handleClose = () => {
     setOpen(false);
+    dispatch({ type: 'CLEAR_NEW_FLOOF' });
   }; // END dialog box functions
 
-  const egg = useSelector(store => store.egg);
-  const steps = useSelector(store => store.steps.steps);
+  const newFloof = useSelector(store => store.newFloof);
 
   useEffect(() => {
-    // handleClickOpen();
+    handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
   }, []);
 
-  useEffect(() => {
-    // handleClickOpen();
-    dispatch({ type: 'FETCH_EGG', payload: user });
-  }, []);
-
-  const addFloof = () => dispatch({ type: 'ADD_NEW_FLOOF', payload: user })
+  const addFloof = () => {
+    dispatch({ type: 'ADD_NEW_FLOOF', payload: user })
+    setOpen(true);
+  }
 
   return (
     <div className="homepage">
       <Header />
 
-      {/* Greetings popup */}
-      {/* <Dialog
+      {newFloof &&
+        // Greetings popup
+        < Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="welcome-alert">
-          <center>
-            <h2>
-              Welcome back {user.username}!
-            </h2>
-          </center>
-        </DialogTitle>
-      </Dialog> */}
-      {/* END greetings popup */}
+        >
+          <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-alert">
+            <center>
+              <h2>
+                New floof is: {newFloof.name}
+              </h2>
+            </center>
+          </DialogTitle>
+        </Dialog>
+      // END greetings popup
+      }
 
-      {/* <GoogleAuth /> */}
+<Egg />
 
-      <Egg />
+  &nbsp;
 
-      &nbsp;
+<StepCounter />
 
-      <StepCounter />
-
-      &nbsp;
+  &nbsp;
 
       <div className="homepageNav">
         <Nav />
       </div>
 
       <button onClick={addFloof}> add floof</button>
-    </div>
+    </div >
   );
 }
 

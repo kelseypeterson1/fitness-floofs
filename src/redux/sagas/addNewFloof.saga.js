@@ -42,8 +42,10 @@ function* addNewFloof(action) {
         yield axios.post(`/flock`, newFloof);
 
         // fetching flock data
+        yield put ({ type: 'SET_NEW_FLOOF', payload: newFloof })
         yield put({ type: 'FETCH_FLOCK', payload: user })
-        yield console.log('new floof added!', newFloof)
+
+
 
     } catch {
         console.log('POST new floof client-side error');
