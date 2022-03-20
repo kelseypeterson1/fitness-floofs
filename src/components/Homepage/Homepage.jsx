@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
+import { EggHatchAlert, LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -47,32 +47,16 @@ function Homepage() {
     <div className="homepage">
       <Header />
 
-      {newFloof &&
-        // Greetings popup
-        < Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-alert">
-            <center>
-              <h2>
-                New floof is: {newFloof.name}
-              </h2>
-            </center>
-          </DialogTitle>
-        </Dialog>
-      // END greetings popup
-      }
+      {/* If new egg is hatched, a popup will appear */}
+      {newFloof && <EggHatchAlert />}
 
-<Egg />
+      <Egg />
 
-  &nbsp;
+      &nbsp;
 
-<StepCounter />
+      <StepCounter />
 
-  &nbsp;
+      &nbsp;
 
       <div className="homepageNav">
         <Nav />
