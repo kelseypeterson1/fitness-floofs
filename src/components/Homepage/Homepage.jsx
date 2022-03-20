@@ -43,6 +43,8 @@ function Homepage() {
     dispatch({ type: 'FETCH_EGG', payload: user });
   }, []);
 
+  const addFloof = () => dispatch({ type: 'ADD_NEW_FLOOF', payload: user })
+
   return (
     <div className="homepage">
       <Header />
@@ -77,6 +79,8 @@ function Homepage() {
       <div className="homepageNav">
         <Nav />
       </div>
+
+      <button onClick={addFloof}> add floof</button>
     </div>
   );
 }

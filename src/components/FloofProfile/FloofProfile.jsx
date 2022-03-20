@@ -63,7 +63,7 @@ export default function FloofProfile() {
                     <Card sx={{
                         maxWidth: 500,
                         opacity: 0.9,
-                        mt: 10
+                        mt: 5
                         // backgroundColor: 'transparent',
                     }}>
                         <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
