@@ -17,6 +17,14 @@ function* addNewFloof(action) {
         const name = yield (traits.data[nameId].trait)
         yield console.log('name is:', name)
 
+        // get current date
+        const date = new Date();
+        const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
+        const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
+        const day = date.getDate(); // 20211100 => 20211124
+        const fullDateUnformatted = (year + month + day + '')
+        const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
+
         // putting together new floof properties
         const user = action.payload
         const egg = yield axios.get(`/egg/${user.id}`)
@@ -25,7 +33,8 @@ function* addNewFloof(action) {
             floof_id: newFloofId.data[0].id,
             user_id: user.id,
             name: name,
-            personality: personality
+            personality: personality,
+            birthday: fullDate
         }
         console.log('new floof is', newFloof)
 
