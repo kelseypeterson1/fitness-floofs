@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     width: 150px;
+    padding-top: 15px;
 }
 .newFloof {
     border: solid;
@@ -11,10 +12,12 @@
     flex-direction: column;
     align-items: center;
     width: 150px;
+    padding-top: 15px;
 }
 .conflictDiv {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
 }

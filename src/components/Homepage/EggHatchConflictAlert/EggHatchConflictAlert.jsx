@@ -36,19 +36,26 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
         handleClickOpen();
     }, []);
 
-    const release = () => {
+    const keepOriginal = () => {
         dispatch({
             type: 'DELETE_FLOOF', payload: {
                 id: newFloof.id,
                 user: user
             }
         })
+        dispatch({ type: 'CLEAR_NEW_FLOOF' })
         setOpen(false);
     }
 
-    const addToFlock = () => {
-        setOpen(false);
+    const keepHatchling = () => {
+        dispatch({
+            type: 'DELETE_FLOOF', payload: {
+                id: oldFloof.id,
+                user: user
+            }
+        })
         dispatch({ type: 'CLEAR_NEW_FLOOF' })
+        setOpen(false);
     }
 
     return (
@@ -56,7 +63,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             open={open}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-            // sx={{mr: 0, pr: 0 }}
+        // sx={{mr: 0, pr: 0 }}
         >
 
             <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }} id="egg-hatch-alert">
@@ -67,31 +74,36 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             </DialogTitle>
 
             <DialogContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+
                 <div className='conflictDiv'>
                     <h5>Original</h5>
-                <div className='oldFloof'>
-                    <img className="floofProfilePic" src={imageUrl} />
-                    <h3>Name: {oldFloof.name}</h3>
-                    <h3>Personality: {oldFloof.personality}</h3>
+                    <div className='oldFloof'>
+                        <center>
+                            <img className="floofProfilePic" src={imageUrl} />
+                            <h3>{oldFloof.name}</h3>
+                            <h5>is</h5><h3>{oldFloof.personality}</h3>
+                        </center>
+                    </div>
                 </div>
-                </div>
-                <div className='conflictDivNew'>
+                <div className='conflictDiv'>
                     <h5>Hatchling</h5>
-                <div className='newFloof'>
-                    <img className="floofProfilePic" src={imageUrl} />
-                    <h3>Name: {newFloof.name}</h3>
-                    <h3>Personality: {newFloof.personality}</h3>
-                </div>
+                    <div className='newFloof'>
+                        <center>
+                            <img className="floofProfilePic" src={imageUrl} />
+                            <h3>{newFloof.name}</h3>
+                            <h5>is</h5><h3>{newFloof.personality}</h3>
+                        </center>
+                    </div>
                 </div>
             </DialogContent>
 
-            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
-                <Button variant='contained' onClick={addToFlock} autoFocus>
-                    Add to flock
+            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row', mb: 4, ml: 1, mr: 1 }} >
+                <Button variant='contained' onClick={keepOriginal} autoFocus>
+                    Keep
                 </Button>
                 &nbsp;
-                <Button variant='contained' onClick={release} autoFocus>
-                    Release
+                <Button variant='contained' onClick={keepHatchling} autoFocus>
+                    Keep
                 </Button>
             </DialogActions>
 
