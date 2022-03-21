@@ -65,12 +65,12 @@ router.post('/', (req, res) => {
   let newFloof = req.body;
   console.log(`Adding new floof`, newFloof);
 
-  let queryText = `INSERT INTO "flock" ("floof_id", "user_id", "name", "personality", "age", "income") 
-  VALUES ($1, $2, $3, $4, 0, 0);`;
+  let queryText = `INSERT INTO "flock" ("floof_id", "user_id", "name", "personality", "birthday", "income") 
+  VALUES ($1, $2, $3, $4, $5, 0) RETURNING "id";`;
 
-  pool.query(queryText, [newFloof.floof_id, newFloof.user_id, newFloof.name, newFloof.personality])
+  pool.query(queryText, [newFloof.floof_id, newFloof.user_id, newFloof.name, newFloof.personality, newFloof.birthday])
     .then(result => {
-      res.sendStatus(201);
+      res.send(result.rows)
     })
     .catch(error => {
       console.log(`Error adding feedback`, error);

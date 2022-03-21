@@ -11,6 +11,7 @@ function* deleteFloof(action) {
     } catch {
         console.log('DELETE floof client-side error');
     }
+    yield put({ type: 'CLEAR_NEW_FLOOF' })
 }
 
 function* deleteFloofSaga() {
