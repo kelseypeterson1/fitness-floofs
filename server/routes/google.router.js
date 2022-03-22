@@ -81,7 +81,6 @@ router.get('/steps', async (req, res) => {
         const result = await axios({
             method: 'POST',
             headers: {
-                // authorization: 'Bearer ' + 'ya29.A0ARrdaM_eUqURJb2cT8BQn064O5BTy6vj7T87dqjsPCFBtG5-mIkPfkfdnRZNRutyyLtH13x6baD_8l0qiB_h1CXGAu4lnMNXa46lF7OtC6_ccFYee4FCOy8HRk_EkJO5I2-lu6Xeb5H_Ade8VmCWpSgz4NWR'
                 authorization: 'Bearer ' + tokens.tokens.access_token
             },
             'Content-Type': 'application/json',
