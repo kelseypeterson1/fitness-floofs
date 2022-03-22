@@ -40,3 +40,12 @@
 .navLink:hover {
   background-color: #008183;
 }
+
+
+.navBar {
+  height: 30px;
+  background-color: gray;
+  width: 20px;
+  display: flex;
+  justify-content: flex-end;
+}

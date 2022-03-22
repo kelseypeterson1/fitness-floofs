@@ -10,27 +10,31 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="homepageNav">
-      <div>
-        <Button variant="contained">
-          <Typography variant="h8">
-            <Link to="/flock" style={{ textDecoration: 'none', color: 'white' }}>
-              Flock
-            </Link>
-          </Typography>
-        </Button>
+    // <div className="homepageNav">
+    //   <div>
+    //     <Button variant="contained">
+    //       <Typography variant="h8">
+    //         <Link to="/flock" style={{ textDecoration: 'none', color: 'white' }}>
+    //           Flock
+    //         </Link>
+    //       </Typography>
+    //     </Button>
 
-        <Button variant="contained">
-          <Typography variant="h8">
-            <Link to="/info" style={{ textDecoration: 'none', color: 'white' }}>
-              Store
-            </Link>
-          </Typography>
-        </Button>
+    //     <Button variant="contained">
+    //       <Typography variant="h8">
+    //         <Link to="/info" style={{ textDecoration: 'none', color: 'white' }}>
+    //           Store
+    //         </Link>
+    //       </Typography>
+    //     </Button>
 
-        <LogOutButton className="navLink" />
+    //     <LogOutButton className="navLink" />
 
-      </div>
+    //   </div>
+    // </div>
+
+    <div className='navBar'>
+      
     </div>
   );
 }

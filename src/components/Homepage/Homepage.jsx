@@ -59,12 +59,12 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
-
-      <div className="homepageNav">
-        <Nav />
-      </div>
-
       <button onClick={addFloof}> add floof</button>
+
+      {/* <div className="homepageNav"> */}
+        <Nav />
+      {/* </div> */}
+
     </div >
   );
 }
