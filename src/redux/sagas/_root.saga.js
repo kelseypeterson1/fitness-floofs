@@ -4,6 +4,16 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import getEggSaga from './getEgg.saga';
 import getStepsSaga from './getSteps.saga';
+import getFlockSaga from './getFlock.saga';
+import getFloofsSaga from './getFloofs.saga';
+import renameFloofSaga from './renameFloof.saga';
+import deleteFloofSaga from './deleteFloof.saga';
+import getSelectedFloofSaga from './getSelectedFloof.saga';
+import getGoogleDataSaga from './getGoogleData.saga';
+import updateEggStatusSaga from './updateEggStatus.saga';
+import addNewFloofSaga from './addNewFloof.saga';
+import checkDateSaga from './checkDate.saga';
+import updateEggTypeSaga from './updateEggType.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -18,6 +28,16 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     getEggSaga(),
-    getStepsSaga()
+    getStepsSaga(),
+    getFlockSaga(),
+    getFloofsSaga(),
+    renameFloofSaga(),
+    deleteFloofSaga(),
+    getSelectedFloofSaga(),
+    getGoogleDataSaga(),
+    updateEggStatusSaga(),
+    addNewFloofSaga(),
+    checkDateSaga(),
+    updateEggTypeSaga(),
   ]);
 }
