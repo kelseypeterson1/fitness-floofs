@@ -8,6 +8,7 @@ function* getGoogleData() {
         console.log('url data from spike is:', urlData)
         yield window.open(
             `${urlData.data.url}`, "_blank")
+        yield 
     } catch {
         console.log('GET google data client-side error');
     }
