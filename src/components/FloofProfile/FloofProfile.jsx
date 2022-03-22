@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { BackButton, ReleaseNotification } from '../../index.js'
+import { ReleaseNotification } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
