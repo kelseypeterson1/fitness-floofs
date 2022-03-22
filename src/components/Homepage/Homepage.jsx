@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { EggHatchAlert, LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
+import { EggHatchAlert, LogOutButton, Egg, StepCounter, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -59,12 +59,12 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
-
-      <div className="homepageNav">
-        <Nav />
-      </div>
-
       <button onClick={addFloof}> add floof</button>
+
+      {/* <div className="homepageNav"> */}
+        <Nav />
+      {/* </div> */}
+
     </div >
   );
 }
