@@ -13,18 +13,25 @@ export default function FlockPage() {
     const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
     const prevNav = '/homepage'
+    const [counter, setCounter] = useState({counter: 6})
 
-
+    
     useEffect(() => {
-        dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
+        dispatch({ type: 'FETCH_FLOCK', payload: user });
+        // console.log('counter is', counter)
     }, []);
 
     const backButton = (event) => {
         history.push('/homepage');
     }
 
+    // const addToCounter = () => setCounter({counter: 4})
+    const addToCounter = () => console.log('in addToCounter')
+    // const count = 'count'
 
+    // setCounter(counter + 1)
+    // console.log('counter is', counter)
     return (
 
         <div className="flockPage">
@@ -33,24 +40,13 @@ export default function FlockPage() {
             </div>
             <div className="inField">
 
-                {flock.map(floof => (
-                    <FlockItem key={floof.id} floof={floof} />
-                    // const imageUrl = `images/floofs/floof${floof.floof_id}.png`
-                    // const handleClick = () => {
-                    //     history.push(`/floof/${floof.id}`);
-                    // }                
-                    // return (
-                    //     <div key={floof.id} className="floof">
-                    //         <img 
-                    //             className="floofImage" 
-                    //             src={imageUrl} 
-                    //             onClick={handleClick}
-                    //         />
-                    //     </div>
-                    // )
-                ))}
+                {flock.map((floof) => {
+                    addToCounter
+                    console.log('counter is', counter)
+                    return <FlockItem key={floof.id} floof={floof} counter={counter} />
+                })}
                 <div>
-                <Button
+                    <Button
                         startIcon={<ArrowBackIcon />}
                         variant="contained"
                         onClick={backButton}
