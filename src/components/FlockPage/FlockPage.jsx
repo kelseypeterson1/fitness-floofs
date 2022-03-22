@@ -13,25 +13,16 @@ export default function FlockPage() {
     const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
     const prevNav = '/homepage'
-    const [counter, setCounter] = useState({counter: 6})
 
     
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
-        // console.log('counter is', counter)
     }, []);
 
     const backButton = (event) => {
         history.push('/homepage');
     }
-
-    // const addToCounter = () => setCounter({counter: 4})
-    const addToCounter = () => console.log('in addToCounter')
-    // const count = 'count'
-
-    // setCounter(counter + 1)
-    // console.log('counter is', counter)
     return (
 
         <div className="flockPage">
@@ -39,11 +30,8 @@ export default function FlockPage() {
                 Flock of Floofs
             </div>
             <div className="inField">
-
-                {flock.map((floof) => {
-                    addToCounter
-                    console.log('counter is', counter)
-                    return <FlockItem key={floof.id} floof={floof} counter={counter} />
+                {flock.map((floof, i) => {
+                    return <FlockItem key={floof.id} index={i} floof={floof} />
                 })}
                 <div>
                     <Button
