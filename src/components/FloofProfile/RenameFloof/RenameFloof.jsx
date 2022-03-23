@@ -39,7 +39,8 @@ export default function RenameFloof() {
         setOpen(false);
         // call saga to axios.put the floof name
         dispatch({
-            type: 'RENAME_FLOOF', payload: {
+            type: 'RENAME_FLOOF', 
+            payload: {
                 id: id,
                 newName: newName,
                 user: user

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { ReleaseNotification, Nav, RenameFloof } from '../../index.js'
+import { ReleaseNotification, Nav, RenameFloof, RandomizePersonality } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -85,27 +85,38 @@ export default function FloofProfile() {
     return (
         <div className="background">
             <div className="floofProfile">
-                <center>
 
-                    <Card sx={{
-                        maxWidth: 500,
-                        opacity: 0.95,
-                        mt: 5
-                        // backgroundColor: 'transparent',
-                    }}>
-                        <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
+                <Card sx={{
+                    width: 300,
+                    opacity: 0.95,
+                    mt: 5
+                    // backgroundColor: 'transparent',
+                }}>
+                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
 
+                        <center>
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
-                            <div className="noWrap"><h2>Name: {floof.name}</h2><RenameFloof /></div>
-                            <h2>Age: {age} days</h2>
-                            <h2>Personality: {floof.personality}</h2>
+                        </center>
+                        <div className="noWrap">
+                            <h3>Name: {floof.name}</h3>
+                            <RenameFloof />
+                        </div>
+                        <div className="noWrap">
+                            <h3>Age: {age} {age === 1 ? 'day' : 'days'}</h3>
+                        </div>
+                        <div className="noWrap">
+                            <h3>Personality: {floof.personality}</h3>
+                            <RandomizePersonality />
+                        </div>
+                        <center>
                             <ReleaseNotification id={id} />
-                        </CardContent>
-                    </Card>
-                </center>
-                    <Nav />
+                        </center>
+                    </CardContent>
+                </Card>
+
+                <Nav />
             </div>
         </div>
     )
