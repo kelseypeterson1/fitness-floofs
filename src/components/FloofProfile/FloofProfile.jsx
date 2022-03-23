@@ -6,11 +6,16 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { ReleaseNotification, Nav } from '../../index.js'
+import { ReleaseNotification, Nav, RenameFloof } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
@@ -18,16 +23,12 @@ export default function FloofProfile() {
 
     const history = useHistory();
     const { id } = useParams();
-    const flock = useSelector(store => store.flock);
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
     const floof = useSelector((store) => store.selectedFloof);
-    // const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
     const [newName, setNewName] = useState('');
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
-    const prevNav = '/flock'
-
 
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
@@ -97,29 +98,16 @@ export default function FloofProfile() {
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
-                            <h2>Name: {floof.name}</h2>
+                            <div className="noWrap"><h2>Name: {floof.name}</h2><RenameFloof /></div> 
                             <h2>Age: {age} days</h2>
                             <h2>Personality: {floof.personality}</h2>
-
-                            <TextField
-                                id="new-name"
-                                required
-                                label="New name"
-                                variant="standard"
-                                value={newName}
-                                onChange={(event) => setNewName(event.target.value)}
-                            />
                         </CardContent>
                     </Card>
                 </center>
                 <div className="buttons">
-                    <Button
-                        variant="contained"
-                        onClick={rename}
-                        sx={{ m: 1 }}
-                    >
-                        Rename
-                    </Button>
+
+
+
                     <ReleaseNotification id={id} />
 
                     <Nav />
