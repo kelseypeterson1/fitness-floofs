@@ -13,7 +13,7 @@ export default function GoogleLogin() {
         history.push('/homepage');
     };
 
-    // get info on current date
+    // get current date
     const date = new Date();
     const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
     const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
@@ -22,7 +22,7 @@ export default function GoogleLogin() {
     const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
 
     useEffect(() => {
-        // dispatch({ type: 'FETCH_GOOGLE_DATA' });
+        dispatch({ type: 'FETCH_GOOGLE_DATA' });
         dispatch({ type: 'CHECK_DATE', payload: {date: fullDate, user}})
     }, []);
 

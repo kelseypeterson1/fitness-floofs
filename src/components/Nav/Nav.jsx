@@ -1,35 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from './LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import HomeIcon from '@mui/icons-material/Home';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import { useDispatch } from 'react-redux';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
 
   return (
-    <div className="homepageNav">
-      <div>
-        <Button variant="contained">
-          <Typography variant="h8">
-            <Link to="/flock" style={{ textDecoration: 'none', color: 'white' }}>
-              Flock
-            </Link>
-          </Typography>
-        </Button>
 
-        <Button variant="contained">
-          <Typography variant="h8">
-            <Link to="/info" style={{ textDecoration: 'none', color: 'white' }}>
-              Store
-            </Link>
-          </Typography>
-        </Button>
-
-        <LogOutButton className="navLink" />
-
+    <div className='navBar'>
+      <div className='navBarOption'>
+        <Link to="/homepage" style={{ textDecoration: 'none', color: 'black' }}>
+          <HomeIcon style={{ fontSize: 40 }} />
+        </Link>
+      </div>
+      <div className='navBarOption'>
+        <Link to="/flock" style={{ textDecoration: 'none', color: 'black' }}>
+          <LandscapeIcon style={{ fontSize: 40 }} />
+        </Link>
+      </div>
+      <div 
+        className='navBarOption'
+        onClick={() => dispatch({ type: 'LOGOUT' })}
+      >
+        <LogoutIcon />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { BackButton, ReleaseNotification } from '../../index.js'
+import { ReleaseNotification, Nav } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -53,8 +53,34 @@ export default function FloofProfile() {
         history.push('/flock');
     }
 
+    // get current date
+    const date = new Date();
+    const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
+    const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
+    const day = date.getDate(); // 20211100 => 20211124
+    const fullDateUnformatted = (year + month + day + '')
+    const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
 
+    // calculate age of floof
+    function getDays(start, last) {
+        //initialize dates with Date object
+        const date1 = new Date(start);
+        const date2 = new Date(last);
+    
+        // calculation for converting a day into milliseconds
+        const oneDay = 1000 * 60 * 60 * 24;
+    
+        // calculation for the time difference between start and last
+        const diffTime = date2.getTime() - date1.getTime();
+    
+        // calculation for the days between start and last
+        const diffDays = Math.round(diffTime / oneDay);
+        // return number of days
+        return diffDays;
+    }
+    const age = getDays(floof.birthday, fullDate)
 
+    
     return (
         <div className="background">
             <div className="floofProfile">
@@ -62,17 +88,17 @@ export default function FloofProfile() {
 
                     <Card sx={{
                         maxWidth: 500,
-                        opacity: 0.9,
-                        mt: 10
+                        opacity: 0.95,
+                        mt: 5
                         // backgroundColor: 'transparent',
                     }}>
                         <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
 
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
-                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id].type : 'name incoming'}</h1>
+                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
                             <h2>Name: {floof.name}</h2>
-                            <h2>Age: {floof.age} days</h2>
+                            <h2>Age: {age} days</h2>
                             <h2>Personality: {floof.personality}</h2>
 
                             <TextField
@@ -88,13 +114,6 @@ export default function FloofProfile() {
                 </center>
                 <div className="buttons">
                     <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ m: 1 }}
-                    >
-                    </Button>
-                    <Button
                         variant="contained"
                         onClick={rename}
                         sx={{ m: 1 }}
@@ -102,6 +121,8 @@ export default function FloofProfile() {
                         Rename
                     </Button>
                     <ReleaseNotification id={id} />
+
+                    <Nav />
                 </div>
             </div>
         </div>

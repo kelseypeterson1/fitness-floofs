@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
+import { EggHatchAlert, Egg, StepCounter, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -26,45 +26,31 @@ function Homepage() {
   };
   const handleClose = () => {
     setOpen(false);
+    dispatch({ type: 'CLEAR_NEW_FLOOF' });
   }; // END dialog box functions
 
-  const egg = useSelector(store => store.egg);
-  const steps = useSelector(store => store.steps.steps);
+  const newFloof = useSelector(store => store.newFloof);
 
   useEffect(() => {
-    // handleClickOpen();
+    handleClickOpen();
     dispatch({ type: 'FETCH_EGG', payload: user });
+    dispatch({ type: 'FETCH_FLOCK', payload: user });
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
+    dispatch({ type: 'FETCH_FLOOFS', payload: user });
   }, []);
 
-  useEffect(() => {
-    // handleClickOpen();
-    dispatch({ type: 'FETCH_EGG', payload: user });
-  }, []);
+  const addFloof = () => {
+    dispatch({ type: 'ADD_NEW_FLOOF', payload: user })
+    setOpen(true);
+  }
 
   return (
     <div className="homepage">
       <Header />
 
-      {/* Greetings popup */}
-      {/* <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="welcome-alert">
-          <center>
-            <h2>
-              Welcome back {user.username}!
-            </h2>
-          </center>
-        </DialogTitle>
-      </Dialog> */}
-      {/* END greetings popup */}
-
-      {/* <GoogleAuth /> */}
+      {/* If new egg is hatched, a popup will appear */}
+      {newFloof && <EggHatchAlert newFloof={newFloof} />}
 
       <Egg />
 
@@ -73,11 +59,13 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
+      <button onClick={addFloof}> add floof</button>
 
-      <div className="homepageNav">
+      <div className='homepageSelected'>
         <Nav />
       </div>
-    </div>
+
+    </div >
   );
 }
 

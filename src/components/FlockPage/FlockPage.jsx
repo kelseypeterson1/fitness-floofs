@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { FlockItem, Nav } from '../../index.js'
+
 
 export default function FlockPage() {
     const history = useHistory();
@@ -12,17 +14,15 @@ export default function FlockPage() {
     const dispatch = useDispatch();
     const prevNav = '/homepage'
 
-
+    
     useEffect(() => {
-        dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
+        dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
     const backButton = (event) => {
         history.push('/homepage');
     }
-
-
     return (
 
         <div className="flockPage">
@@ -30,31 +30,12 @@ export default function FlockPage() {
                 Flock of Floofs
             </div>
             <div className="inField">
-
-                {flock.map((floof) => {
-                    const imageUrl = `images/floofs/floof${floof.floof_id}.png`
-                    const handleClick = () => {
-                        history.push(`/floof/${floof.id}`);
-                    }                
-                    return (
-                        <div key={floof.id} className="floof">
-                            <img 
-                                className="floofImage" 
-                                src={imageUrl} 
-                                onClick={handleClick}
-                            />
-                        </div>
-                    )
+                {flock.map((floof, i) => {
+                    return <FlockItem key={floof.id} index={i} floof={floof} />
                 })}
-                <div>
-                <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ mt: 5 }}
-                    >
-                    </Button>
-                </div>
+            <div className ='flockPageSelected'>
+                <Nav />
+            </div>
             </div>
         </div>
     )
