@@ -4,15 +4,14 @@
   }
   
   .dailyEggImage {
-    width: 55%;
-    /* animation: spin, spin-reverse;
-    animation-duration: 1s;
-    animation-delay: 0ms, 2s;
-    animation-timing-function: ease-in, ease-out;
-    animation-iteration-count: 2;
-    animation-direction: alternate; */
+      width: 55%;
       animation: shake 0.5s;
       animation-iteration-count: 10s;
+  }
+  .dailyEggImageCracked {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      width: 80%;
   }
 
   @keyframes spin {
