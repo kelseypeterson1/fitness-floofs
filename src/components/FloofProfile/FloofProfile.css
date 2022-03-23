@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -42,10 +42,11 @@
     /* 100% { transform: scale(1,1)    translateY(0); } */
 }
 
-.buttons {
+.noWrap {
+    white-space: nowrap ;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: space-evenly;
-    margin-top: 10px;
-}
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4px;
+    margin-bottom: 0px;
+  }

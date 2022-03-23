@@ -7,11 +7,11 @@ function* addNewFloof(action) {
 
         // randomly generating new personality
         const traits = yield axios.get(`/traits`)
-        const personalityId = Math.floor(Math.random() * 90)
+        const personalityId = Math.floor(Math.random() * 72)
         const personality = yield (traits.data[personalityId].trait)
 
         // randomly generating new name
-        const nameId = Math.floor(Math.random() * 49) + 89
+        const nameId = Math.floor(Math.random() * 49) + 71
         const name = yield (traits.data[nameId].trait)
 
         // get current date
