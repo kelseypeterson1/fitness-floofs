@@ -44,7 +44,7 @@ export default function ReleaseNotification({ id }) {
 
     return (
         <div>
-            <Button variant="contained" onClick={handleClickOpen} sx={{m: 1 }}>
+            <Button variant="outlined" onClick={handleClickOpen} sx={{m: 1 }}>
                 Release
             </Button>
             <Dialog
