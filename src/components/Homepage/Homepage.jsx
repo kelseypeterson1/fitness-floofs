@@ -50,7 +50,7 @@ function Homepage() {
       <Header />
 
       {/* If new egg is hatched, a popup will appear */}
-      {newFloof && <EggHatchAlert newFloof={newFloof}/>}
+      {newFloof && <EggHatchAlert newFloof={newFloof} />}
 
       <Egg />
 
@@ -61,9 +61,9 @@ function Homepage() {
       &nbsp;
       <button onClick={addFloof}> add floof</button>
 
-      {/* <div className="homepageNav"> */}
+      <div className='homepageSelected'>
         <Nav />
-      {/* </div> */}
+      </div>
 
     </div >
   );

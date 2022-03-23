@@ -33,16 +33,9 @@ export default function FlockPage() {
                 {flock.map((floof, i) => {
                     return <FlockItem key={floof.id} index={i} floof={floof} />
                 })}
-                {/* <div> */}
-                    {/* <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ mt: 5 }}
-                    >
-                    </Button> */}
-                {/* </div> */}
+            <div className ='flockPageSelected'>
                 <Nav />
+            </div>
             </div>
         </div>
     )
