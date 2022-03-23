@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { ReleaseNotification } from '../../index.js'
+import { ReleaseNotification, Nav } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -88,7 +88,7 @@ export default function FloofProfile() {
 
                     <Card sx={{
                         maxWidth: 500,
-                        opacity: 0.9,
+                        opacity: 0.95,
                         mt: 5
                         // backgroundColor: 'transparent',
                     }}>
@@ -114,13 +114,6 @@ export default function FloofProfile() {
                 </center>
                 <div className="buttons">
                     <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ m: 1 }}
-                    >
-                    </Button>
-                    <Button
                         variant="contained"
                         onClick={rename}
                         sx={{ m: 1 }}
@@ -128,6 +121,8 @@ export default function FloofProfile() {
                         Rename
                     </Button>
                     <ReleaseNotification id={id} />
+
+                    <Nav />
                 </div>
             </div>
         </div>
