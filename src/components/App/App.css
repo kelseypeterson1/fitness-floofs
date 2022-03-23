@@ -110,3 +110,14 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* --------------------------------------------------------------------------------
+Homepage
+-------------------------------------------------------------------------------- */
+
+.homepageNav {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
