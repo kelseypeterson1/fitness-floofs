@@ -114,13 +114,6 @@ export default function FloofProfile() {
                 </center>
                 <div className="buttons">
                     <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ m: 1 }}
-                    >
-                    </Button>
-                    <Button
                         variant="contained"
                         onClick={rename}
                         sx={{ m: 1 }}
