@@ -67,13 +67,13 @@ export default function FloofProfile() {
         //initialize dates with Date object
         const date1 = new Date(start);
         const date2 = new Date(last);
-    
+
         // calculation for converting a day into milliseconds
         const oneDay = 1000 * 60 * 60 * 24;
-    
+
         // calculation for the time difference between start and last
         const diffTime = date2.getTime() - date1.getTime();
-    
+
         // calculation for the days between start and last
         const diffDays = Math.round(diffTime / oneDay);
         // return number of days
@@ -81,7 +81,7 @@ export default function FloofProfile() {
     }
     const age = getDays(floof.birthday, fullDate)
 
-    
+
     return (
         <div className="background">
             <div className="floofProfile">
@@ -98,20 +98,14 @@ export default function FloofProfile() {
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
-                            <div className="noWrap"><h2>Name: {floof.name}</h2><RenameFloof /></div> 
+                            <div className="noWrap"><h2>Name: {floof.name}</h2><RenameFloof /></div>
                             <h2>Age: {age} days</h2>
                             <h2>Personality: {floof.personality}</h2>
+                            <ReleaseNotification id={id} />
                         </CardContent>
                     </Card>
                 </center>
-                <div className="buttons">
-
-
-
-                    <ReleaseNotification id={id} />
-
                     <Nav />
-                </div>
             </div>
         </div>
     )
