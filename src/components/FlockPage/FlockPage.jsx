@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { FlockItem } from '../../index.js'
+import { FlockItem, Nav } from '../../index.js'
 
 
 export default function FlockPage() {
@@ -33,15 +33,16 @@ export default function FlockPage() {
                 {flock.map((floof, i) => {
                     return <FlockItem key={floof.id} index={i} floof={floof} />
                 })}
-                <div>
-                    <Button
+                {/* <div> */}
+                    {/* <Button
                         startIcon={<ArrowBackIcon />}
                         variant="contained"
                         onClick={backButton}
                         sx={{ mt: 5 }}
                     >
-                    </Button>
-                </div>
+                    </Button> */}
+                {/* </div> */}
+                <Nav />
             </div>
         </div>
     )
