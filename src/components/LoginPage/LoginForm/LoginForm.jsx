@@ -43,11 +43,12 @@ function LoginForm() {
           <label htmlFor="username">
             <TextField
               id="username"
-              variant="outlined"
+              variant="filled"
               required
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               type="text"
+              style={{  }}
             />
             <br/>
             Username:
@@ -59,7 +60,7 @@ function LoginForm() {
           <label htmlFor="password">
             <TextField
               id="password"
-              variant="outlined"
+              variant="filled"
               type="password"
               required
               value={password}

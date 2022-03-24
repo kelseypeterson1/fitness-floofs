@@ -98,7 +98,7 @@ export default function FloofProfile() {
 
                         <center>
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
-                            <h1>{floofs[floof.floof_id - 1] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
+                            <div className="floofType"><h1>{floofs[floof.floof_id - 1] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1></div>
                             <img className="floofProfilePic" src={imageUrl} />
                         </center>
                         <div className="noWrap">
