@@ -28,7 +28,7 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form onSubmit={login} className='loginForm'>
+    <form onSubmit={login} className="loginForm">
       <center>
 
         <h2>Login</h2>
