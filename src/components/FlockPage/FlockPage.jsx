@@ -1,18 +1,16 @@
 import './FlockPage.css'
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FlockItem, Nav } from '../../index.js'
 
 
 export default function FlockPage() {
-    const history = useHistory();
     const user = useSelector((store) => store.user);
     const flock = useSelector((store) => store.flock);
     const dispatch = useDispatch();
-    const prevNav = '/homepage'
 
     
     useEffect(() => {
@@ -20,9 +18,6 @@ export default function FlockPage() {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
     }, []);
 
-    const backButton = (event) => {
-        history.push('/homepage');
-    }
     return (
 
         <div className="flockPage">
