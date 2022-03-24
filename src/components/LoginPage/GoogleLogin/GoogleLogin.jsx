@@ -1,17 +1,33 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Header, Nav } from '../../../index.js'
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 export default function GoogleLogin() {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
 
-    const handleClick = (event) => {
+    // Dialog box functions
+    const [open, setOpen] = React.useState(true);
+    const handleClose = () => {
+        setOpen(false);
+        dispatch({ type: 'CLEAR_NEW_FLOOF' });
         dispatch({ type: 'FETCH_STEPS', payload: user });
         dispatch({ type: 'FETCH_EGG', payload: user });
-        history.push('/homepage');
-    };
+        history.push('/homepage')
+    }; // END dialog box functions
+
 
     // get current date
     const date = new Date();
@@ -23,13 +39,34 @@ export default function GoogleLogin() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_GOOGLE_DATA' });
-        dispatch({ type: 'CHECK_DATE', payload: {date: fullDate, user}})
+        dispatch({ type: 'CHECK_DATE', payload: { date: fullDate, user } })
     }, []);
 
     return (
-        <button onClick={handleClick}>
-            Google data retrieved!
-        </button>
+        <div className="homepage">
+
+            <Header />
+
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle sx={{ height: 300, width: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="welcome-alert">
+                    <center>
+                        <h2>
+                            Welcome back {user.username}!
+                        </h2>
+                    </center>
+                </DialogTitle>
+            </Dialog>
+
+            <div className='homepageSelected'>
+                <Nav />
+            </div>
+
+        </div>
     )
 
 }
