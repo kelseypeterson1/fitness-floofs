@@ -59,7 +59,7 @@ router.get('/steps', async (req, res) => {
     const tokens = await oauth2Client.getToken(code);
     // console.log(tokens)
     
-    res.send('Google Login Confirmed');
+    res.send('<h1>Google Login Confirmed</h1><script>setTimeout(function() {window.close()}, 5000)</script>');
     
     let stepArray = [];
     
