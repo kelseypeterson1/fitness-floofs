@@ -44,6 +44,33 @@ router.get('/:id', (req, res) => {
     })
 }) // END PUT Route
 
+// PUT route - randomize personality for floof
+ router.put('/randomize/:id', (req, res) => {
+  console.log('req.body in PUT request is', req.body);
+
+  let idToUpdate = req.params.id;
+  console.log('idToUpdate is', idToUpdate);
+
+  let newPersonality = req.body.newPersonality;
+  console.log('newPersonality is', newPersonality);
+  
+  let sqlText = `
+      UPDATE "flock"
+      SET "personality" = $2
+      WHERE id = $1;
+  `
+  let sqlValues = [idToUpdate, newPersonality];
+
+  pool.query(sqlText, sqlValues)
+    .then(result => {
+      console.log('database processed PUT request', result)
+      res.sendStatus(200);
+    }).catch(err => {
+      console.log('database was not updated for PUT request', err)
+      res.sendStatus(500);
+    })
+}) // END PUT Route
+
 // DELETE route - releasing floof
 router.delete('/:id', (req, res) => {
   let reqId = req.params.id;

@@ -9,7 +9,10 @@ export default function Egg() {
 
     return(
         <div className="dailyEggContainer">
-            <img className="dailyEggImage" alt="daily egg" src={eggUrl} />
+            {egg.status == 3 
+                ? <img className="dailyEggImageCracked" alt="daily egg" src={eggUrl} />
+                : <img className="dailyEggImage" alt="daily egg" src={eggUrl} />
+            }
         </div>
     )
 }

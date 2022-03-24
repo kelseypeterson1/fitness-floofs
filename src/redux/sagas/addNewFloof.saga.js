@@ -2,26 +2,31 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* addNewFloof(action) {
-
+    
     try {
-
+        console.log('in addNewFloof')
+        // fetching flock data
+        const flockData = yield axios.get(`/flock/${action.payload.id}`)
+        const flock = flockData.data
+        // yield put({ type: 'SET_FLOCK', payload: flock.data });
+        
         // randomly generating new personality
         const traits = yield axios.get(`/traits`)
-        const personalityId = Math.floor(Math.random() * 90)
+        const personalityId = Math.floor(Math.random() * 72)
         const personality = yield (traits.data[personalityId].trait)
-
+        
         // randomly generating new name
-        const nameId = Math.floor(Math.random() * 49) + 89
+        const nameId = Math.floor(Math.random() * 49) + 71
         const name = yield (traits.data[nameId].trait)
-
+        
         // get current date
         const date = new Date();
-        const year = date.getFullYear() * 1e4; 
-        const month = (date.getMonth() + 1) * 100; 
-        const day = date.getDate(); 
+        const year = date.getFullYear() * 1e4;
+        const month = (date.getMonth() + 1) * 100;
+        const day = date.getDate();
         const fullDateUnformatted = (year + month + day + '')
         const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
-
+        
         // putting together new floof properties
         const user = action.payload
         const egg = yield axios.get(`/egg/${user.id}`)
@@ -33,20 +38,32 @@ function* addNewFloof(action) {
             personality: personality,
             birthday: fullDate
         }
-
+        
+        
         // posting to server and returning with id
         const id = yield axios.post(`/flock`, newFloof);
+        
+        // figuring out if that floof type already exists in the database
+        let conflict = false;
+        for (let floof of flock) {
+            console.log('floof match', newFloof.floof_id, floof.floof_id)
+            if (newFloof.floof_id === floof.floof_id) {
+                conflict = true;
+            }
+        }
+        console.log('conflict is', conflict)
 
-        // adding id from db to new floof object before sending it to reducer
+        // adding id from db and conflict status to new floof object before sending it to reducer
         const newFloofData = yield {
             id: id.data[0].id,
             floof_id: newFloofId.data[0].id,
             user_id: user.id,
             name: name,
             personality: personality,
-            birthday: fullDate
+            birthday: fullDate,
+            conflict: conflict
         }
-        yield put ({ type: 'SET_NEW_FLOOF', payload: newFloofData })
+        yield put({ type: 'SET_NEW_FLOOF', payload: newFloofData })
 
         // fetching flock data
         yield put({ type: 'FETCH_FLOCK', payload: user })

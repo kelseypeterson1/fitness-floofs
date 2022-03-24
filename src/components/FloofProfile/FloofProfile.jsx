@@ -6,11 +6,16 @@ import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { BackButton, ReleaseNotification } from '../../index.js'
+import { ReleaseNotification, Nav, RenameFloof, RandomizePersonality } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
@@ -18,16 +23,12 @@ export default function FloofProfile() {
 
     const history = useHistory();
     const { id } = useParams();
-    const flock = useSelector(store => store.flock);
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
     const floof = useSelector((store) => store.selectedFloof);
-    // const [floof, setFloof] = useState({ id: 1, name: 'placeholder', floof_id: 1 });
     const [newName, setNewName] = useState('');
     const imageUrl = `images/floofs/floof${floof.floof_id}.png`;
-    const prevNav = '/flock'
-
 
     useEffect(() => {
         dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
@@ -66,13 +67,13 @@ export default function FloofProfile() {
         //initialize dates with Date object
         const date1 = new Date(start);
         const date2 = new Date(last);
-    
+
         // calculation for converting a day into milliseconds
         const oneDay = 1000 * 60 * 60 * 24;
-    
+
         // calculation for the time difference between start and last
         const diffTime = date2.getTime() - date1.getTime();
-    
+
         // calculation for the days between start and last
         const diffDays = Math.round(diffTime / oneDay);
         // return number of days
@@ -80,55 +81,42 @@ export default function FloofProfile() {
     }
     const age = getDays(floof.birthday, fullDate)
 
-    
+
     return (
         <div className="background">
             <div className="floofProfile">
-                <center>
 
-                    <Card sx={{
-                        maxWidth: 500,
-                        opacity: 0.9,
-                        mt: 5
-                        // backgroundColor: 'transparent',
-                    }}>
-                        <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
+                <Card sx={{
+                    width: 300,
+                    opacity: 0.95,
+                    mt: 5
+                    // backgroundColor: 'transparent',
+                }}>
+                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
 
+                        <center>
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
-                            <h2>Name: {floof.name}</h2>
-                            <h2>Age: {age} days</h2>
-                            <h2>Personality: {floof.personality}</h2>
+                        </center>
+                        <div className="noWrap">
+                            <h3>Name: {floof.name}</h3>
+                            <RenameFloof />
+                        </div>
+                        <div className="noWrap">
+                            <h3>Age: {age} {age === 1 ? 'day' : 'days'}</h3>
+                        </div>
+                        <div className="noWrap">
+                            <h3>Personality: {floof.personality}</h3>
+                            <RandomizePersonality />
+                        </div>
+                        <center>
+                            <ReleaseNotification id={id} />
+                        </center>
+                    </CardContent>
+                </Card>
 
-                            <TextField
-                                id="new-name"
-                                required
-                                label="New name"
-                                variant="standard"
-                                value={newName}
-                                onChange={(event) => setNewName(event.target.value)}
-                            />
-                        </CardContent>
-                    </Card>
-                </center>
-                <div className="buttons">
-                    <Button
-                        startIcon={<ArrowBackIcon />}
-                        variant="contained"
-                        onClick={backButton}
-                        sx={{ m: 1 }}
-                    >
-                    </Button>
-                    <Button
-                        variant="contained"
-                        onClick={rename}
-                        sx={{ m: 1 }}
-                    >
-                        Rename
-                    </Button>
-                    <ReleaseNotification id={id} />
-                </div>
+                <Nav />
             </div>
         </div>
     )
