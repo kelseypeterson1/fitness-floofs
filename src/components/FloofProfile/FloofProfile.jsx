@@ -80,7 +80,9 @@ export default function FloofProfile() {
         return diffDays;
     }
     const age = getDays(floof.birthday, fullDate)
-
+    console.log('floofs are', floofs)
+    console.log('floof is', floof)
+    console.log('floof from floofs targeted is', floofs[floof.floof_id - 1])
 
     return (
         <div className="background">
@@ -96,7 +98,7 @@ export default function FloofProfile() {
 
                         <center>
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
-                            <h1>{floofs[floof.floof_id] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
+                            <h1>{floofs[floof.floof_id - 1] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1>
                             <img className="floofProfilePic" src={imageUrl} />
                         </center>
                         <div className="noWrap">
