@@ -14,7 +14,10 @@ function Nav() {
   const history = useHistory();
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
-    history.push('/');
+  }
+  
+  if (user === {}) {
+    history.push('/login');
   }
 
   return (
