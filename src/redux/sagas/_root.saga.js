@@ -14,6 +14,7 @@ import updateEggStatusSaga from './updateEggStatus.saga';
 import addNewFloofSaga from './addNewFloof.saga';
 import checkDateSaga from './checkDate.saga';
 import updateEggTypeSaga from './updateEggType.saga';
+import randomizePersonalitySaga from './randomizePersonality.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -39,5 +40,6 @@ export default function* rootSaga() {
     addNewFloofSaga(),
     checkDateSaga(),
     updateEggTypeSaga(),
+    randomizePersonalitySaga(),
   ]);
 }

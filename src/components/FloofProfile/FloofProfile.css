@@ -2,21 +2,17 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .background {
-    /* display: flex;
-    justify-content: center;
-    flex-direction: column; */
     background-image: url('../../../public/images/backgrounds/homepage-background.png');
     top: 0;
     left: 0;
     position: fixed;
     width: 100%;
     height: 100%;
-    /* color: white; */
 }
 
 .floofProfilePic {
@@ -46,10 +42,11 @@
     /* 100% { transform: scale(1,1)    translateY(0); } */
 }
 
-.buttons {
+.noWrap {
+    white-space: nowrap ;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: space-evenly;
-    margin-top: 10px;
-}
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4px;
+    margin-bottom: 0px;
+  }

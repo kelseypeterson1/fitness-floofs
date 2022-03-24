@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { EggHatchAlert, LogOutButton, Egg, StepCounter, GoogleAuth, Nav, Header, GoogleApi } from '../../index.js'
+import { EggHatchAlert, Egg, StepCounter, Nav, Header, GoogleApi } from '../../index.js'
 import './Homepage.css'
 
 
@@ -50,7 +50,7 @@ function Homepage() {
       <Header />
 
       {/* If new egg is hatched, a popup will appear */}
-      {newFloof && <EggHatchAlert newFloof={newFloof}/>}
+      {newFloof && <EggHatchAlert newFloof={newFloof} />}
 
       <Egg />
 
@@ -59,12 +59,12 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
+      <button onClick={addFloof}> add floof</button>
 
-      <div className="homepageNav">
+      <div className='homepageSelected'>
         <Nav />
       </div>
 
-      <button onClick={addFloof}> add floof</button>
     </div >
   );
 }
