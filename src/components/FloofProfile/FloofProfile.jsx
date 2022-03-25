@@ -112,6 +112,7 @@ export default function FloofProfile() {
                             <h3>Personality: {floof.personality}</h3>
                             <RandomizePersonality />
                         </div>
+                        <h3>Income: <img className="coinImage" src="images/coin.png" />{floof.income}</h3>
                         <center>
                             <ReleaseNotification id={id} />
                         </center>
