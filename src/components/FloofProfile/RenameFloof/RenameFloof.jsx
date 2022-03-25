@@ -66,6 +66,7 @@ export default function RenameFloof() {
                         fullWidth
                         variant="standard"
                         value={newName}
+                        autoComplete="off"
                         onChange={(event) => setNewName(event.target.value)}
                     />
                 </DialogContent>

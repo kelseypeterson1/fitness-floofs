@@ -50,6 +50,7 @@ function LoginForm() {
               type="text"
               placeholder="username"
               className="inputField"
+              autoComplete="off"
               />
             <br/>
           </label>
@@ -67,6 +68,7 @@ function LoginForm() {
               placeholder="password"
               onChange={(event) => setPassword(event.target.value)}
               className="inputField"
+              autoComplete="off"
             />
             <br />
           </label>
