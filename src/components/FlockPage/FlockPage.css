@@ -9,10 +9,10 @@
 
 .flockPageSelected {
     border: 4px solid darkgray;
-    width: 33%;
+    width: 24%;
     height: 52px;
     position: fixed;
-    left: 200;
+    left: 95px;
     bottom: 0;
     background-color: black;
   }

@@ -28,7 +28,7 @@ export { default as EggHatchAlert } from './components/Homepage/EggHatchAlert/Eg
 export { default as EggHatchConflictAlert } from './components/Homepage/EggHatchConflictAlert/EggHatchConflictAlert'
 export { default as RenameFloof } from './components/FloofProfile/RenameFloof/RenameFloof'
 export { default as RandomizePersonality } from './components/FloofProfile/RandomizePersonality/RandomizePersonality'
-// export { default as  } from './components//'
+export { default as Shop } from './components/Shop/Shop'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
 

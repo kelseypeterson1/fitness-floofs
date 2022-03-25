@@ -7,6 +7,7 @@ import LandscapeIcon from '@mui/icons-material/Landscape';
 import { useDispatch } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useHistory } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -32,6 +33,11 @@ function Nav() {
       <div className='navBarOption'>
         <Link to="/flock" style={{ textDecoration: 'none', color: 'black' }}>
           <LandscapeIcon style={{ fontSize: 40 }} />
+        </Link>
+      </div>
+      <div className='navBarOption'>
+        <Link to="/Shop" style={{ textDecoration: 'none', color: 'black' }}>
+          <ShoppingCartIcon style={{ fontSize: 40 }} />
         </Link>
       </div>
       <div 
