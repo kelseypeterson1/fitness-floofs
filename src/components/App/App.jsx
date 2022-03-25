@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { GoogleLogin, Shop, AboutPage, FloofProfile, FlockPage, Homepage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
+import { GoogleLogin, Shop, AboutPage, FloofProfile, FlockPage, Homepage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
 import './App.css';
 
 function App() {
@@ -108,8 +108,8 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/user" />
               :
-              // Otherwise, show the Landing page
-              <LandingPage />
+              // Otherwise, show the Login page
+              <LoginPage />
             }
           </Route>
 
@@ -118,7 +118,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
