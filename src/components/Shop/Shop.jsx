@@ -28,7 +28,7 @@ export default function Shop() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_COINS', payload: user });
-      }, []);
+    }, []);
 
     return (
         <div className="shopBackground">
@@ -49,8 +49,8 @@ export default function Shop() {
 
                     <div className="shopContents">
                         <div className="shopImagesRow1">
-                            <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png"/>
-                            <img border="2px" className="cardImage eggImage" src="images/eggs/egg-11-1.png"/>
+                            <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png" />
+                            <img border="2px" className="cardImage eggImage" src="images/eggs/egg-11-1.png" />
                         </div>
 
                         <div className="shopDescriptionRow1">
@@ -58,30 +58,34 @@ export default function Shop() {
                             <h5>x2 Rarity Chance</h5>
                         </div>
                         <div className="shopDescriptionRow1">
-                            <h5>100g</h5>
-                            <h5>20g</h5>
+                            <div>
+                                <img src="images/coin.png" /> 100
+                            </div>
+                            <div>
+                                <img src="images/coin.png" /> 20
+                            </div>
                         </div>
                         <div className="shopDescriptionRow1">
                             <Button
                                 variant="contained"
                                 type="submit"
                                 name="submit"
-                                sx={{ backgroundColor: "skyblue", color: "black" }}
+                                sx={{ backgroundColor: "skyblue", color: "black", mt: 2 }}
                             >
-                                Buy
+                                buy
                             </Button>
                             <Button
                                 variant="contained"
                                 type="submit"
                                 name="submit"
-                                sx={{ backgroundColor: "skyblue", color: "black" }}
+                                sx={{ backgroundColor: "skyblue", color: "black", mt: 2 }}
                             >
-                                Buy
+                                buy
                             </Button>
                         </div>
 
                         <div className="coinBalance">
-                            <img src="images/coin.png"/>
+                            <img src="images/coin.png" />
                             {coins.coins}
                         </div>
                     </div>
