@@ -67,7 +67,7 @@ export default function EggHatchAlert({ newFloof }) {
             >
 
                 <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
-                    <h2>Your egg hatched!</h2>
+                    <div className="eggHatchHeader">Your egg hatched!</div>
                 </DialogTitle>
                 <DialogContent>
                     <center>
@@ -80,11 +80,11 @@ export default function EggHatchAlert({ newFloof }) {
                 </DialogContent>
 
                 <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
-                    <Button variant='contained' onClick={addToFlock} autoFocus>
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={addToFlock} autoFocus>
                         Add to flock
                     </Button>
                     &nbsp;
-                    <Button variant='contained' onClick={release} autoFocus>
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={release} autoFocus>
                         Release
                     </Button>
                 </DialogActions>
