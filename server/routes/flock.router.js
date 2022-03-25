@@ -93,9 +93,9 @@ router.post('/', (req, res) => {
   console.log(`Adding new floof`, newFloof);
 
   let queryText = `INSERT INTO "flock" ("floof_id", "user_id", "name", "personality", "birthday", "income") 
-  VALUES ($1, $2, $3, $4, $5, 0) RETURNING "id";`;
+  VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id";`;
 
-  pool.query(queryText, [newFloof.floof_id, newFloof.user_id, newFloof.name, newFloof.personality, newFloof.birthday])
+  pool.query(queryText, [newFloof.floof_id, newFloof.user_id, newFloof.name, newFloof.personality, newFloof.birthday, newFloof.income])
     .then(result => {
       res.send(result.rows)
     })

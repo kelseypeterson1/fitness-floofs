@@ -8,8 +8,12 @@ function* addNewFloof(action) {
         // fetching flock data
         const flockData = yield axios.get(`/flock/${action.payload.id}`)
         const flock = flockData.data
-        // yield put({ type: 'SET_FLOCK', payload: flock.data });
         
+        // putting together new floof properties
+        const user = action.payload
+        const egg = yield axios.get(`/egg/${user.id}`)
+        const newFloofId = yield axios.get(`/egg-to-floof/${egg.data[0].egg_id}`)
+
         // randomly generating new personality
         const traits = yield axios.get(`/traits`)
         const personalityId = Math.floor(Math.random() * 72)
@@ -27,16 +31,31 @@ function* addNewFloof(action) {
         const fullDateUnformatted = (year + month + day + '')
         const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
         
-        // putting together new floof properties
-        const user = action.payload
-        const egg = yield axios.get(`/egg/${user.id}`)
-        const newFloofId = yield axios.get(`/egg-to-floof/${egg.data[0].egg_id}`)
+        // randomizing income
+        let income = 0;
+        // if new floof has a rarity of 1
+        // income is between 1-2
+        if(newFloofId.data[0].id < 5) {
+            income = Math.floor(Math.random() * 2) + 1
+            // if new floof has a rarity of 2
+            // income is between 3-5
+        } else if (newFloofId.data[0].id < 10) {
+            income = Math.floor(Math.random() * 3) + 3
+            // if new floof has a rarity of 3
+            // income is between 6-10
+        } else {
+            income = Math.floor(Math.random() * 5) + 6
+        }
+        yield console.log('income is', income)
+
+        // grouping floof properties into an object
         const newFloof = yield {
             floof_id: newFloofId.data[0].id,
             user_id: user.id,
             name: name,
             personality: personality,
-            birthday: fullDate
+            birthday: fullDate,
+            income: income
         }
         
         
@@ -61,6 +80,7 @@ function* addNewFloof(action) {
             name: name,
             personality: personality,
             birthday: fullDate,
+            income: income,
             conflict: conflict
         }
         yield put({ type: 'SET_NEW_FLOOF', payload: newFloofData })

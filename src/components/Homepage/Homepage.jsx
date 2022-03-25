@@ -38,6 +38,7 @@ function Homepage() {
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
     dispatch({ type: 'FETCH_FLOOFS', payload: user });
+    dispatch({ type: 'FETCH_COINS', payload: user });
   }, []);
 
   const addFloof = () => {
@@ -59,7 +60,7 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
-      {/* <button onClick={addFloof}> add floof</button> */}
+      <button onClick={addFloof}> add floof</button>
 
       <div className='homepageSelected'>
         <Nav />
