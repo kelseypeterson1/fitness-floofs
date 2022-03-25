@@ -6,12 +6,10 @@ import store from './redux/store';
 
 import App from './components/App/App';
 
-export { default as AboutPage } from './components/TemplateFunction/AboutPage/AboutPage'
 export { default as App } from './components/App/App'
 export { default as Footer } from './components/Footer/Footer'
 export { default as Header } from './components/Header/Header'
 export { default as Homepage } from './components/Homepage/Homepage'
-export { default as InfoPage } from './components/TemplateFunction/InfoPage/InfoPage'
 export { default as LandingPage } from './components/LandingPage/LandingPage'
 export { default as LoginForm } from './components/LoginPage/LoginForm/LoginForm'
 export { default as LoginPage } from './components/LoginPage/LoginPage'

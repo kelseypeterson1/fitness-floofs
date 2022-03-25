@@ -6,10 +6,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import { useDispatch } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useHistory } from 'react-router-dom';
 
 function Nav() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const logout = () => {
+    dispatch({ type: 'LOGOUT' });
+    history.push('/login')
+  }
+  
+  if (user === {}) {
+    history.push('/login');
+  }
 
   return (
 
@@ -26,7 +36,8 @@ function Nav() {
       </div>
       <div 
         className='navBarOption'
-        onClick={() => dispatch({ type: 'LOGOUT' })}
+        onClick={logout}
+
       >
         <LogoutIcon />
       </div>

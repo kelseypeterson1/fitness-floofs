@@ -30,17 +30,19 @@ export default function EggHatchAlert({ newFloof }) {
         setOpen(false);
         dispatch({ type: 'CLEAR_NEW_FLOOF' });
     }; // END dialog box functions
-    
+
 
     useEffect(() => {
         handleClickOpen();
     }, []);
 
     const release = () => {
-        dispatch({ type: 'DELETE_FLOOF', payload: {
-            id: newFloof.id,
-            user: user
-        }})
+        dispatch({
+            type: 'DELETE_FLOOF', payload: {
+                id: newFloof.id,
+                user: user
+            }
+        })
         setOpen(false);
     }
 
@@ -49,46 +51,45 @@ export default function EggHatchAlert({ newFloof }) {
         dispatch({ type: 'CLEAR_NEW_FLOOF' })
     }
 
-    console.log('flock is', flock)
-    for (let floof of flock) {
-        console.log('floof match', newFloof.floof_id, floof.floof_id)
-        if (newFloof.floof_id === floof.floof_id) {
+    console.log('new floof is', newFloof)
+    if (newFloof.conflict === true) {
+        for(let floof of flock)
+        // if floof is not the newFloof
+        {if (floof.id != newFloof.id && floof.floof_id == newFloof.floof_id) 
             return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
         }
+    } else {
+        return (
+            < Dialog
+                open={open}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+
+                <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
+                    <div className="eggHatchHeader">Your egg hatched!</div>
+                </DialogTitle>
+                <DialogContent>
+                    <center>
+
+                        <h2>{floofs[floofId].type} Floof</h2>
+                        <img className="floofProfilePic" src={imageUrl} />
+                        <h3>Name: {newFloof.name}</h3>
+                        <h3>Personality: {newFloof.personality}</h3>
+                    </center>
+                </DialogContent>
+
+                <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={addToFlock} autoFocus>
+                        Add to flock
+                    </Button>
+                    &nbsp;
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={release} autoFocus>
+                        Release
+                    </Button>
+                </DialogActions>
+
+            </Dialog>
+        )
     }
-
-    console.log('matches or no?', newFloof.floof_id, flock[11].floof_id)
-
-    return (
-        < Dialog
-            open={open}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-        >
-
-            <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
-                <h2>Your egg hatched!</h2>
-            </DialogTitle>
-            <DialogContent>
-                <center>
-
-                    <h2>{floofs[floofId].type} Floof</h2>
-                    <img className="floofProfilePic" src={imageUrl} />
-                    <h3>Name: {newFloof.name}</h3>
-                    <h3>Personality: {newFloof.personality}</h3>
-                </center>
-            </DialogContent>
-
-            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
-                <Button variant='contained' onClick={addToFlock} autoFocus>
-                    Add to flock
-                </Button>
-                &nbsp;
-                <Button variant='contained' onClick={release} autoFocus>
-                    Release
-                </Button>
-            </DialogActions>
-
-        </Dialog>
-    )
 }
