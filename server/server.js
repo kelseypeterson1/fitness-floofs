@@ -16,6 +16,7 @@ const flockRouter = require('./routes/flock.router');
 const floofsRouter = require('./routes/floofs.router');
 const eggToFloofRouter = require('./routes/eggToFloof.router');
 const traits = require('./routes/traits.router');
+const coins = require('./routes/coins.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -40,6 +41,7 @@ app.use('/flock', flockRouter);
 app.use('/floofs', floofsRouter);
 app.use('/egg-to-floof', eggToFloofRouter);
 app.use('/traits', traits);
+app.use('/coins', coins);
 
 // Serve static files
 app.use(express.static('build'));

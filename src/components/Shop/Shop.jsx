@@ -1,7 +1,7 @@
 import './Shop.css'
-import * as React from 'react';
+// import * as React from 'react';
 import { Nav } from '../../index.js'
-// import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
@@ -21,11 +21,18 @@ import CardMedia from '@mui/material/CardMedia';
 
 
 export default function Shop() {
+
+    const user = useSelector((store) => store.user);
+    const coins = useSelector((store) => store.coins)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_COINS', payload: user });
+      }, []);
+
     return (
         <div className="shopBackground">
             <div className="withinShop">
-
-
                 <Box
                     sx={{
                         width: 300,
@@ -42,8 +49,8 @@ export default function Shop() {
 
                     <div className="shopContents">
                         <div className="shopImagesRow1">
-                            <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png"></img>
-                            <img border="2px" className="cardImage eggImage" src="images/eggs/egg-11-1.png"></img>
+                            <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png"/>
+                            <img border="2px" className="cardImage eggImage" src="images/eggs/egg-11-1.png"/>
                         </div>
 
                         <div className="shopDescriptionRow1">
@@ -59,7 +66,7 @@ export default function Shop() {
                                 variant="contained"
                                 type="submit"
                                 name="submit"
-                                sx={{ backgroundColor: "black", opacity: .9 }}
+                                sx={{ backgroundColor: "skyblue", color: "black" }}
                             >
                                 Buy
                             </Button>
@@ -67,10 +74,15 @@ export default function Shop() {
                                 variant="contained"
                                 type="submit"
                                 name="submit"
-                                sx={{ backgroundColor: "black", opacity: .9 }}
+                                sx={{ backgroundColor: "skyblue", color: "black" }}
                             >
                                 Buy
                             </Button>
+                        </div>
+
+                        <div className="coinBalance">
+                            <img src="images/coin.png"/>
+                            {coins.coins}
                         </div>
                     </div>
                 </Box>
