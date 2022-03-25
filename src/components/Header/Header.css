@@ -1,7 +1,11 @@
 .header {
+    font-family: 'Fugaz One', cursive;
     text-align: center;
-    font-size: 64px;
-    padding: 40px
+    font-size: 65px;
+    padding: 10px;
+    padding-top: 40px;
+    color: black;
+    text-shadow: 2px 2px gray;
 }
 
 img {

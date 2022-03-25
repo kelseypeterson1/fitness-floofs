@@ -63,12 +63,17 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             open={open}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-        // sx={{mr: 0, pr: 0 }}
         >
 
-            <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }} id="egg-hatch-alert">
+            <DialogTitle 
+                sx={{ display: 'flex',
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                flexDirection: 'column' }} 
+                id="egg-hatch-alert"
+            >
                 <center>
-                    <h2>Your egg hatched!</h2>
+                    <div className="eggHatchHeader">Your egg hatched!</div>
                     <h3>You already own a {floofs[floofId].type} floof</h3>
                 </center>
             </DialogTitle>
@@ -97,12 +102,12 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
                 </div>
             </DialogContent>
 
-            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row', mb: 4, ml: 1, mr: 1 }} >
-                <Button variant='contained' onClick={keepOriginal} autoFocus>
+            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row',  }} >
+                <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepOriginal} autoFocus>
                     Keep
                 </Button>
                 &nbsp;
-                <Button variant='contained' onClick={keepHatchling} autoFocus>
+                <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepHatchling} autoFocus>
                     Keep
                 </Button>
             </DialogActions>

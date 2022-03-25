@@ -23,7 +23,7 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form onSubmit={registerUser}>
+    <form onSubmit={registerUser} className="loginForm">
       <center>
         <h2>Register</h2>
         {errors.registrationMessage && (
@@ -34,23 +34,26 @@ function RegisterForm() {
         <div>
 
           <label htmlFor="username">
-            <TextField
+            <input
               id="username"
+              placeholder="username"
+              className="inputField"
               variant="outlined"
               type="text"
               value={username}
               required
               onChange={(event) => setUsername(event.target.value)}
             />
-            <br/>
-            Username:
+            <br />
           </label>
         </div>
-        <br/>
+        <br />
 
         <div>
           <label htmlFor="password">
-            <TextField
+            <input
+              placeholder="password"
+              className="inputField"
               id="password"
               variant="outlined"
               type="password"
@@ -58,17 +61,19 @@ function RegisterForm() {
               required
               onChange={(event) => setPassword(event.target.value)}
             />
-            <br/>
-            Password:
+            <br />
           </label>
         </div>
-        <br/>
+        <br />
 
         <div>
-          <Button variant="contained" className="btn" type="submit" name="submit">
-            To the
-            <br/>
-            Hatchery!
+          <Button
+            variant="contained"
+            type="submit"
+            name="submit"
+            sx={{ backgroundColor: "black", opacity: .9 }}
+          >
+            Register
           </Button>
         </div>
       </center>
