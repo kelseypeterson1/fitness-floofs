@@ -21,5 +21,33 @@
 
 .withinShop {
     text-align: center;
-    padding-top: 85px;
+    padding-top: 55px;
+}
+.shopContents {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.shopDescriptionRow1 {
+    display: flex;
+    flex-wrap: row;
+    justify-content: space-around;
+}
+
+.shopImagesRow1 {
+    display: flex;
+    flex-wrap: row;
+}
+
+.cardImage {
+    height: 150px;
+    width: 50%;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.eggImage {
+    height: 120px;
+    padding-bottom: 30px;
 }

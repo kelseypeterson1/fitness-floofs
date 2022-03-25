@@ -1,6 +1,7 @@
 import './Shop.css'
+import * as React from 'react';
 import { Nav } from '../../index.js'
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
@@ -16,32 +17,63 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import CardMedia from '@mui/material/CardMedia';
 
 
 export default function Shop() {
     return (
         <div className="shopBackground">
             <div className="withinShop">
-                {/* <center> */}
 
-                    <div>Shop</div>
-                {/* </center> */}
 
-                {/* <Card sx={{
-                    // width: 300,
-                    opacity: 0.95,
-                    m: 5,
-                    mt: 25
-                    // backgroundColor: 'transparent',
-                }}>
-                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
+                <Box
+                    sx={{
+                        width: 300,
+                        // height: 100,
+                        opacity: 0.95,
+                        m: 5,
+                        backgroundColor: 'white',
+                        // mt: 25
+                        // backgroundColor: 'transparent',
+                    }}
+                    borderRadius={5}
+                >
+                    <div className="header">Shop</div>
 
-                        <center>
-                            <h2>New landscape</h2>
-                            <h2>Double egg rarity chance</h2>
-                        </center>
-                    </CardContent>
-                </Card> */}
+                    <div className="shopContents">
+                        <div className="shopImagesRow1">
+                            <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png"></img>
+                            <img border="2px" className="cardImage eggImage" src="images/eggs/egg-11-1.png"></img>
+                        </div>
+
+                        <div className="shopDescriptionRow1">
+                            <h5>Winter Flock Page</h5>
+                            <h5>x2 Rarity Chance</h5>
+                        </div>
+                        <div className="shopDescriptionRow1">
+                            <h5>100g</h5>
+                            <h5>20g</h5>
+                        </div>
+                        <div className="shopDescriptionRow1">
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                name="submit"
+                                sx={{ backgroundColor: "black", opacity: .9 }}
+                            >
+                                Buy
+                            </Button>
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                name="submit"
+                                sx={{ backgroundColor: "black", opacity: .9 }}
+                            >
+                                Buy
+                            </Button>
+                        </div>
+                    </div>
+                </Box>
 
                 <div className="shopPageSelected">
                     <Nav />
