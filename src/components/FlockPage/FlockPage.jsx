@@ -1,6 +1,8 @@
 import './FlockPage.css'
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -15,7 +17,7 @@ export default function FlockPage() {
 
     const background = coins.background
 
-    
+
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
@@ -32,9 +34,15 @@ export default function FlockPage() {
                 {flock.map((floof, i) => {
                     return <FlockItem key={floof.id} index={i} floof={floof} />
                 })}
-            <div className ='flockPageSelected'>
-                <Nav />
-            </div>
+                <div>
+                        <h2 className="flockPageCoins">
+                            <img src="images/coin.png" />
+                            {coins.coins}
+                        </h2>
+                </div>
+                <div className='flockPageSelected'>
+                    <Nav />
+                </div>
             </div>
         </div>
     )
