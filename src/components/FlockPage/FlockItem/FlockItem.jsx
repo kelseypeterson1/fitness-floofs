@@ -47,7 +47,7 @@ export default function FlockItem(floofProp) {
         dispatch({
             type: 'FLOOF_PAYS', payload:
             {
-                id: floofProp.floof.id,
+                floof: floofProp.floof,
                 date: currentDate,
                 user: user
             }
