@@ -63,10 +63,15 @@ export default function FlockItem(floofProp) {
                     src={imageUrl}
                     onClick={handleClick}
                 />
-                <img
-                    className="animate__animated inner animate__flip animate__infinite"
-                    src="images/coin.png"
-                />
+
+                {/* coin conditionally renders if floof has not yet paid today */}
+                {
+                    paidDate != currentDate && 
+                    <img
+                        className="animate__animated inner animate__flip animate__infinite"
+                        src="images/coin.png"
+                    />
+                }
             </div>
         </div>
     )
