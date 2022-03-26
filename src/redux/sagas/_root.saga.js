@@ -17,6 +17,7 @@ import updateEggTypeSaga from './updateEggType.saga';
 import randomizePersonalitySaga from './randomizePersonality.saga';
 import getCoinsSaga from './getCoins.saga';
 import floofPaysSaga from './floofPays.saga';
+import payCoinsSaga from './payCoins.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -45,5 +46,6 @@ export default function* rootSaga() {
     randomizePersonalitySaga(),
     getCoinsSaga(),
     floofPaysSaga(),
+    payCoinsSaga(),
   ]);
 }

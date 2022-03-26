@@ -16,6 +16,15 @@ export default function Shop() {
     const coins = useSelector((store) => store.coins)
     const dispatch = useDispatch();
 
+    const buyWinterLandscape = () => {
+        dispatch({ type: 'PAY_COINS', payload: 
+            {
+                amount: 100,
+                user: user
+            }
+        })
+    }
+
     useEffect(() => {
         dispatch({ type: 'FETCH_COINS', payload: user });
     }, []);
@@ -61,6 +70,7 @@ export default function Shop() {
                                 type="submit"
                                 name="submit"
                                 sx={{ backgroundColor: "skyblue", color: "black", mt: 2 }}
+                                onClick={buyWinterLandscape}
                             >
                                 buy
                             </Button>
@@ -75,8 +85,7 @@ export default function Shop() {
                         </div>
 
                         <div className="coinBalance">
-                            <img src="images/coin.png" />
-                            {coins.coins}
+                            <img src="images/coin.png" /> {coins.coins}
                         </div>
                     </div>
                 </Box>
