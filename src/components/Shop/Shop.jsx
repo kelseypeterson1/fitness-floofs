@@ -14,6 +14,7 @@ export default function Shop() {
 
     const user = useSelector((store) => store.user);
     const coins = useSelector((store) => store.coins)
+    const boughtItems = useSelector((store) => store.boughtItems)
     const dispatch = useDispatch();
 
     const buyWinterLandscape = () => {
@@ -33,6 +34,7 @@ export default function Shop() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_COINS', payload: user });
+        dispatch({ type: 'FETCH_BOUGHT_ITEMS', payload: user });
     }, []);
 
     return (
