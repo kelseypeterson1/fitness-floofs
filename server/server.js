@@ -18,6 +18,7 @@ const eggToFloofRouter = require('./routes/eggToFloof.router');
 const traits = require('./routes/traits.router');
 const coins = require('./routes/coins.router');
 const income = require('./routes/income.router');
+const shop = require('./routes/shop.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -44,6 +45,7 @@ app.use('/egg-to-floof', eggToFloofRouter);
 app.use('/traits', traits);
 app.use('/coins', coins);
 app.use('/income', income);
+app.use('/shop', shop);
 
 // Serve static files
 app.use(express.static('build'));

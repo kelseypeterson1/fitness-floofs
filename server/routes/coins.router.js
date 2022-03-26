@@ -70,31 +70,4 @@ router.put('/pay/:id', (req, res) => {
     })
 }) // END PUT Route
 
-// PUT route - new background purchased - update flock background 
-router.put('/shop/:id', (req, res) => {
-  console.log('req.body in PUT request is', req.body);
-
-  let idToUpdate = req.params.id;
-  console.log('idToUpdate is', idToUpdate);
-
-  let landscape = req.body.landscape;
-  console.log('landscape is', landscape);
-  
-  let sqlText = `
-      UPDATE "coins"
-      SET "background" = $2
-      WHERE id = $1;
-  `
-  let sqlValues = [idToUpdate, landscape];
-
-  pool.query(sqlText, sqlValues)
-    .then(result => {
-      console.log('database processed PUT request', result)
-      res.sendStatus(200);
-    }).catch(err => {
-      console.log('database was not updated for PUT request', err)
-      res.sendStatus(500);
-    })
-}) // END PUT Route
-
 module.exports = router;

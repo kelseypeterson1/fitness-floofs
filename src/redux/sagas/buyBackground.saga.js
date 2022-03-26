@@ -1,12 +1,15 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* buyLandscape(action) {
+function* buyBackground(action) {
 
+    let background = action.payload.landscape 
 
     try {
         console.log('in axios landscape put, payload is', action.payload)
-        axios.put(`/coins/shop/${action.payload.user.id}`, { landscape: action.payload.landscape })
+        yield axios.put(`/shop/${action.payload.user.id}`, 
+            { text: `UPDATE "shop" SET "background${background}" = 'TRUE' WHERE id = $1;` }
+        )
         // yield put({ type: 'FETCH_FLOCK', payload: action.payload.user });
         // yield put({ type: 'FETCH_SELECTED_FLOOF', payload: action.payload.id })
     } catch {
@@ -14,9 +17,9 @@ function* buyLandscape(action) {
     }
 }
 
-function* buyLandscapeSaga() {
-    yield takeLatest('BUY_LANDSCAPE', buyLandscape)
+function* buyBackgroundSaga() {
+    yield takeLatest('BUY_LANDSCAPE', buyBackground)
 }
 
 
-export default buyLandscapeSaga;
+export default buyBackgroundSaga;
