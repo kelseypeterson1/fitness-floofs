@@ -25,4 +25,17 @@ router.put('/:id', (req, res) => {
         })
 }) // END PUT Route
 
+router.get('/:id', (req, res) => {
+    let userId = req.params.id;
+    const query = `SELECT * FROM "shop" WHERE "user_id" = $1;`;
+    pool.query(query, [userId])
+      .then(result => {
+        res.send(result.rows)
+      })
+      .catch(error => {
+        console.log(`Error getting shop items from DB`, error);
+        res.sendStatus(500);
+      });
+  });
+
 module.exports = router;

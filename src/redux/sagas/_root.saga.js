@@ -19,6 +19,7 @@ import getCoinsSaga from './getCoins.saga';
 import floofPaysSaga from './floofPays.saga';
 import payCoinsSaga from './payCoins.saga';
 import buyBackgroundSaga from './buyBackground.saga';
+import getBoughtItemsSaga from './getBoughtItems.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -49,5 +50,6 @@ export default function* rootSaga() {
     floofPaysSaga(),
     payCoinsSaga(),
     buyBackgroundSaga(),
+    getBoughtItemsSaga(),
   ]);
 }
