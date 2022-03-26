@@ -9,20 +9,36 @@ export default function FlockItem(floofProp) {
     const history = useHistory();
     const index = 'index' + floofProp.index
 
-    console.log('floofProp is', floofProp)
-    console.log('index is', index)
+    // removing time from "paid" date
+    const paidDate = floof.paid.split('T')[0];
 
-    // clicking the floof brings the user to their profile
+    // get current date
+    const date = new Date();
+    const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
+    const month = (date.getMonth() + 1) * 100; // months are numbered 0-11 in JavaScript, * 100 to move two digits to the left. 20210011 => 20211100
+    const day = date.getDate(); // 20211100 => 20211124
+    const fullDate = (year + month + day + '')
+    const currentDate = fullDate.slice(0, 4) + '-' + fullDate.slice(4, 6) + '-' + fullDate.slice(6)
+
+
+    console.log('floofProp is', floofProp);
+    console.log('index is', index);
+
     const handleClick = () => {
-        history.push(`/floof/${floof.id}`);
+        // if the floof has already given coins for the day
+        if(paidDate == currentDate) {
+            // clicking the floof brings the user to their profile
+            history.push(`/floof/${floof.id}`);
+        // else the floof pays up
+        } else
+            console.log('pay')
     }
 
     return (
         <div className="floof">
-            <img 
+            <img
                 className={[floofDiv, index].join(" ")}
-                // className={index}
-                src={imageUrl} 
+                src={imageUrl}
                 onClick={handleClick}
             />
         </div>
