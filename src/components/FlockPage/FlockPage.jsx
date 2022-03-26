@@ -22,7 +22,7 @@ export default function FlockPage() {
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_COINS', payload: user });
-    }, []);
+    }, [dispatch]);
 
     return (
 
@@ -32,7 +32,7 @@ export default function FlockPage() {
             </div>
             <div className="inField">
                 {flock.map((floof, i) => {
-                    return <FlockItem key={floof.id} index={i} floof={floof} />
+                    return <FlockItem key={floof.id} index={i} floof={floof} user={user} />
                 })}
                 <div>
                         <h2 className="flockPageCoins">
