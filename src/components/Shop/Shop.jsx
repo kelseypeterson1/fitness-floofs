@@ -8,16 +8,6 @@ import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import CardMedia from '@mui/material/CardMedia';
 
 
 export default function Shop() {
