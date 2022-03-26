@@ -1,7 +1,7 @@
 
 .inField {
     position: absolute;
-    bottom: 62px;
+    bottom: 160px;
     left: 0;
     top: 47%;
     display:flex;
@@ -13,7 +13,7 @@
 
 .floof {
     width: 28%;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     /* animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-name: bounce-5;
@@ -196,3 +196,15 @@
 .index10 {
     height: 90px;
 }
+
+.animate__flip {
+    --animate-duration: 2s;
+  }
+
+  .inner {
+    position: absolute;
+  }
+
+  .container {
+    position: relative;
+  }

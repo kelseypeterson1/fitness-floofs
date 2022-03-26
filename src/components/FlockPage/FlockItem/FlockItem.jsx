@@ -1,7 +1,9 @@
 import './FlockItem.css'
+// import './FlockItemCoin.css'
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import 'animate.css';
 
 export default function FlockItem(floofProp) {
     const dispatch = useDispatch();
@@ -11,10 +13,11 @@ export default function FlockItem(floofProp) {
     const history = useHistory();
     const index = 'index' + floofProp.index
     const user = useSelector((store) => store.user);
-    
+    const inner = 'inner'
+
     // removing time from "paid" date
     const paidDate = floof.paid.split('T')[0];
-    
+
     // get current date
     const date = new Date();
     const year = date.getFullYear() * 1e4; // 1e4 gives us the the other digits to be filled later, so 20210000.
@@ -22,8 +25,8 @@ export default function FlockItem(floofProp) {
     const day = date.getDate(); // 20211100 => 20211124
     const fullDate = (year + month + day + '')
     const currentDate = fullDate.slice(0, 4) + '-' + fullDate.slice(4, 6) + '-' + fullDate.slice(6)
-    
-    
+
+
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_COINS', payload: user });
@@ -41,24 +44,30 @@ export default function FlockItem(floofProp) {
             // else the floof pays up
         } else
             console.log('pay')
-            dispatch({
-                type: 'FLOOF_PAYS', payload:
-                {
-                    id: floofProp.floof.id,
-                    date: currentDate,
-                    user: user
-                }
+        dispatch({
+            type: 'FLOOF_PAYS', payload:
+            {
+                id: floofProp.floof.id,
+                date: currentDate,
+                user: user
+            }
         });
     }
 
 
     return (
         <div className="floof">
-            <img
-                className={[floofDiv, index].join(" ")}
-                src={imageUrl}
-                onClick={handleClick}
-            />
+            <div className="container">
+                <img
+                    className={[floofDiv, index, inner].join(" ")}
+                    src={imageUrl}
+                    onClick={handleClick}
+                />
+                <img
+                    className="animate__animated inner animate__flip animate__infinite"
+                    src="images/coin.png"
+                />
+            </div>
         </div>
     )
 }
