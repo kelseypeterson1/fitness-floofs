@@ -16,7 +16,7 @@
     height: 100%;
 }
 
-.flockBackground2 {
+.flockBackground3 {
     background-image: url('../../../public/images/backgrounds/barn-landscape.png');
     top: 0;
     left: 0;
@@ -49,4 +49,9 @@
     position: fixed;
     bottom: 55px;
     right: 20px;
+}
+
+.backgroundOptions {
+    display: flex;
+    justify-content: space-evenly;
 }

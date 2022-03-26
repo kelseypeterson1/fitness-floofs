@@ -7,6 +7,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FlockItem, Nav } from '../../index.js'
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import GrassIcon from '@mui/icons-material/Grass';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+import Avatar from '@mui/material/Avatar';
 
 
 export default function FlockPage() {
@@ -15,7 +19,6 @@ export default function FlockPage() {
     const coins = useSelector((store) => store.coins);
     const boughtItems = useSelector((store) => store.boughtItems);
     const dispatch = useDispatch();
-
     const background = boughtItems.background_selected
 
 
@@ -43,9 +46,56 @@ export default function FlockPage() {
         }
     }
 
+    const noBackgroundBought = () => {
+        if (boughtItems.background2 === false && boughtItems.background3 === false) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    const backgroundSelected1 = () => {
+        dispatch({ type: 'UPDATE_BACKGROUND', payload: {user: user, background: 1}})
+    }
+
+    const backgroundSelected2 = () => {
+        dispatch({ type: 'UPDATE_BACKGROUND', payload: {user: user, background: 2}})
+    }
+
+    const backgroundSelected3 = () => {
+        dispatch({ type: 'UPDATE_BACKGROUND', payload: {user: user, background: 3}})
+    }
+
     return (
 
         <div className={backgroundClass()}>
+            <div className ="backgroundOptions">
+                {/* conditionally render background buttons */}
+                {noBackgroundBought() === false &&
+                    <Avatar 
+                    sx={{bgcolor: 'black', m: 1}}
+                    onClick = {backgroundSelected1}
+                    >
+                        <GrassIcon style={{ fontSize: 40 }}/>
+                    </Avatar>
+                }
+                {boughtItems.background2 &&
+                    <Avatar 
+                    sx={{bgcolor: 'black', m: 1}}
+                    onClick = {backgroundSelected2}
+                    >
+                        <AcUnitIcon style={{ fontSize: 40 }}/>
+                    </Avatar>
+                }
+                {boughtItems.background3 &&
+                    <Avatar 
+                    sx={{bgcolor: 'black', m: 1}}
+                    onClick = {backgroundSelected3}
+                    >
+                        <AgricultureIcon style={{ fontSize: 40}}/>
+                    </Avatar>
+                }
+            </div>
             <div className="header">
                 Flock of Floofs
             </div>
