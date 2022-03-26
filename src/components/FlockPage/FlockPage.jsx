@@ -13,20 +13,39 @@ export default function FlockPage() {
     const user = useSelector((store) => store.user);
     const flock = useSelector((store) => store.flock);
     const coins = useSelector((store) => store.coins);
+    const boughtItems = useSelector((store) => store.boughtItems);
     const dispatch = useDispatch();
 
-    const background = coins.background
+    const background = boughtItems.background_selected
 
 
     useEffect(() => {
         dispatch({ type: 'FETCH_FLOOFS', payload: user })
         dispatch({ type: 'FETCH_FLOCK', payload: user });
         dispatch({ type: 'FETCH_COINS', payload: user });
+        dispatch({ type: 'FETCH_BOUGHT_ITEMS', payload: user });
     }, [dispatch]);
+
+    const backgroundClass = () => {
+        switch (background) {
+            case 1:
+                return "flockBackground1";
+                break;
+            case 2:
+                return "flockBackground2";
+                break;
+            case 3:
+                return "flockBackground3";
+                break;
+            default:
+                return "flockBackground1";
+                break;
+        }
+    }
 
     return (
 
-        <div className={background === 1 ? "flockBackground1" : "flockBackground2"}>
+        <div className={backgroundClass()}>
             <div className="header">
                 Flock of Floofs
             </div>
@@ -35,13 +54,15 @@ export default function FlockPage() {
                     return <FlockItem key={floof.id} index={i} floof={floof} user={user} />
                 })}
                 <div>
-                        <h2 className="flockPageCoins">
-                            <img src="images/coin.png" />
-                            {coins.coins}
-                        </h2>
+                    <h2 className="flockPageCoins">
+                        <img src="images/coin.png" />
+                        {coins.coins}
+                    </h2>
                 </div>
-                <div className='flockPageSelected'>
-                    <Nav />
+                <div className='flockPageNavBar flockPageSelected'>
+                    <div className='flockPageSelected'>
+                        <Nav />
+                    </div>
                 </div>
             </div>
         </div>
