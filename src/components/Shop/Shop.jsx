@@ -23,6 +23,12 @@ export default function Shop() {
                 user: user
             }
         })
+        dispatch({ type: 'BUY_LANDSCAPE', payload: 
+            {
+                landscape: 2,
+                user: user
+            }
+        })
     }
 
     useEffect(() => {
