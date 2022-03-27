@@ -60,7 +60,7 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
-      <button onClick={addFloof}> add floof</button>
+      {/* <button onClick={addFloof}> add floof</button> */}
 
       <div className='homepageSelected'>
         <Nav />
