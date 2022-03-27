@@ -29,10 +29,14 @@
     padding: 10px;
 }
 
-.shopDescriptionRow1 {
+.shopDescriptionRow2, .shopDescriptionRow1 {
     display: flex;
     flex-wrap: row;
     justify-content: space-around;
+}
+
+.shopDescriptionRow2 {
+    margin-top: 10px;
 }
 
 .shopImagesRow1 {

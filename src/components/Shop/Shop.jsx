@@ -73,8 +73,14 @@ export default function Shop() {
 
                     <div className="shopContents">
 
+                        {/* item descriptions */}
+                        <div className="shopDescriptionRow1">
+                            <h5>Winter Flock Page</h5>
+                            <h5>Barn Flock Page</h5>
+                        </div>
+
+                        {/* display backgrounds available */}
                         <div className="shopImagesRow1">
-                            {/* display backgrounds available */}
                             {boughtItems.background2
                                 ? <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape-bought.png" />
                                 : <img border="2px" className="cardImage" src="images/backgrounds/winter-landscape.png" />
@@ -85,14 +91,8 @@ export default function Shop() {
                             }
                         </div>
 
-                        {/* item descriptions */}
-                        <div className="shopDescriptionRow1">
-                            <h5>Winter Flock Page</h5>
-                            <h5>Barn Flock Page</h5>
-                        </div>
-
                         {/* item costs  */}
-                        <div className="shopDescriptionRow1">
+                        <div className="shopDescriptionRow2">
                             <div>
                                 <img src="images/coin.png" /> 100
                             </div>
