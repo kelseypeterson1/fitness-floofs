@@ -32,6 +32,24 @@ export default function EggHatchAlert({ newFloof }) {
     }; // END dialog box functions
 
 
+    // stars render based on floof rarity
+    const stars = () => {
+        if (floofs[floofId].rarity == 1) {
+            return <img src="images/star.png" />
+        } else if (floofs[floofId].rarity == 2) {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        } else {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        }
+    }
+
     useEffect(() => {
         handleClickOpen();
     }, []);
@@ -53,10 +71,11 @@ export default function EggHatchAlert({ newFloof }) {
 
     console.log('new floof is', newFloof)
     if (newFloof.conflict === true) {
-        for(let floof of flock)
+        for (let floof of flock)
         // if floof is not the newFloof
-        {if (floof.id != newFloof.id && floof.floof_id == newFloof.floof_id) 
-            return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
+        {
+            if (floof.id != newFloof.id && floof.floof_id == newFloof.floof_id)
+                return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
         }
     } else {
         return (
@@ -73,6 +92,7 @@ export default function EggHatchAlert({ newFloof }) {
                     <center>
 
                         <h2>{floofs[floofId].type} Floof</h2>
+                        {stars()}
                         <img className="floofProfilePic" src={imageUrl} />
                         <h3>Name: {newFloof.name}</h3>
                         <h3>Personality: {newFloof.personality}</h3>

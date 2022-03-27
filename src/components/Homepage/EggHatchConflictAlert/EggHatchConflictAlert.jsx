@@ -20,6 +20,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
     const floofId = newFloof.floof_id - 1;
     const user = useSelector((store) => store.user);
     const flock = useSelector((store) => store.flock);
+    const [hatchlingSelected, hatchlingSetSelected] = useState(true);
 
     // Dialog box functions
     const [open, setOpen] = React.useState(false);
@@ -58,6 +59,24 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
         setOpen(false);
     }
 
+    // stars render based on floof rarity
+    const stars = () => {
+        if (floofs[floofId].rarity == 1) {
+            return <img src="images/star.png" />
+        } else if (floofs[floofId].rarity == 2) {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        } else {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        }
+    }
+
     return (
         < Dialog
             open={open}
@@ -65,16 +84,19 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             aria-describedby="alert-dialog-description"
         >
 
-            <DialogTitle 
-                sx={{ display: 'flex',
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                flexDirection: 'column' }} 
+            <DialogTitle
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column'
+                }}
                 id="egg-hatch-alert"
             >
                 <center>
                     <div className="eggHatchHeader">Your egg hatched!</div>
                     <h3>You already own a {floofs[floofId].type} floof</h3>
+                    {stars()}
                 </center>
             </DialogTitle>
 
@@ -102,7 +124,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
                 </div>
             </DialogContent>
 
-            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row',  }} >
+            <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row', }} >
                 <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepOriginal} autoFocus>
                     Keep
                 </Button>
