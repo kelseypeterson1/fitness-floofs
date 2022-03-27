@@ -121,24 +121,24 @@ export default function FloofProfile() {
                             <img className="floofProfilePic" src={imageUrl} />
                         </center>
                         <div className="noWrap">
-                            <Typography style={{ lineHeight: "10px" }}>
+                            <Typography style={{ lineHeight: "0px" }}>
                                 <h3>Name: {floof.name}</h3>
                             </Typography>
                             <RenameFloof />
                         </div>
                         <div className="noWrap">
-                            <Typography style={{ lineHeight: "10px" }}>
+                            <Typography style={{ lineHeight: "0px" }}>
                             <h3>Age: {age} {age === 1 ? 'day' : 'days'}</h3>
                             </Typography>
                         </div>
                         <div className="noWrap">
-                            <Typography style={{ lineHeight: "10px" }}>
+                            <Typography style={{ lineHeight: "0px" }}>
                             <h3>Personality: {floof.personality}</h3>
                             </Typography>
                             <RandomizePersonality />
                         </div>
                         <div className="noWrap">
-                            <Typography style={{ lineHeight: "10px" }}>
+                            <Typography style={{ lineHeight: "0px" }}>
                             <h3>Income: <img className="coinImage" src="images/coin.png" />{floof.income}</h3>
                             </Typography>
                         </div>
