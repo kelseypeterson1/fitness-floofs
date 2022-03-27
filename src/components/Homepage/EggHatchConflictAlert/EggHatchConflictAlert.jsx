@@ -11,6 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import Box from '@mui/material/Box';
 
 
 export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
