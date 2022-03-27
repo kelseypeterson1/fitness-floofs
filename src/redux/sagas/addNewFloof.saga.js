@@ -31,6 +31,12 @@ function* addNewFloof(action) {
         const fullDateUnformatted = (year + month + day + '')
         const fullDate = fullDateUnformatted.slice(0, 4) + '-' + fullDateUnformatted.slice(4, 6) + '-' + fullDateUnformatted.slice(6)
         
+        // get yesterday's date for 'paid' column
+        const yesterday = day - 1;
+        const yesterdayDateUnformatted = (year + month + yesterday + '')
+        const yesterdayFullDate = yesterdayDateUnformatted.slice(0, 4) + '-' + yesterdayDateUnformatted.slice(4, 6) + '-' + yesterdayDateUnformatted.slice(6)
+        
+
         // randomizing income
         let income = 0;
         // if new floof has a rarity of 1
@@ -47,6 +53,8 @@ function* addNewFloof(action) {
             income = Math.floor(Math.random() * 5) + 6
         }
         yield console.log('income is', income)
+        yield console.log('yesterday is', yesterdayFullDate)
+        
 
         // grouping floof properties into an object
         const newFloof = yield {
@@ -55,7 +63,8 @@ function* addNewFloof(action) {
             name: name,
             personality: personality,
             birthday: fullDate,
-            income: income
+            income: income,
+            paid: yesterdayFullDate
         }
         
         
@@ -81,6 +90,7 @@ function* addNewFloof(action) {
             personality: personality,
             birthday: fullDate,
             income: income,
+            paid: yesterdayFullDate,
             conflict: conflict
         }
         yield put({ type: 'SET_NEW_FLOOF', payload: newFloofData })

@@ -36,6 +36,24 @@ export default function FloofProfile() {
         dispatch({ type: 'FETCH_FLOOFS', payload: user });
     }, [dispatch]);
 
+    // stars render based on floof rarity
+    const stars = () => {
+        if(floofs[floof.floof_id - 1].rarity == 1) {
+            return <img src="images/star.png" />
+        } else if (floofs[floof.floof_id - 1].rarity == 2) {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        } else {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        }
+    }
+
     // triggered when user clicks 'rename' button
     const rename = () => {
         // call saga to axios.put the floof name
@@ -94,25 +112,36 @@ export default function FloofProfile() {
                     mt: 5
                     // backgroundColor: 'transparent',
                 }}>
-                    <CardContent sx={{ color: 'black', backgroundColor: 'white' }}>
+                    <CardContent sx={{ color: 'black', p: 1, backgroundColor: 'white' }}>
 
                         <center>
                             {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <div className="floofType"><h1>{floofs[floof.floof_id - 1] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1></div>
+                            {floofs[floof.floof_id - 1] ? stars() : 'stars'}
                             <img className="floofProfilePic" src={imageUrl} />
                         </center>
                         <div className="noWrap">
-                            <h3>Name: {floof.name}</h3>
+                            <Typography style={{ lineHeight: "10px" }}>
+                                <h3>Name: {floof.name}</h3>
+                            </Typography>
                             <RenameFloof />
                         </div>
                         <div className="noWrap">
+                            <Typography style={{ lineHeight: "10px" }}>
                             <h3>Age: {age} {age === 1 ? 'day' : 'days'}</h3>
+                            </Typography>
                         </div>
                         <div className="noWrap">
+                            <Typography style={{ lineHeight: "10px" }}>
                             <h3>Personality: {floof.personality}</h3>
+                            </Typography>
                             <RandomizePersonality />
                         </div>
-                        <h3>Income: <img className="coinImage" src="images/coin.png" />{floof.income}</h3>
+                        <div className="noWrap">
+                            <Typography style={{ lineHeight: "10px" }}>
+                            <h3>Income: <img className="coinImage" src="images/coin.png" />{floof.income}</h3>
+                            </Typography>
+                        </div>
                         <center>
                             <ReleaseNotification id={id} />
                         </center>
