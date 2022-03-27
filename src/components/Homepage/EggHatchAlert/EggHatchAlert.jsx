@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { EggHatchConflictAlert } from '../../../index.js';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -85,17 +86,22 @@ export default function EggHatchAlert({ newFloof }) {
                 aria-describedby="alert-dialog-description"
             >
 
+
                 <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
-                    <div className="eggHatchHeader">Your egg hatched!</div>
+                    <Typography style={{ lineHeight: "50px" }}>
+                        <div className="eggHatchHeader">Your egg hatched!</div>
+                    </Typography>
                 </DialogTitle>
                 <DialogContent>
                     <center>
-
+                    <Typography style={{ lineHeight: "15px" }}>
                         <h2>{floofs[floofId].type} Floof</h2>
                         {stars()}
                         <img className="floofProfilePic" src={imageUrl} />
                         <h3>Name: {newFloof.name}</h3>
                         <h3>Personality: {newFloof.personality}</h3>
+                        <h3>Income: <img className="coinImage" src="images/coin.png" />{newFloof.income}</h3>
+                    </Typography>
                     </center>
                 </DialogContent>
 

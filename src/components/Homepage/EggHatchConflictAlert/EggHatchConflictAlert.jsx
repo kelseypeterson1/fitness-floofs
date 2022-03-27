@@ -6,7 +6,7 @@ import './EggHatchConflictAlert.css'
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-
+import Typography from '@mui/material/Typography';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -94,9 +94,13 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
                 id="egg-hatch-alert"
             >
                 <center>
-                    <div className="eggHatchHeader">Your egg hatched!</div>
+                    <Typography style={{ lineHeight: "50px" }}>
+                        <div className="eggHatchHeader">Your egg hatched!</div>
+                    </Typography>
+                    <Typography style={{ lineHeight: "25px" }}>
                     <h3>You already own a {floofs[floofId].type} floof</h3>
                     {stars()}
+                    </Typography>
                 </center>
             </DialogTitle>
 
