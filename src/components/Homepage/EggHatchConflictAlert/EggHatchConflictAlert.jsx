@@ -134,7 +134,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
                             <div className='largeFloof'>
                                 <center>
                                     <img className="floofProfilePic" src={imageUrl} />
-                                    <Typography style={{ fontSize: 20, fontWeight: "bold", lineHeight: "40px" }}>
+                                    <Typography style={{ fontSize: 18, fontWeight: "bold", lineHeight: "40px" }}>
                                         Name: {newFloof.name} &nbsp;
                                         Personality: {newFloof.personality} &nbsp;
                                         Income: <img className="coinImage" src="images/coin.png" />{newFloof.income}
@@ -165,7 +165,7 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
                             <div className='largeFloof'>
                                 <center>
                                     <img className="floofProfilePic" src={imageUrl} />
-                                    <Typography style={{ fontSize: 20, fontWeight: "bold", lineHeight: "40px" }}>
+                                    <Typography style={{ fontSize: 18, fontWeight: "bold", lineHeight: "40px" }}>
                                         Name: {oldFloof.name} &nbsp;
                                         Personality: {oldFloof.personality} &nbsp;
                                         Income: <img className="coinImage" src="images/coin.png" />{oldFloof.income}
