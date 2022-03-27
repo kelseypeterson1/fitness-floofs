@@ -38,6 +38,7 @@ function Homepage() {
     dispatch({ type: 'FETCH_STEPS', payload: user });
     dispatch({ type: 'UPDATE_EGG', payload: user });
     dispatch({ type: 'FETCH_FLOOFS', payload: user });
+    dispatch({ type: 'FETCH_COINS', payload: user });
   }, []);
 
   const addFloof = () => {

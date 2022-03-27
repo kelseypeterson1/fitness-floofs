@@ -1,0 +1,66 @@
+.shopPageSelected {
+    border: 4px solid darkgray;
+    width: 24%;
+    height: 52px;
+    position: fixed;
+    left: 193px;
+    bottom: 0;
+    background-color: black;
+}
+
+.shopBackground {
+    background-image: url('../../../public/images/backgrounds/login.png');
+    bottom: 60px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* opacity: .8; */
+    text-align: center;
+}
+
+.withinShop {
+    text-align: center;
+    padding-top: 55px;
+}
+.shopContents {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.shopDescriptionRow1 {
+    display: flex;
+    flex-wrap: row;
+    justify-content: space-around;
+}
+
+.shopImagesRow1 {
+    display: flex;
+    flex-wrap: row;
+}
+
+.cardImage {
+    height: 170px;
+    width: 50%;
+    padding: 20px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.eggImage {
+    height: 120px;
+    padding-bottom: 30px;
+}
+
+.coinBalance {
+    margin:20px;
+    margin-top: 150px;
+    text-align: left;
+    /* display: flex; */
+}
+
+.coinImage {
+    width: 20px;
+    margin-right: 5px;
+}

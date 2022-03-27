@@ -1,33 +1,85 @@
-.oldFloof {
-    border: solid;
+.smallFloof {
+    /* border: solid; */
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 135px;
+    width: 200px;
+    height: 100px;
     /* padding: 0px; */
     padding-top: 15px;
     
 }
-.newFloof {
-    border: solid;
+.largeFloof {
+    /* border: solid; */
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 135px;
-    padding-top: 15px;
+    width: 200px;
+    padding-top: 60px;
 }
-.conflictDiv {
+.conflictDivLarge {
+    /* position: absolute;
+    bottom: 300px;
+    right: 150px;
+    height: 200px; */
+    display: flex;
+    margin-top: -100px;
+    justify-content: center;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.conflictDivSmall {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;   
+    width: 50px;
 }
-.eggHatchHeader {
+
+.eggHatchHeader, .eggHatchName, .eggHatchNameSmall {
     font-family: 'Fugaz One', cursive;
     text-align: center;
-    font-size: 40px;
-    /* padding: 10px; */
-    /* padding-top: 40px; */
     color: black;
     text-shadow: 2px 2px gray;
+}
+
+.eggHatchHeader {
+    font-size: 40px;
+}
+.eggHatchName {
+    font-size: 30px;
+}
+
+.eggHatchNameSmall {
+    font-family: 'Fugaz One', cursive;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    text-shadow: 2px 2px gray;
+}
+
+.displayFloofs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 30px;
+    /* position: absolute; */
+    /* left: 0px; */
+}
+
+.smallFloofImage {
+    width: 50px;
+}
+
+/* .hatchConflictButtons {
+    position: absolute;
+    bottom: 100px;
+} */
+
+.bufferSpace {
+    width: 70px;
 }

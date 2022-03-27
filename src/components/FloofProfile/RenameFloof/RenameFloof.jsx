@@ -27,6 +27,12 @@ export default function RenameFloof() {
     const floof = useSelector((store) => store.selectedFloof);
     const [newName, setNewName] = useState('');
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_SELECTED_FLOOF', payload: id })
+        dispatch({ type: 'FETCH_FLOCK', payload: user });
+        dispatch({ type: 'FETCH_FLOOFS', payload: user });
+    }, [dispatch]);
+
     const handleClickOpen = () => {
         setOpen(true);
     };
