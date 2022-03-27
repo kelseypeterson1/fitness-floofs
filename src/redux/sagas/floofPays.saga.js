@@ -8,7 +8,7 @@ function* floofPays(action) {
     try {
         console.log('in floofPays saga, payload is', action.payload)
         // update floof's paid date
-        axios.put(`/coins/${action.payload.floof.id}`, { date: action.payload.date })
+        yield axios.put(`/coins/${action.payload.floof.id}`, { date: action.payload.date })
         yield console.log('finished setting floof paid date')
         yield console.log('user id is', action.payload.user.id)
         // yield console.log('floof.id is', floof.id)
