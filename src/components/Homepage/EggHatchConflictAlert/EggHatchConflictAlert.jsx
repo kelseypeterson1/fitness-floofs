@@ -113,73 +113,81 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
             <DialogContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
                 {hatchlingSelected ?
                     <div onClick={handleHatchlingSelected}>
-                    <div className="displayFloofs">
-                        <div className='conflictDivSmall'>
-                            <Typography style={{ fontSize: 18, lineHeight: "20px" }}>
-                                Original
-                            </Typography>
-                            <div className='smallFloof'>
-                                <center>
-                                    <img className="smallFloofImage" src={imageUrl} />
-                                    {/* <h3>{oldFloof.name}</h3>
-                                    <h5>is</h5><h3>{oldFloof.personality}</h3> */}
-                                </center>
+                        <div className="displayFloofs">
+                            <div className='conflictDivSmall'>
+                                <Typography style={{ fontSize: 18, fontWeight: "bold", lineHeight: "20px" }}>
+                                    Original
+                                </Typography>
+                                <div className='smallFloof'>
+                                    <center>
+                                        <img className="smallFloofImage" src={imageUrl} />
+                                    </center>
+                                </div>
                             </div>
+                            <Typography style={{ lineHeight: "20px" }}>
+                                <div className="eggHatchName">Hatchling</div>
+                            </Typography>
+                            <div className="bufferSpace"></div>
                         </div>
-                        <Typography style={{ fontSize: 18, lineHeight: "20px" }}>
-                            Hatchling
-                        </Typography>
-                        <div></div>
-                        <div></div>
-                    </div>
                         <div className='conflictDivLarge'>
                             <div className='largeFloof'>
                                 <center>
                                     <img className="floofProfilePic" src={imageUrl} />
-                        <Typography style={{ fontSize: 20, fontWeight: "bold", lineHeight: "40px" }}>
-                                    Name: {newFloof.name} &nbsp;
-                                    Personality: {newFloof.personality} &nbsp;
-                                    Income: <img className="coinImage" src="images/coin.png" />{newFloof.income}
-                        </Typography>
+                                    <Typography style={{ fontSize: 20, fontWeight: "bold", lineHeight: "40px" }}>
+                                        Name: {newFloof.name} &nbsp;
+                                        Personality: {newFloof.personality} &nbsp;
+                                        Income: <img className="coinImage" src="images/coin.png" />{newFloof.income}
+                                    </Typography>
                                 </center>
                             </div>
                         </div>
                     </div>
                     :
                     <div onClick={handleHatchlingSelected}>
-                        {/* <div className='conflictDiv'>
-                            <h5>Original</h5>
-                            <div className='oldFloof'>
+                        <div className="displayFloofs">
+                            <div className='conflictDivSmall'>
+                                <Typography style={{ fontSize: 18, fontWeight: "bold", lineHeight: "20px" }}>
+                                    Hatchling
+                                </Typography>
+                                <div className='smallFloof'>
+                                    <center>
+                                        <img className="smallFloofImage" src={imageUrl} />
+                                    </center>
+                                </div>
+                            </div>
+                            <Typography style={{ lineHeight: "20px" }}>
+                                <div className="eggHatchName">Original</div>
+                            </Typography>
+                            <div className="bufferSpace"></div>
+                        </div>
+                        <div className='conflictDivLarge'>
+                            <div className='largeFloof'>
                                 <center>
                                     <img className="floofProfilePic" src={imageUrl} />
-                                    <h3>{oldFloof.name}</h3>
-                                    <h5>is</h5><h3>{oldFloof.personality}</h3>
+                                    <Typography style={{ fontSize: 20, fontWeight: "bold", lineHeight: "40px" }}>
+                                        Name: {oldFloof.name} &nbsp;
+                                        Personality: {oldFloof.personality} &nbsp;
+                                        Income: <img className="coinImage" src="images/coin.png" />{oldFloof.income}
+                                    </Typography>
                                 </center>
                             </div>
                         </div>
-                        <div className='conflictDiv'>
-                            <h5>Hatchling</h5>
-                            <div className='newFloof'>
-                                <center>
-                                    <img className="floofProfilePic" src={imageUrl} />
-                                    <h3>{newFloof.name}</h3>
-                                    <h5>is</h5><h3>{newFloof.personality}</h3>
-                                </center>
-                            </div>
-                        </div> */}
                     </div>
                 }
             </DialogContent>
 
             <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row', }} >
                 <div className="hatchConflictButtons">
-                <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepOriginal} autoFocus>
-                    Keep
-                </Button>
-                &nbsp;
-                <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepHatchling} autoFocus>
-                    Keep
-                </Button>
+                    {/* render button depending on which floof is currently selected */}
+                    {hatchlingSelected ?
+                        <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepHatchling} autoFocus>
+                            Keep
+                        </Button>
+                        :
+                        <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={keepOriginal} autoFocus>
+                            Keep
+                        </Button>
+                    }
                 </div>
             </DialogActions>
 
