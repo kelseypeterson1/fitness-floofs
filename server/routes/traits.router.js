@@ -13,6 +13,6 @@ router.get('/', (req, res) => {
             console.log(`Error getting personality traits from DB`, error);
             res.sendStatus(500);
         });
-});
+}); //END GET route
 
 module.exports = router;

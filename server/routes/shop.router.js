@@ -53,6 +53,7 @@ router.put('/select/:id', (req, res) => {
         })
 }) // END PUT Route
 
+// GET route - gets all columns from shop table
 router.get('/:id', (req, res) => {
     let userId = req.params.id;
     const query = `SELECT * FROM "shop" WHERE "user_id" = $1;`;
@@ -64,7 +65,7 @@ router.get('/:id', (req, res) => {
             console.log(`Error getting shop items from DB`, error);
             res.sendStatus(500);
         });
-});
+}); // END GET route
 
 // POST route - when a new user registers, this will create a row for them in the db
 router.post('/:id', (req, res) => {

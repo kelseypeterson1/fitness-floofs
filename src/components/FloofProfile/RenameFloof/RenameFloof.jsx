@@ -2,29 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
-import { useHistory } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 
 export default function RenameFloof() {
     const [open, setOpen] = React.useState(false);
-    const history = useHistory();
     const { id } = useParams();
-    const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const user = useSelector((store) => store.user);
-    const floof = useSelector((store) => store.selectedFloof);
     const [newName, setNewName] = useState('');
 
     useEffect(() => {
@@ -33,13 +23,13 @@ export default function RenameFloof() {
         dispatch({ type: 'FETCH_FLOOFS', payload: user });
     }, [dispatch]);
 
+    // START sweet alert functions
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleCancel = () => {
         setOpen(false);
-    };
+    }; // END sweet alert functions
 
     const handleSubmit = () => {
         setOpen(false);

@@ -1,11 +1,6 @@
 import './FlockPage.css'
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import Box from '@mui/material/Box';
-
-import Button from '@mui/material/Button';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { FlockItem, Nav } from '../../index.js'
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import GrassIcon from '@mui/icons-material/Grass';
@@ -54,6 +49,7 @@ export default function FlockPage() {
         }
     }
 
+    // update 'background_selected' field in database when background buttons are clicked
     const backgroundSelected1 = () => {
         dispatch({ type: 'UPDATE_BACKGROUND', payload: {user: user, background: 1}})
     }

@@ -57,7 +57,6 @@ router.get('/steps', async (req, res) => {
 
     
     const tokens = await oauth2Client.getToken(code);
-    // console.log(tokens)
     
     res.send('<h1>Google Login Confirmed</h1><script>setTimeout(function() {window.close()}, 500)</script>');
     

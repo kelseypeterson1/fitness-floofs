@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { ReleaseNotification, Nav, RenameFloof, RandomizePersonality } from '../../index.js'
 import './FloofProfile.css'
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 
 
 
@@ -115,7 +106,6 @@ export default function FloofProfile() {
                     <CardContent sx={{ color: 'black', p: 1, backgroundColor: 'white' }}>
 
                         <center>
-                            {/* <h1>{floofs[floof.floof_id].type ? 'yes' : 'name incoming'}</h1> */}
                             <div className="floofType"><h1>{floofs[floof.floof_id - 1] ? floofs[floof.floof_id - 1].type : 'name incoming'} Floof</h1></div>
                             {floofs[floof.floof_id - 1] ? stars() : 'stars'}
                             <img className="floofProfilePic" src={imageUrl} />

@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
       console.log(`Error getting steps from DB`, error);
       res.sendStatus(500);
     });
-});
+}); // END GET route
 
 // POST route - when a new user registers, this will create a row for them in the db
 router.post('/:id', (req, res) => {
@@ -30,6 +30,6 @@ router.post('/:id', (req, res) => {
           console.log(`Error adding feedback`, error);
           res.sendStatus(500);
       });
-}); // end POST route
+}); // END POST route
 
 module.exports = router;
