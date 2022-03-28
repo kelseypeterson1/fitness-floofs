@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './EggHatchConflictAlert.css'
-
-
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import Box from '@mui/material/Box';
 
 
 export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
@@ -20,7 +15,6 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
     const imageUrl = `images/floofs/floof${newFloof.floof_id}.png`
     const floofId = newFloof.floof_id - 1;
     const user = useSelector((store) => store.user);
-    const flock = useSelector((store) => store.flock);
     const [hatchlingSelected, setHatchlingSelected] = useState(true);
 
     // Dialog box functions
@@ -28,16 +22,12 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
     const handleClickOpen = () => {
         setOpen(true);
     };
-    const handleClose = () => {
-        setOpen(false);
-        dispatch({ type: 'CLEAR_NEW_FLOOF' });
-    }; // END dialog box functions
-
 
     useEffect(() => {
         handleClickOpen();
     }, []);
 
+    // function triggers when 'keep' button is pressed
     const keepOriginal = () => {
         dispatch({
             type: 'DELETE_FLOOF', payload: {
@@ -48,7 +38,8 @@ export default function EggHatchConflictAlert({ newFloof, floofs, oldFloof }) {
         dispatch({ type: 'CLEAR_NEW_FLOOF' })
         setOpen(false);
     }
-
+    
+    // function triggers when 'keep' button is pressed
     const keepHatchling = () => {
         dispatch({
             type: 'DELETE_FLOOF', payload: {

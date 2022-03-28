@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { EggHatchConflictAlert } from '../../../index.js';
 import Typography from '@mui/material/Typography';
-
-
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 
 export default function EggHatchAlert({ newFloof }) {
-
     const floofs = useSelector(store => store.floofs);
     const dispatch = useDispatch();
     const imageUrl = `images/floofs/floof${newFloof.floof_id}.png`
@@ -27,11 +21,6 @@ export default function EggHatchAlert({ newFloof }) {
     const handleClickOpen = () => {
         setOpen(true);
     };
-    const handleClose = () => {
-        setOpen(false);
-        dispatch({ type: 'CLEAR_NEW_FLOOF' });
-    }; // END dialog box functions
-
 
     // stars render based on floof rarity
     const stars = () => {

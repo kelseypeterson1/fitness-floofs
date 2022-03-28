@@ -11,7 +11,6 @@ function* buyBackground(action) {
             { text: `UPDATE "shop" SET "background${background}" = 'TRUE' WHERE id = $1;` }
         )
         yield put({ type: 'FETCH_BOUGHT_ITEMS', payload: action.payload.user });
-        // yield put({ type: 'FETCH_SELECTED_FLOOF', payload: action.payload.id })
     } catch {
         console.log('PUT change landscape client-side error');
     }

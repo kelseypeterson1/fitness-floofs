@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button';
 
 function RegisterForm() {
@@ -20,13 +18,6 @@ function RegisterForm() {
         password: password,
       },
     });
-    // dispatch({
-    //   type: 'NEW_USER_IN_DB',
-    //   payload: {
-    //     username: username,
-    //     password: password,
-    //   },
-    // });
   }; // end registerUser
 
   return (

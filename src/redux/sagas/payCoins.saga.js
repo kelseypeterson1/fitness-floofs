@@ -9,7 +9,6 @@ function* payCoins(action) {
         axios.put(`/coins/pay/${action.payload.user.id}`, { amount: action.payload.amount })
         yield console.log('axios.put in coins is done')
         yield put({ type: 'FETCH_COINS', payload: action.payload.user });
-        // yield put({ type: 'FETCH_SELECTED_FLOOF', payload: action.payload.id })
     } catch {
         console.log('PUT pay coins client-side error');
     }

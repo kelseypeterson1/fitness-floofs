@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { EggHatchAlert, Egg, StepCounter, Nav, Header, GoogleApi } from '../../index.js'
+import { EggHatchAlert, Egg, StepCounter, Nav, Header } from '../../index.js'
 import './Homepage.css'
-
-
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Popover from '@mui/material/Popover';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 
 function Homepage() {
   const user = useSelector((store) => store.user);
@@ -24,10 +12,6 @@ function Homepage() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
-    dispatch({ type: 'CLEAR_NEW_FLOOF' });
-  }; // END dialog box functions
 
   const newFloof = useSelector(store => store.newFloof);
 
@@ -41,10 +25,6 @@ function Homepage() {
     dispatch({ type: 'FETCH_COINS', payload: user });
   }, []);
 
-  const addFloof = () => {
-    dispatch({ type: 'ADD_NEW_FLOOF', payload: user })
-    setOpen(true);
-  }
 
   return (
     <div className="homepage">
@@ -60,7 +40,6 @@ function Homepage() {
       <StepCounter />
 
       &nbsp;
-      {/* <button onClick={addFloof}> add floof</button> */}
 
       <div className='homepageSelected'>
         <Nav />
@@ -70,7 +49,6 @@ function Homepage() {
   );
 }
 
-// this allows us to use <App /> in index.js
 export default Homepage;
 
 
