@@ -9,7 +9,8 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
 
 
 ## Usage
-    - You can access my project using the Heroku app link here:
+    - You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
+        - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
         - Login to an existing account using the username: 'user' and password: '1234'.
         - After logging in, it will attempt to access your google fit account. If you select your Google account, it will pull up your live step data on your Google Fit account (if you have any). HOWEVER You don't need to authorize it. You can simply exit out of the window and continue with the dummy data already in the database.
 
@@ -20,6 +21,7 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
             -'npm install' 
             -'npm run server'
             -'npm run client'
+        - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
         - Login to an existing account using the username: 'user' and password: '1234'.
         - After logging in, it will attempt to access your google fit account. If you select your Google account, it will pull up your live step data on your Google Fit account (if you have any). HOWEVER You don't need to authorize it. You can simply exit out of the window and continue with the dummy data already in the database.
         - When finished interacting with the project, shut down the server and client with ctrl + c
