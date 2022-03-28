@@ -57,13 +57,28 @@ router.get('/:id', (req, res) => {
     let userId = req.params.id;
     const query = `SELECT * FROM "shop" WHERE "user_id" = $1;`;
     pool.query(query, [userId])
-      .then(result => {
-        res.send(result.rows)
-      })
-      .catch(error => {
-        console.log(`Error getting shop items from DB`, error);
-        res.sendStatus(500);
-      });
-  });
+        .then(result => {
+            res.send(result.rows)
+        })
+        .catch(error => {
+            console.log(`Error getting shop items from DB`, error);
+            res.sendStatus(500);
+        });
+});
+
+// POST route - when a new user registers, this will create a row for them in the db
+router.post('/:id', (req, res) => {
+    let idToUpdate = req.params.id;
+    console.log(`Adding new row for new user`, idToUpdate);
+
+    let queryText = `INSERT INTO "shop" ("user_id") VALUES ($1);`;
+
+    pool.query(queryText, [idToUpdate])
+        .then(() => res.sendStatus(200))
+        .catch(error => {
+            console.log(`Error adding feedback`, error);
+            res.sendStatus(500);
+        });
+}); // end POST route
 
 module.exports = router;

@@ -20,6 +20,13 @@ function RegisterForm() {
         password: password,
       },
     });
+    // dispatch({
+    //   type: 'NEW_USER_IN_DB',
+    //   payload: {
+    //     username: username,
+    //     password: password,
+    //   },
+    // });
   }; // end registerUser
 
   return (

@@ -16,12 +16,20 @@ router.get('/:id', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
-});
+// POST route - when a new user registers, this will create a row for them in the db
+router.post('/:id', (req, res) => {
+  let idToUpdate = req.params.id;
+  console.log(`Adding new rows for new user`, idToUpdate);
+
+  let queryText = `INSERT INTO "egg" ("user_id") VALUES ($1);`;
+
+  pool.query(queryText, [idToUpdate])
+    .then(() => res.sendStatus(200))
+    .catch(error => {
+      console.log(`Error adding feedback`, error);
+      res.sendStatus(500);
+    });
+}); // end POST route
 
 // PUT route - rename floof
 router.put('/:id', (req, res) => {
