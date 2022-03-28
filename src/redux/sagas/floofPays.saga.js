@@ -11,12 +11,10 @@ function* floofPays(action) {
         yield axios.put(`/coins/${action.payload.floof.id}`, { date: action.payload.date })
         yield console.log('finished setting floof paid date')
         yield console.log('user id is', action.payload.user.id)
-        // yield console.log('floof.id is', floof.id)
         // add money to user's account
         axios.put(`/income/${action.payload.user.id}`, { floof: action.payload.floof, user: action.payload.user })
         // getting back all user's coins amount 
         yield put({ type: 'FETCH_COINS', payload: action.payload.user });
-        // yield put({ type: 'FETCH_FLOCK', payload: action.payload.user });
     } catch {
         console.log('PUT floofPays client-side error');
     }

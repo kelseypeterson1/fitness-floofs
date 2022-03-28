@@ -70,4 +70,19 @@ router.put('/pay/:id', (req, res) => {
     })
 }) // END PUT Route
 
+// POST route - when a new user registers, this will create a row for them in the db
+router.post('/:id', (req, res) => {
+  let idToUpdate = req.params.id;
+  console.log(`Adding new rows for new user`, idToUpdate);
+
+  let queryText = `INSERT INTO "coins" ("user_id") VALUES ($1);`;
+
+  pool.query(queryText, [idToUpdate])
+    .then(() => res.sendStatus(200))
+    .catch(error => {
+      console.log(`Error adding feedback`, error);
+      res.sendStatus(500);
+    });
+}); // end POST route
+
 module.exports = router;

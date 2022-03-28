@@ -1,7 +1,6 @@
 import './FlockItem.css'
-// import './FlockItemCoin.css'
 import { useHistory } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import 'animate.css';
 

@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import './StepCounter.css'
-import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 
 
 export default function StepCounter() {
@@ -27,7 +24,6 @@ export default function StepCounter() {
             <Card sx={{ 
                     maxWidth: 225, 
                     opacity: 0.75,
-                    // backgroundColor: 'transparent',
                 }}>
                 <CardContent sx={{color: 'black', backgroundColor: 'white'}}>
                     <div className='stepsContainer'>

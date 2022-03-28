@@ -1,13 +1,9 @@
 import './Shop.css'
-// import * as React from 'react';
 import { Nav } from '../../index.js'
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
-import { useHistory } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 
 
 export default function Shop() {

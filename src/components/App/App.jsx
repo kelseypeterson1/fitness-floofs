@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { GoogleLogin, Shop, AboutPage, FloofProfile, FlockPage, Homepage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
+import { GoogleLogin, Shop, FloofProfile, FlockPage, Homepage, LoginPage, RegisterPage, ProtectedRoute} from '../../index.js'
 import './App.css';
 
 function App() {
@@ -118,7 +118,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -15,12 +15,10 @@ router.get('/:id', (req, res) => {
       console.log(`Error getting egg from DB`, error);
       res.sendStatus(500);
     });
-});
+}); // END GET Route
 
 // PUT route - change egg status
 router.put('/:id', (req, res) => {
-  // console.log('req.body in PUT request is', req.body);
-  // console.log('steps are', req.body.stepsDetail.steps)
   const steps = req.body.stepsDetail.steps
 
   // check what egg status should be
@@ -34,12 +32,8 @@ router.put('/:id', (req, res) => {
     }
   }
   const status = checkStatus(steps)
-  // console.log('status is:', checkStatus(steps))
 
   let idToUpdate = req.params.id;
-  // console.log('idToUpdate is', idToUpdate);
-
-  // let eggStatus = req.body.eggDetail.status;
 
   let sqlText = `
       UPDATE "egg"
