@@ -8,7 +8,7 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { GoogleLogin, AboutPage, FloofProfile, FlockPage, Homepage, InfoPage, LandingPage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
+import { GoogleLogin, Shop, AboutPage, FloofProfile, FlockPage, Homepage, LoginPage, RegisterPage, Nav, Footer, ProtectedRoute, Header } from '../../index.js'
 import './App.css';
 
 function App() {
@@ -25,16 +25,7 @@ function App() {
       <div>
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
-
-          {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
+          <Redirect exact from="/" to="/login" />
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the Homepage if the user is logged in.
@@ -57,14 +48,6 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
             // logged in shows FlockPage else shows LoginPage
             exact
             path="/flock"
@@ -78,6 +61,14 @@ function App() {
             path="/floof/:id"
           >
             <FloofProfile />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Shop else shows LoginPage
+            exact
+            path="/Shop"
+          >
+            <Shop />
           </ProtectedRoute>
 
           <Route
@@ -117,8 +108,8 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/user" />
               :
-              // Otherwise, show the Landing page
-              <LandingPage />
+              // Otherwise, show the Login page
+              <LoginPage />
             }
           </Route>
 
@@ -127,7 +118,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -28,7 +28,7 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form onSubmit={login}>
+    <form onSubmit={login} className="loginForm">
       <center>
 
         <h2>Login</h2>
@@ -41,41 +41,48 @@ function LoginForm() {
 
         <div>
           <label htmlFor="username">
-            <TextField
+            <input
               id="username"
-              variant="outlined"
+              variant="filled"
               required
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               type="text"
-            />
+              placeholder="username"
+              className="inputField"
+              autoComplete="off"
+              />
             <br/>
-            Username:
           </label>
         </div>
         <br/>
 
         <div>
           <label htmlFor="password">
-            <TextField
+            <input
               id="password"
-              variant="outlined"
+              variant="filled"
               type="password"
               required
               value={password}
+              placeholder="password"
               onChange={(event) => setPassword(event.target.value)}
+              className="inputField"
+              autoComplete="off"
             />
             <br />
-            Password:
           </label>
         </div>
         <br/>
 
         <div>
-          <Button variant="contained" className="btn" type="submit" name="submit">
-            To the
-            <br/>
-            Hatchery!
+          <Button 
+            variant="contained" 
+            type="submit" 
+            name="submit"
+            sx={{backgroundColor: "black", opacity: .9}}
+          >
+            Login
           </Button>
         </div>
       </center>

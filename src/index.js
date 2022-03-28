@@ -6,13 +6,10 @@ import store from './redux/store';
 
 import App from './components/App/App';
 
-export { default as AboutPage } from './components/TemplateFunction/AboutPage/AboutPage'
 export { default as App } from './components/App/App'
 export { default as Footer } from './components/Footer/Footer'
 export { default as Header } from './components/Header/Header'
 export { default as Homepage } from './components/Homepage/Homepage'
-export { default as InfoPage } from './components/TemplateFunction/InfoPage/InfoPage'
-export { default as LandingPage } from './components/LandingPage/LandingPage'
 export { default as LoginForm } from './components/LoginPage/LoginForm/LoginForm'
 export { default as LoginPage } from './components/LoginPage/LoginPage'
 export { default as Nav } from './components/Nav/Nav'
@@ -30,7 +27,7 @@ export { default as EggHatchAlert } from './components/Homepage/EggHatchAlert/Eg
 export { default as EggHatchConflictAlert } from './components/Homepage/EggHatchConflictAlert/EggHatchConflictAlert'
 export { default as RenameFloof } from './components/FloofProfile/RenameFloof/RenameFloof'
 export { default as RandomizePersonality } from './components/FloofProfile/RandomizePersonality/RandomizePersonality'
-// export { default as  } from './components//'
+export { default as Shop } from './components/Shop/Shop'
 // export { default as  } from './components//'
 // export { default as  } from './components//'
 

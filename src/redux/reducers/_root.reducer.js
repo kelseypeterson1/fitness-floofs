@@ -7,6 +7,8 @@ import flock from './flock.reducer';
 import floofs from './floofs.reducer';
 import selectedFloof from './selectedFloof.reducer';
 import newFloof from './newFloof.reducer';
+import coins from './coins.reducer';
+import boughtItems from './boughtItems.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
   floofs, // will have a list of all types of floofs
   selectedFloof, // will have data on selected floof
   newFloof, // will have data on new floof if one is hatched
+  coins, // will have current coins for user
+  boughtItems, // will have current coins for user
 });
 
 export default rootReducer;

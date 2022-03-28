@@ -1,19 +1,57 @@
-.flockPage {
+.flockBackground1 {
     background-image: url('../../../public/images/backgrounds/flock-background.png');
     top: 0;
     left: 0;
     position:fixed;
     width: 100%;
     height: 100%;
+}
 
+.flockBackground2 {
+    background-image: url('../../../public/images/backgrounds/winter-landscape.png');
+    top: 0;
+    left: 0;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.flockBackground3 {
+    background-image: url('../../../public/images/backgrounds/barn-landscape.png');
+    top: 0;
+    left: 0;
+    position:fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .flockPageSelected {
     border: 4px solid darkgray;
-    width: 33%;
+    width: 24%;
     height: 52px;
     position: fixed;
-    left: 200;
+    left: 95px;
     bottom: 0;
     background-color: black;
-  }
+}
+
+.flockPageNavBar {
+    height: 52px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+}
+
+
+.flockPageCoins {
+    position: fixed;
+    bottom: 55px;
+    right: 20px;
+}
+
+.backgroundOptions {
+    display: flex;
+    justify-content: space-evenly;
+}

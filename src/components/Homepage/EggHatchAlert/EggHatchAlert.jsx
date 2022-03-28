@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { EggHatchConflictAlert } from '../../../index.js';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -32,6 +33,24 @@ export default function EggHatchAlert({ newFloof }) {
     }; // END dialog box functions
 
 
+    // stars render based on floof rarity
+    const stars = () => {
+        if (floofs[floofId].rarity == 1) {
+            return <img src="images/star.png" />
+        } else if (floofs[floofId].rarity == 2) {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        } else {
+            return <div>
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+                <img className="starImage" src="images/star.png" />
+            </div>
+        }
+    }
+
     useEffect(() => {
         handleClickOpen();
     }, []);
@@ -53,10 +72,11 @@ export default function EggHatchAlert({ newFloof }) {
 
     console.log('new floof is', newFloof)
     if (newFloof.conflict === true) {
-        for(let floof of flock)
+        for (let floof of flock)
         // if floof is not the newFloof
-        {if (floof.id != newFloof.id && floof.floof_id == newFloof.floof_id) 
-            return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
+        {
+            if (floof.id != newFloof.id && floof.floof_id == newFloof.floof_id)
+                return <EggHatchConflictAlert newFloof={newFloof} floofs={floofs} oldFloof={floof} />
         }
     } else {
         return (
@@ -66,25 +86,31 @@ export default function EggHatchAlert({ newFloof }) {
                 aria-describedby="alert-dialog-description"
             >
 
+
                 <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} id="egg-hatch-alert">
-                    <h2>Your egg hatched!</h2>
+                    <Typography style={{ lineHeight: "50px" }}>
+                        <div className="eggHatchHeader">Your egg hatched!</div>
+                    </Typography>
                 </DialogTitle>
                 <DialogContent>
                     <center>
-
+                    <Typography style={{ lineHeight: "15px" }}>
                         <h2>{floofs[floofId].type} Floof</h2>
+                        {stars()}
                         <img className="floofProfilePic" src={imageUrl} />
                         <h3>Name: {newFloof.name}</h3>
                         <h3>Personality: {newFloof.personality}</h3>
+                        <h3>Income: <img className="coinImage" src="images/coin.png" />{newFloof.income}</h3>
+                    </Typography>
                     </center>
                 </DialogContent>
 
                 <DialogActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', mb: 4 }} >
-                    <Button variant='contained' onClick={addToFlock} autoFocus>
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={addToFlock} autoFocus>
                         Add to flock
                     </Button>
                     &nbsp;
-                    <Button variant='contained' onClick={release} autoFocus>
+                    <Button sx={{ backgroundColor: 'skyblue', color: 'black' }} variant='contained' onClick={release} autoFocus>
                         Release
                     </Button>
                 </DialogActions>
