@@ -7,26 +7,27 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
 
 ## Screen Recording
 --Presentation video clip coming soon--
+![](mobile-view.png)
 
 ## Usage
-You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
-    - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
-    <img src='images/mobile-view.png' />
-    - Login to an existing account using the username: 'user' and password: '1234'.
-    - The Heroku app does not have access to the Google API client secret, so you'll see an error message from google after logging in. It won't be able to connect to the API.
+    - You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
+        - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
+![](mobile-view.png)
+        - Login to an existing account using the username: 'user' and password: '1234'.
+        - The Heroku app does not have access to the Google API client secret, so you'll see an error message from google after logging in. It won't be able to connect to the API.
 
-Or you can run it on your own computer:
-    - Clone files from github
-    - Create a database using the code on database.sql, port: 5432
-    - Within the terminal, run: 
-        -'npm install' 
-        -'npm run server'
-        -'npm run client'
-    - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
-    <img src='images/mobile-view.png' />
-    - Login to an existing account using the username: 'user' and password: '1234'.
-    - Github does not have access to my Google API client secret, so you'll see an error message from Google after logging in. It won't be able to connect to the API.
-    - When finished interacting with the project, shut down the server and client with ctrl + c
+    - Or you can run it on your own computer:
+        - Clone files from github
+        - Create a database using the code on database.sql, port: 5432
+        - Within the terminal, run: 
+            -'npm install' 
+            -'npm run server'
+            -'npm run client'
+        - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
+![](mobile-view.png)
+        - Login to an existing account using the username: 'user' and password: '1234'.
+        - Github does not have access to my Google API client secret, so you'll see an error message from Google after logging in. It won't be able to connect to the API.
+        - When finished interacting with the project, shut down the server and client with ctrl + c
 
 ## Built With
 Javascript, React, Redux, Google REST Fit API, Express.js, PostgreSQL, Sagas, Node.js, Material UI, CSS, HTML, Figma, GIMP, Prezi
