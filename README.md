@@ -7,12 +7,12 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
 
 ## Screen Recording
 --Presentation video clip coming soon--
-![alt text](mobile-view.png)
+![alt text](./public/images/mobile-view.png)
 
 ## Usage
     - You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
         - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
-![alt text](mobile-view.png)
+![alt text](./public/images/mobile-view.png)
         - Login to an existing account using the username: 'user' and password: '1234'.
         - The Heroku app does not have access to the Google API client secret, so you'll see an error message from google after logging in. It won't be able to connect to the API.
 
@@ -24,7 +24,7 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
             -'npm run server'
             -'npm run client'
         - Using google chrome, right click the screen and select 'inspect'. Adjust the screen size by selecting the phone icon in the top left of the console that just appeared. Adjust the screen resolution to 'iPhone 12 Pro'.
-![alt text](mobile-view.png)
+![alt text](./public/images/mobile-view.png)
         - Login to an existing account using the username: 'user' and password: '1234'.
         - Github does not have access to my Google API client secret, so you'll see an error message from Google after logging in. It won't be able to connect to the API.
         - When finished interacting with the project, shut down the server and client with ctrl + c
