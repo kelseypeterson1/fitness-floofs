@@ -7,7 +7,7 @@ A gamified steptracker that incentives the user to walk 10,000 steps a day, this
 
 ## Presentation
 The demo starts at the 1 minute mark and is 3 minutes long.
-![demo](./public/images/fitness-floofs-video.mp4)
+![demo](./public/images/fitness-floofs-video.m4v)
 
 ## Usage
     - You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
