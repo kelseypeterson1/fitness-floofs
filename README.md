@@ -5,9 +5,9 @@ _Duration: 1 week to scope & 2 weeks to code_
 ## Description
 A gamified steptracker that incentives the user to walk 10,000 steps a day, this makes their daily egg hatch, and the user gets a new cartoon floof. There are 11 different floofs types with varying rarities. Depending on how rare the floof is, it will generate a different amount of money each day. As you collect money from your floofs daily, you can save up to buy backgrounds for your flock page.
 
-## Presentation
-The demo starts at the 1 minute mark and is 3 minutes long.
-![demo](./public/images/fitness-floofs-video.m4v)
+## Demo
+You can view the presentation in its entirety here: https://youtu.be/RXglclmVNpQ
+![demo](./public/images/demo.mp4)
 
 ## Usage
     - You can access my project using the Heroku app link here: https://thawing-oasis-04805.herokuapp.com/#/login
