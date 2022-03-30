@@ -71,7 +71,7 @@ DROP TABLE "shop";
 
 
 -- Adding data
-INSERT INTO "user" ("username", "password") VALUES ('user', '1234');
+INSERT INTO "user" ("username", "password") VALUES ('user', '$2a$10$7Z9dRamYTZGQaVqUBTCUg.XI4caa3PLBwVeKGNb2z/Hc.xzkSZITG');
 INSERT INTO "floofs" ("type", "egg_id", "rarity") VALUES ('Cloud', 1, 1), ('Mossy', 2, 1), ('Sleepy', 3, 1), ('Plum', 4, 1), ('Friendly', 5, 2), ('Foxy', 6, 2), ('Panda', 7, 2), ('Peeper', 8, 2), ('Cheeper', 9, 2), ('Angelic', 10, 3), ('Devious', 11, 3);
 INSERT INTO "egg" ("user_id", "egg_id", "status", "date") VALUES (1, 2, 1, '03/17/2022');
 INSERT INTO "flock" ("floof_id", "user_id", "name", "personality", "birthday", "income", "paid") VALUES (1, 1, 'Ollie', 'Aloof', '3/15/22', 1, '3/24/22'), (2, 1, 'Burrito', 'Boisterous', '3/20/22', 2, '3/24/22'), (11, 1, 'Severus', 'Fiesty', '3/20/22', 8, '3/24/22'), (10, 1, 'Angel', 'Gracious', '3/20/22', 9, '3/24/22'), (9, 1, 'Peeps', 'Cute', '3/20/22', 4, '3/24/22'), (3, 1, 'Ernie', 'Grumpy', '3/20/22', 2, '3/24/22'), (8, 1, 'Zelda', 'Sensitive', '3/20/22', 5, '3/25/22'), (4, 1, 'Sammy', 'Psycho', '3/20/22', 2, '3/25/22'), (7, 1, 'Mog', 'Generous', '3/20/22', 5, '3/24/22'), (6, 1, 'Suds', 'Brave', '3/20/22', 5, '3/24/22'), (5, 1, 'Buster', 'Gregarious', '3/20/22', 3, '3/24/22');
